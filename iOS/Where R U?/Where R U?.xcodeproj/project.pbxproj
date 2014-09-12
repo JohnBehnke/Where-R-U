@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52B40D1219C36303001A411D /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B40D1119C36303001A411D /* ThirdViewController.swift */; };
+		52B40D1419C363B8001A411D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B40D1319C363B8001A411D /* MapKit.framework */; };
 		52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFB19BE6EA90074884E /* AppDelegate.swift */; };
 		52F01CFE19BE6EA90074884E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFD19BE6EA90074884E /* FirstViewController.swift */; };
 		52F01D0019BE6EA90074884E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFF19BE6EA90074884E /* SecondViewController.swift */; };
@@ -26,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52B40D1119C36303001A411D /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		52B40D1319C363B8001A411D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52B40D1519C3645B001A411D /* Where R U?.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Where R U?.entitlements"; sourceTree = "<group>"; };
 		52F01CF619BE6EA90074884E /* Where R U?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where R U?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01CFA19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01CFB19BE6EA90074884E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B40D1419C363B8001A411D /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 		52F01CED19BE6EA90074884E = {
 			isa = PBXGroup;
 			children = (
+				52B40D1319C363B8001A411D /* MapKit.framework */,
 				52F01CF819BE6EA90074884E /* Where R U? */,
 				52F01D0D19BE6EA90074884E /* Where R U?Tests */,
 				52F01CF719BE6EA90074884E /* Products */,
@@ -77,9 +84,11 @@
 		52F01CF819BE6EA90074884E /* Where R U? */ = {
 			isa = PBXGroup;
 			children = (
+				52B40D1519C3645B001A411D /* Where R U?.entitlements */,
 				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
 				52F01CFD19BE6EA90074884E /* FirstViewController.swift */,
 				52F01CFF19BE6EA90074884E /* SecondViewController.swift */,
+				52B40D1119C36303001A411D /* ThirdViewController.swift */,
 				52F01D0119BE6EA90074884E /* Main.storyboard */,
 				52F01D0419BE6EA90074884E /* Images.xcassets */,
 				52F01CF919BE6EA90074884E /* Supporting Files */,
@@ -161,6 +170,15 @@
 				TargetAttributes = {
 					52F01CF519BE6EA90074884E = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = JRS59Q3JZW;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					52F01D0919BE6EA90074884E = {
 						CreatedOnToolsVersion = 6.0;
@@ -213,6 +231,7 @@
 			files = (
 				52F01D0019BE6EA90074884E /* SecondViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
+				52B40D1219C36303001A411D /* ThirdViewController.swift in Sources */,
 				52F01CFE19BE6EA90074884E /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,9 +348,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -340,9 +362,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -401,6 +426,7 @@
 				52F01D1619BE6EA90074884E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52F01D1719BE6EA90074884E /* Build configuration list for PBXNativeTarget "Where R U?Tests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +435,7 @@
 				52F01D1919BE6EA90074884E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
