@@ -45,6 +45,11 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
+        // Hide Actionbar Icon
+        actionBar.setDisplayShowHomeEnabled(false);
+        // Hide Actionbar Title
+        actionBar.setDisplayShowTitleEnabled(false);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
@@ -74,14 +79,6 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.my, menu);
-        return true;
     }
 
     @Override
@@ -159,6 +156,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        int mNum;
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -178,6 +176,10 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_my, container, false);
+            mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
+            View tv = rootView.findViewById(R.id.mainText);
+            ((TextView)tv).setText("Fragment #" + mNum);
+
             return rootView;
         }
     }
