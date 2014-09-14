@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EC8EFC76-8A92-4F93-8810-CD26A4A06A06</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Where R U?</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E87C068C-0452-4744-8C95-A7B602B925F3</key>
+		<string>https://github.com/kelleyb/Where-R-U.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/Where R U?/Where R U?.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E87C068C-0452-4744-8C95-A7B602B925F3</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kelleyb/Where-R-U.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E87C068C-0452-4744-8C95-A7B602B925F3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E87C068C-0452-4744-8C95-A7B602B925F3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Where-R-U</string>
+		</dict>
+	</array>
+</dict>
+</plist>
