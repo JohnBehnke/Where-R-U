@@ -30,7 +30,6 @@
 /* Begin PBXFileReference section */
 		52B40D1119C36303001A411D /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		52B40D1319C363B8001A411D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		52B40D1519C3645B001A411D /* Where R U?.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Where R U?.entitlements"; sourceTree = "<group>"; };
 		52F01CF619BE6EA90074884E /* Where R U?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where R U?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01CFA19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01CFB19BE6EA90074884E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		52F01CF819BE6EA90074884E /* Where R U? */ = {
 			isa = PBXGroup;
 			children = (
-				52B40D1519C3645B001A411D /* Where R U?.entitlements */,
 				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
 				52F01CFD19BE6EA90074884E /* FirstViewController.swift */,
 				52F01CFF19BE6EA90074884E /* SecondViewController.swift */,
@@ -351,6 +349,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Where R U?/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -365,6 +364,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Where R U?/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
