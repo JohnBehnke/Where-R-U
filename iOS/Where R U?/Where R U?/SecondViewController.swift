@@ -14,6 +14,18 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate, MKMapVie
     var theMapView :MKMapView! = nil
     var locationManager :CLLocationManager! = nil
     
+    @IBAction func myRides(sender:UISwipeGestureRecognizer) {
+       
+       tabBarController?.selectedIndex = 1
+    }
+    
+
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
