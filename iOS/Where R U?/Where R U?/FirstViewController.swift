@@ -9,10 +9,23 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-                            
+    
+    
+    @IBAction func map(sender:UISwipeGestureRecognizer) {
+     
+        self.tabBarController?.selectedIndex = 0
+    }
+    @IBAction func setttings(sender:UISwipeGestureRecognizer) {
+      
+        self.tabBarController?.selectedIndex = 2
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+                
+        
     }
 
     override func didReceiveMemoryWarning() {

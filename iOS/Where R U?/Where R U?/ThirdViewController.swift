@@ -8,10 +8,19 @@
 
 import UIKit
 
-class ThridViewController: UIViewController {
+class ThirdViewController: UIViewController {
+    
+    @IBAction func myRides(sender:UISwipeGestureRecognizer) {
+        
+        tabBarController?.selectedIndex = 1
+    
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
