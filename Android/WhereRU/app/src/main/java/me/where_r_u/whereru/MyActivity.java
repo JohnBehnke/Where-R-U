@@ -5,8 +5,13 @@ import java.util.Locale;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.*;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -68,6 +73,8 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             }
         });
 
+        Integer[] icons = {R.drawable.ic_map, R.drawable.ic_my_rides, R.drawable.ic_settings};
+
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
             // Create a tab with text corresponding to the page title defined by
@@ -77,9 +84,12 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             actionBar.addTab(
                     actionBar.newTab()
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
+                            .setIcon(icons[i])
                             .setTabListener(this));
         }
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -87,7 +97,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if(id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -136,11 +146,11 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             Locale l = Locale.getDefault();
             switch (position) {
                 case 0:
-                    return getString(R.string.title_section1).toUpperCase(l);
+                    return getString(R.string.title_section1);
                 case 1:
-                    return getString(R.string.title_section2).toUpperCase(l);
+                    return getString(R.string.title_section2);
                 case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
+                    return getString(R.string.title_section3);
             }
             return null;
         }
@@ -173,12 +183,45 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         }
 
         @Override
+        public void onDestroyView() {
+            super.onDestroyView();
+            MapFragment f = (MapFragment) getFragmentManager().findFragmentById(R.id.map1);
+            if (f != null)
+                getFragmentManager().beginTransaction().remove(f).commit();
+        }
+
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_my, container, false);
+            super.onActivityCreated(savedInstanceState);
+            View rootView;
+
             mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
-            View tv = rootView.findViewById(R.id.mainText);
-            ((TextView)tv).setText("Fragment #" + mNum);
+
+
+
+
+            if(mNum == 1) {
+                // Get a fragment manager and transaction to change the type of fragment we're gonna have.
+                FragmentManager m = getFragmentManager();
+                FragmentTransaction t = m.beginTransaction();
+
+                t.replace(R.layout.fragment_my, new mapFragment());
+
+                rootView = inflater.inflate(R.layout.fragment_map, container, false);
+
+
+          } else {
+                // Get a fragment manager and transaction to change the type of fragment we're gonna have.
+                FragmentManager m = getFragmentManager();
+                FragmentTransaction t = m.beginTransaction();
+
+                t.replace(R.layout.fragment_map, new PlaceholderFragment());
+
+                rootView = inflater.inflate(R.layout.fragment_my, container, false);
+                View tv = rootView.findViewById(R.id.mainText);
+                ((TextView)tv).setText("Fragment #" + mNum);
+            }
 
             return rootView;
         }
