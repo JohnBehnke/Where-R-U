@@ -1,5 +1,5 @@
 //
-//  ThridViewController.swift
+//  SettingsViewController.swift
 //  Where R U?
 //
 //  Created by John Behnke on 9/8/14.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class SettingsViewController: UIViewController {
     
-    @IBAction func myRides(sender:UISwipeGestureRecognizer) {
+    @IBAction func swipeToMyRides(sender:UISwipeGestureRecognizer) {
         
         tabBarController?.selectedIndex = 1
     

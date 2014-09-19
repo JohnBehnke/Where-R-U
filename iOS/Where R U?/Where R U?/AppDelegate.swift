@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-
         UITabBar.appearance().tintColor = UIColor.whiteColor() //Change selected tab color to white
         
         return true

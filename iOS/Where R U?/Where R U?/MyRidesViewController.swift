@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  MyRidesViewController.swift
 //  Where R U?
 //
 //  Created by John Behnke on 9/8/14.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class MyRidesViewController: UIViewController {
     
     
-    @IBAction func map(sender:UISwipeGestureRecognizer) {
+    @IBAction func swipeToMap(sender:UISwipeGestureRecognizer) {
      
         self.tabBarController?.selectedIndex = 0
     }
-    @IBAction func setttings(sender:UISwipeGestureRecognizer) {
+    @IBAction func swipeToSetttings(sender:UISwipeGestureRecognizer) {
       
         self.tabBarController?.selectedIndex = 2
     }

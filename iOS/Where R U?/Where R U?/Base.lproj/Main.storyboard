@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -7,13 +7,13 @@
         <!--My Rides-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LjK-xP-xFJ"/>
                         <viewControllerLayoutGuide type="bottom" id="aqV-pP-aYY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BiA-9U-JxU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
@@ -26,27 +26,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="b8z-0P-SLa">
                     <connections>
-                        <action selector="map:" destination="9pv-A4-QxB" id="aQs-lX-3dl"/>
+                        <action selector="swipeToMap:" destination="9pv-A4-QxB" id="bvC-rq-19x"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer delaysTouchesBegan="YES" direction="left" id="759-cX-p8s">
                     <connections>
-                        <action selector="setttings:" destination="9pv-A4-QxB" id="hZE-O4-ftd"/>
+                        <action selector="swipeToSetttings:" destination="9pv-A4-QxB" id="ANP-lu-sgM"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3363" y="718"/>
+            <point key="canvasLocation" x="5017.5" y="252.75"/>
         </scene>
         <!--Settings-->
         <scene sceneID="KGc-am-Ekw">
             <objects>
-                <viewController id="crT-uE-Ga3" customClass="ThirdViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="crT-uE-Ga3" customClass="SettingsViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aKr-7V-BVw"/>
                         <viewControllerLayoutGuide type="bottom" id="ukW-8M-eWc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EOq-uh-arb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJJ-Dd-sNc">
@@ -81,17 +81,17 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="eSB-uB-Wcy">
                     <connections>
-                        <action selector="myRides:" destination="crT-uE-Ga3" id="w2t-NA-hoY"/>
+                        <action selector="swipeToMyRides:" destination="crT-uE-Ga3" id="lXl-Hi-moB"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3372" y="2150"/>
+            <point key="canvasLocation" x="5028" y="1675.5"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="90t-Ai-m8A">
+                <viewController modalTransitionStyle="flipHorizontal" id="8rJ-Kc-sve" customClass="MapsViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" id="90t-Ai-m8A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <gestureRecognizers/>
@@ -105,13 +105,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer delaysTouchesBegan="YES" direction="right" id="aA0-Do-b2b">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" delaysTouchesBegan="YES" direction="left" id="aA0-Do-b2b">
                     <connections>
-                        <action selector="myRides:" destination="8rJ-Kc-sve" id="0cz-Ri-mXA"/>
+                        <action selector="swipeToMyRides:" destination="8rJ-Kc-sve" id="Xem-i8-0Y5"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3372" y="1396"/>
+            <point key="canvasLocation" x="5028" y="951"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -132,7 +132,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2317.5" y="1272"/>
+            <point key="canvasLocation" x="3739.5" y="900"/>
         </scene>
     </scenes>
     <resources>

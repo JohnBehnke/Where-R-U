@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  mapsViewController.swift
 //  Where R U?
 //
 //  Created by John Behnke on 9/8/14.
@@ -9,12 +9,12 @@
 import UIKit
 import MapKit
 
-class SecondViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate  {
+class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate  {
     
     var theMapView :MKMapView! = nil
     var locationManager :CLLocationManager! = nil
     
-    @IBAction func myRides(sender:UISwipeGestureRecognizer) {
+    @IBAction func swipeToMyRides(sender:UISwipeGestureRecognizer) {
        
        tabBarController?.selectedIndex = 1
     }
@@ -28,6 +28,7 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate, MKMapVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         if (CLLocationManager.locationServicesEnabled()){
 
@@ -63,6 +64,13 @@ class SecondViewController: UIViewController,CLLocationManagerDelegate, MKMapVie
         self.theMapView.setCenterCoordinate(center, animated: true)
         self.theMapView.setRegion(region, animated: true)
     }
+    
+    
+    
+    
+    
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
