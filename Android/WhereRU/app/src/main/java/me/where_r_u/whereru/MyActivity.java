@@ -5,6 +5,14 @@ import java.util.Locale;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.*;
@@ -15,6 +23,7 @@ import android.location.Location;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -159,7 +168,10 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment implements
+            GooglePlayServicesClient.ConnectionCallbacks,
+            GooglePlayServicesClient.OnConnectionFailedListener,
+            LocationListener {
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -167,6 +179,12 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         int mNum;
+        public GoogleMap map;
+        public LatLng latlng;
+        private LocationRequest lr;
+        private LocationClient lc;
+        public MapFragment mapFragment;
+        private static View view;
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -191,15 +209,38 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         }
 
         @Override
+        public void onLocationChanged(Location l2) {
+            Log.w("whereru", "Location changed!");
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(
+                    new LatLng(l2.getLatitude(), l2.getLongitude()), 15);
+            map.animateCamera(cameraUpdate);
+        }
+
+
+        @Override
+        public void onConnectionFailed(ConnectionResult arg0) {
+
+        }
+
+        @Override
+        public void onConnected(Bundle connectionHint) {
+            Log.w("whereru", "Connected!");
+            lc.requestLocationUpdates(lr, this);
+
+        }
+
+        @Override
+        public void onDisconnected() {
+
+        }
+
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
             View rootView;
 
             mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
-
-
-
 
             if(mNum == 1) {
                 // Get a fragment manager and transaction to change the type of fragment we're gonna have.
@@ -210,6 +251,15 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
 
                 rootView = inflater.inflate(R.layout.fragment_map, container, false);
 
+                map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map1)).getMap();
+                map.setMyLocationEnabled(true);
+                map.getUiSettings().setMyLocationButtonEnabled(true);
+                map.getUiSettings().setCompassEnabled(true);
+
+                lr = LocationRequest.create();
+                lr.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+                lc = new LocationClient(this.getActivity().getApplicationContext(), this, this);
+                lc.connect();
 
           } else {
                 // Get a fragment manager and transaction to change the type of fragment we're gonna have.
