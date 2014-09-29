@@ -14,17 +14,18 @@ import MapKit
 class Person{
     
 
+    var locationManager :CLLocationManager! = nil
     
     init(firstName: String, lastName: String, userName: String){
     
         self.firstName = firstName
         self.lastName = lastName
         self.userName = userName
-        
+        self.currentLocation = CLLocation()
+        self.currentLocation = updateLocation()
     }
     
-    func updateLocation() {  //activates location updates
-        var locationManager :CLLocationManager! = nil
+    func updateLocation() -> CLLocation{  //activates location updates
         
         if (CLLocationManager.locationServicesEnabled()){
             //the following code gets GPS data and places it on the map. Its just temp code to show it working. It should be put in its own .swift class or something. <- Needs to happen
@@ -35,9 +36,11 @@ class Person{
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
+            //return locationManager.location
             
             //Will now begin tracking the user.  Will go to one of the 2 functions below (fail/success)
         }
+        return CLLocation()
     }
     
     //If at any time Location update does not work, display error message.  For debugging purposes only
@@ -46,14 +49,17 @@ class Person{
     }
     
     //If Location was successfully updated, this function is run
-    func locationManager(manager: CLLocationManager!, didUpdateLocations location:[AnyObject]) {
-        self.newLocation(CLLocation())
-        var latDelta:CLLocationDegrees = 0.01
-        var longDelta:CLLocationDegrees = 0.01
+    func locationManager(manager: CLLocationManager!, didUpdateLocations location:[AnyObject]) ->CLLocation{
+        let location = locationManager.location
+        return location
     }
     
     func newLocation(newL : CLLocation) {
         currentLocation = newL
+    }
+    
+    func getLocation() ->CLLocation {
+        return currentLocation
     }
     
     func getFirstName() ->String{

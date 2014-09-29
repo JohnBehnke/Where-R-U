@@ -13,54 +13,26 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     
     var theMapView :MKMapView! = nil
     var locationManager :CLLocationManager! = nil
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        var me = Person(firstName: "first",lastName: "last",userName: "user")
+    
         if (CLLocationManager.locationServicesEnabled()){
+            let location = me.getLocation()
+            var latDelta:CLLocationDegrees = 0.01
+            var longDelta:CLLocationDegrees = 0.01
+            var Span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude , longitude: location.coordinate.longitude)
+            let region:MKCoordinateRegion = MKCoordinateRegionMake(center, Span)
+            
+            self.theMapView.setCenterCoordinate(center, animated: true)
+            self.theMapView.setRegion(region, animated: true)
 
-            
-            //the following code gets GPS data and places it on the map. Its just temp code to show it working. It should be put in its own .swift class or something. <- Needs to happen
-            
-            locationManager = CLLocationManager()
-            
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-            
-            //Will now begin tracking the user.  Will go to one of the 2 functions below (fail/success)
         }
     }
-    
-    //If at any time Location update does not work, display error message.  For debugging purposes only
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error while updating location")
-    }
-    
-    //If Location was successfully updated, this function is run
-    func locationManager(manager: CLLocationManager!, didUpdateLocations location:[AnyObject]) {
-        //println("Success")
-        
-        let location = locationManager.location
-        //println(location.coordinate.latitude)
-        var latDelta:CLLocationDegrees = 0.01
-        var longDelta:CLLocationDegrees = 0.01
-        var Span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude , longitude: location.coordinate.longitude)
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(center, Span)
-        
-        self.theMapView.setCenterCoordinate(center, animated: true)
-        self.theMapView.setRegion(region, animated: true)
-    }
-    
-    
-    
-    
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
