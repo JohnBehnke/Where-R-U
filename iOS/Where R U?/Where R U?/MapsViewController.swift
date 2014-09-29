@@ -44,7 +44,7 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         //println("Success")
         
         let location = locationManager.location
-        //println(location.coordinate.latitude)
+        var test: Double  = location.coordinate.latitude
         var latDelta:CLLocationDegrees = 0.01
         var longDelta:CLLocationDegrees = 0.01
         var Span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
