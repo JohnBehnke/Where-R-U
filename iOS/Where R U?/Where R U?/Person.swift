@@ -11,52 +11,41 @@ import MapKit
 
 
 //Person class. Needs a firstName, lastName (Strings) and GPS locations (GPS type objects?)
-class Person{
+class Person: NSObject, CLLocationManagerDelegate {
     
-
-    var locationManager :CLLocationManager! = nil
+    var locationManager : CLLocationManager! = nil
     
     init(firstName: String, lastName: String, userName: String){
-    
         self.firstName = firstName
         self.lastName = lastName
         self.userName = userName
         self.currentLocation = CLLocation()
-        self.currentLocation = updateLocation()
+        super.init()
     }
     
-    func updateLocation() -> CLLocation{  //activates location updates
-        
+    func updateLocation(){  //activates location updates
         if (CLLocationManager.locationServicesEnabled()){
-            //the following code gets GPS data and places it on the map. Its just temp code to show it working. It should be put in its own .swift class or something. <- Needs to happen
-
+            //gets gps data
             locationManager = CLLocationManager()
-            
-            //locationManager.delegate = self
+            locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
-            //return locationManager.location
-            
-            //Will now begin tracking the user.  Will go to one of the 2 functions below (fail/success)
+            let newLocation = locationManager.location
+            currentLocation = newLocation
         }
-        return CLLocation()
     }
     
-    //If at any time Location update does not work, display error message.  For debugging purposes only
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error while updating location")
-    }
+    //CLLocationManager Delegate
     
     //If Location was successfully updated, this function is run
-    func locationManager(manager: CLLocationManager!, didUpdateLocations location:[AnyObject]) ->CLLocation{
+    //THIS FUNCTION IS NOT BEING CALLED  PROBLEM WITH DELEGATE
+    func locationManager(manager: CLLocationManager!, didUpdateLocations location:[AnyObject]) {
         let location = locationManager.location
-        return location
+        self.currentLocation = location
     }
     
-    func newLocation(newL : CLLocation) {
-        currentLocation = newL
-    }
+    //End Delegate
     
     func getLocation() ->CLLocation {
         return currentLocation
@@ -75,6 +64,8 @@ class Person{
         return userName
     }
     
+
+    
     private var firstName : String
     private var lastName : String
     private var userName : String
@@ -82,6 +73,5 @@ class Person{
     //current location variable either as a CLLocationManager.location object or float coversion of lat/long
   
 }
-
 
 
