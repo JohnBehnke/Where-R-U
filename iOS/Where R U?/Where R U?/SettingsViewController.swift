@@ -10,12 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    @IBAction func swipeToMyRides(sender:UISwipeGestureRecognizer) {
-        
-        tabBarController?.selectedIndex = 1
-    
 
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,22 +10,10 @@ import UIKit
 
 class MyRidesViewController: UIViewController {
     
-    
-    @IBAction func swipeToMap(sender:UISwipeGestureRecognizer) {
-     
-        self.tabBarController?.selectedIndex = 0
-    }
-    @IBAction func swipeToSetttings(sender:UISwipeGestureRecognizer) {
-      
-        self.tabBarController?.selectedIndex = 2
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
-                
-        
+     
     }
 
     override func didReceiveMemoryWarning() {

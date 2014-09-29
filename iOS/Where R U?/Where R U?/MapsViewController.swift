@@ -14,18 +14,6 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     var theMapView :MKMapView! = nil
     var locationManager :CLLocationManager! = nil
     
-    @IBAction func swipeToMyRides(sender:UISwipeGestureRecognizer) {
-       
-       tabBarController?.selectedIndex = 1
-    }
-    
-
-    
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +24,7 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
             //the following code gets GPS data and places it on the map. Its just temp code to show it working. It should be put in its own .swift class or something. <- Needs to happen
             
             locationManager = CLLocationManager()
+            
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestAlwaysAuthorization()
@@ -55,6 +44,7 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         //println("Success")
         
         let location = locationManager.location
+        //println(location.coordinate.latitude)
         var latDelta:CLLocationDegrees = 0.01
         var longDelta:CLLocationDegrees = 0.01
         var Span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)

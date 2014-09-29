@@ -7,35 +7,22 @@
         <!--My Rides-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="My Rides" hidesBottomBarWhenPushed="YES" id="9pv-A4-QxB" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LjK-xP-xFJ"/>
                         <viewControllerLayoutGuide type="bottom" id="aqV-pP-aYY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BiA-9U-JxU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="b8z-0P-SLa" appends="YES" id="Y82-a9-3ar"/>
-                            <outletCollection property="gestureRecognizers" destination="759-cX-p8s" appends="YES" id="JTA-pq-onb"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Rides" image="myRidesIcon" id="acW-dT-cKf"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="b8z-0P-SLa">
-                    <connections>
-                        <action selector="swipeToMap:" destination="9pv-A4-QxB" id="bvC-rq-19x"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer delaysTouchesBegan="YES" direction="left" id="759-cX-p8s">
-                    <connections>
-                        <action selector="swipeToSetttings:" destination="9pv-A4-QxB" id="ANP-lu-sgM"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5017.5" y="252.75"/>
+            <point key="canvasLocation" x="5355" y="252"/>
         </scene>
         <!--Settings-->
         <scene sceneID="KGc-am-Ekw">
@@ -51,7 +38,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJJ-Dd-sNc">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Im in the Center!!!!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -61,9 +48,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="HJJ-Dd-sNc" secondAttribute="centerX" id="LSy-cC-exN"/>
+                            <constraint firstAttribute="centerY" secondItem="HJJ-Dd-sNc" secondAttribute="centerY" id="t43-85-XxL"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="HJJ-Dd-sNc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="LSy-cC-exN"/>
+                                <exclude reference="t43-85-XxL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -71,19 +66,17 @@
                                 <include reference="HJJ-Dd-sNc"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="eSB-uB-Wcy" appends="YES" id="QTi-3T-0dp"/>
-                        </connections>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="LSy-cC-exN"/>
+                                <include reference="t43-85-XxL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="11u-7B-SNh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="eSB-uB-Wcy">
-                    <connections>
-                        <action selector="swipeToMyRides:" destination="crT-uE-Ga3" id="lXl-Hi-moB"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5028" y="1675.5"/>
         </scene>
@@ -105,13 +98,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer cancelsTouchesInView="NO" delaysTouchesBegan="YES" direction="left" id="aA0-Do-b2b">
-                    <connections>
-                        <action selector="swipeToMyRides:" destination="8rJ-Kc-sve" id="Xem-i8-0Y5"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5028" y="951"/>
+            <point key="canvasLocation" x="5355" y="934.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
