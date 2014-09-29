@@ -9,15 +9,17 @@
 import Foundation
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> FETCH_HEAD
 class Ride{
     
+//Variables - Driver (Person), list of participants(Person), list of person needed to be picked up, list of persons currently picked up, dates and times, locations(driver current, destinations - passenger current for pickup or static destination for dropoff)
     
     
-    
-    
-    
+    private var driver : Person
     
     
     
