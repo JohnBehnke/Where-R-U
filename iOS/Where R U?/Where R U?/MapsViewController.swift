@@ -34,8 +34,8 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-<<<<<<< HEAD
-=======
+
+
     //If at any time Location update does not work, display error message.  For debugging purposes only
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("Error while updating location")
@@ -64,7 +64,7 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     
     
     
->>>>>>> FETCH_HEAD
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
