@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		526DD42519D9C3B700DA2447 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DD42419D9C3B700DA2447 /* Person.swift */; };
+		524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E5B0B19D9DEA8008A0EE7 /* Person.swift */; };
 		526DD42719D9D05D00DA2447 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DD42619D9D05D00DA2447 /* Ride.swift */; };
 		52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B40D1119C36303001A411D /* SettingsViewController.swift */; };
 		52B40D1419C363B8001A411D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B40D1319C363B8001A411D /* MapKit.framework */; };
@@ -30,7 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		526DD42419D9C3B700DA2447 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
+		524E5B0B19D9DEA8008A0EE7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		526DD42619D9D05D00DA2447 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		52B40D1119C36303001A411D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		52B40D1319C363B8001A411D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -87,9 +87,9 @@
 		52F01CF819BE6EA90074884E /* Where R U? */ = {
 			isa = PBXGroup;
 			children = (
-				526DD42419D9C3B700DA2447 /* Person.swift */,
 				526DD42619D9D05D00DA2447 /* Ride.swift */,
 				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
+				524E5B0B19D9DEA8008A0EE7 /* Person.swift */,
 				52F01CFD19BE6EA90074884E /* MyRidesViewController.swift */,
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
@@ -233,7 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				526DD42519D9C3B700DA2447 /* Person.swift in Sources */,
+				524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */,
 				52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
