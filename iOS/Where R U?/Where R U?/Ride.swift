@@ -45,15 +45,105 @@ class Ride{
     private var waypoints : [Double]
     
     
- 
-    
-    
-    
-    
+
     func getTitle() ->String{
-        
         return self.title
+    }
+    
+    func setTitle(newTitle: String){
+        self.title = newTitle
+    }
+    
+    
+    
+    
+    
+    func getDriver() -> Person{
+        return self.driver
+    }
+    
+    func setDriver(newDriver: Person){
+        self.driver = newDriver
+    }
+    
+
+    
+    
+    func getPassengers() ->[Person]{
+        return self.passengers
+    }
+    
+    func setPassengers(newPassengerGroup: [Person]){
+        
+        self.passengers = newPassengerGroup
+    }
+    
+    func addPassenger(newPassenger: Person) -> Bool{
+        
+        var currentlyPresent:Bool = false
+        for (var i = 0; i < self.passengers.count; i++){
+            
+            if (self.passengers[i] == newPassenger){
+                return false
             }
+            
+        }
+        
+        if currentlyPresent == false && self.passengers.count <= 8   {
+            
+            
+            self.passengers.append(newPassenger)
+            return true
+        }
+        else{
+            
+            return false
+        }
+    }
+    
+    func removePassenger(toRemove: Person) -> Bool{
+        
+        for (var i = 0; i < self.passengers.count; i++) {
+            
+            if self.passengers[i] == toRemove{
+                
+                var removed = passengers.removeAtIndex(i)
+                return true
+            }
+            
+            
+            
+        }
+        return false
+        
+    }
+    
+    
+    
+    
+    func getToPickUp() -> [Person]{
+        return self.toPickUp
+    }
+    
+    func getPickedUp() -> [Person]{
+        return self.pickedUp
+    }
+    
+    func getStartLocation() ->Double{
+        return self.startLocation
+    }
+    
+    func getDestinationGPS() -> Double{
+        return self.destinationGPS
+    }
+    
+    func getDestinationName() ->String{
+        return self.destinationName
+    }
+    func getWaypoints() ->[Double]{
+        return self.waypoints
+    }
     
 }
+
 
