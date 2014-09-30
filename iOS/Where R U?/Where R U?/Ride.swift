@@ -21,7 +21,7 @@ class Ride{
     init(title: String, driver: Person, startLocation: Double, destinationGPS: Double, destinationName: String  , passengers: [Person] ){ //Initalizer for one-time carpool
         self.title = title
         self.driver = driver
-        self.startLocation = startLocation
+       // self.startLocation = startLocation
         self.passengers = passengers
         self.toPickUp = passengers
         self.startLocation = 0.0
