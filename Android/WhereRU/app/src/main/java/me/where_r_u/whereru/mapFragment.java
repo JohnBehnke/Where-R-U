@@ -34,11 +34,8 @@ public class mapFragment extends Fragment implements
         LocationListener {
 
     public GoogleMap map;
-    public LatLng latlng;
     private LocationRequest lr;
     private LocationClient lc;
-    public MapFragment mapFragment;
-    private static View view;
 
     public mapFragment() {
         // Log.w("whereru", "empty constructor, should be called");
@@ -77,7 +74,6 @@ public class mapFragment extends Fragment implements
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.w("whereru", "Initial location setup SEE ME!!! ====================================================");
         super.onCreate(savedInstanceState);
 
 

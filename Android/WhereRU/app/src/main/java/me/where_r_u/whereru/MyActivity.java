@@ -31,6 +31,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 
 public class MyActivity extends Activity implements ActionBar.TabListener {
@@ -53,6 +58,11 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Parse.initialize(this, "xvMUWOgtfsYb6hYIhog61pAyjmIsBYAmBkwcw1ih", "jttPcBwMtBnWbwGtDlcv5RaBIyFQy872e0XGExyE");
+
+        login();
+
         setContentView(R.layout.activity_my);
 
         // Set up the action bar.
@@ -96,6 +106,27 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                             .setIcon(icons[i])
                             .setTabListener(this));
         }
+    }
+
+    private void login() {
+        ParseUser user = new ParseUser();
+        user.setUsername("myName");
+        user.setPassword("myPass");
+        user.setEmail("bkelley620@gmail.com");
+
+        // other fields can be set just like with ParseObject
+        user.put("phone", "650-555-0000");
+
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if(e == null) {
+                    // Hooray! Let them use the app now.
+                } else {
+                    // Sign up didn't succeed. Look at the ParseException
+                    // to figure out what went wrong
+                }
+            }
+        });
     }
 
 
@@ -180,11 +211,8 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
 
         int mNum;
         public GoogleMap map;
-        public LatLng latlng;
         private LocationRequest lr;
         private LocationClient lc;
-        public MapFragment mapFragment;
-        private static View view;
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -238,6 +266,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
+
             View rootView;
 
             mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
@@ -266,7 +295,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                 FragmentManager m = getFragmentManager();
                 FragmentTransaction t = m.beginTransaction();
 
-                t.replace(R.layout.fragment_map, new PlaceholderFragment());
+                t.replace(R.layout.fragment_my, new PlaceholderFragment());
 
                 rootView = inflater.inflate(R.layout.fragment_my, container, false);
                 View tv = rootView.findViewById(R.id.mainText);
