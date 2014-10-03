@@ -78,21 +78,35 @@ class Ride{
         self.passengers = newPassengerGroup
     }
     
-    func addPassenger(newPassenger: Person) -> Bool{
+    
+    
+    
+    func verifyIsPassenger(verifyPassenger: Person)->Bool{
+        
         
         var currentlyPresent:Bool = false
         for (var i = 0; i < self.passengers.count; i++){
             
-            if (self.passengers[i] == newPassenger){
-                return false
+            if (self.passengers[i] == verifyPassenger){
+                return true
             }
+
+            else{
             
+                return false
         }
+
+    
+    }
+    
+
+    func addPassenger(newPassenger: Person) -> Bool{
         
-        if currentlyPresent == false && self.passengers.count <= 8   {
-            
+        var currentlyPresent = verifyIsPassenger(newPassenger)
+        if !currentlyPresent && self.passengers.count <= 8   {
             
             self.passengers.append(newPassenger)
+            
             return true
         }
         else{
@@ -102,30 +116,77 @@ class Ride{
     }
     
     func removePassenger(toRemove: Person) -> Bool{
-        
+        var currentlyPresent = verifyIsPassenger(toRemove)
+        if (currentlyPresent){
         for (var i = 0; i < self.passengers.count; i++) {
             
             if self.passengers[i] == toRemove{
                 
                 var removed = passengers.removeAtIndex(i)
+                
                 return true
+                }
+            
             }
-            
-            
-            
         }
-        return false
+            
+        else{
+            
+            return false
+        }
         
     }
-    
-    
     
     
     func getToPickUp() -> [Person]{
         return self.toPickUp
     }
     
-    func getPickedUp() -> [Person]{
+    
+    
+    func setToPickUp(newPickUps: [Person]){
+        self.toPickUp = newPickUps
+    }
+    
+    func addNewPickUp(newPerson: Person) -> Bool{
+        var currentlyPresent = verifyIsPassenger(newPerson)
+        
+        if !currentlyPresent{
+            
+            self.toPickUp.append(newPerson)
+            return true
+        }
+        
+        
+        return false
+        
+    }
+        
+        func removeToPickUp(removePerson: Person) -> Bool{
+            
+            var currentlyPresent = verifyIsPassenger(removePerson)
+            if (currentlyPresent){
+                for (var i = 0; i < self.toPickUp.count; i++) {
+                    
+                    if self.toPickUp[i] == removePerson{
+                        
+                        var removed = toPickUp.removeAtIndex(i)
+                        
+                        return true
+                    }
+                    
+                }
+            }
+                
+            else{
+                
+                return false
+            }
+
+            
+        }
+        
+    func getPickedUpArray() -> [Person]{
         return self.pickedUp
     }
     
