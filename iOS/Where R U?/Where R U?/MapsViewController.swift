@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate  {
+class MapsViewController: UIViewController, MKMapViewDelegate  {
     
     var theMapView :MKMapView! = nil
     var locationManager :CLLocationManager! = nil
@@ -21,6 +21,9 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         var me = Person(firstName: "first",lastName: "last",userName: "user")
     
         if (CLLocationManager.locationServicesEnabled()){
+            
+            me.updateLocation()
+            
             let location = me.getLocation()
             var latDelta:CLLocationDegrees = 0.01
             var longDelta:CLLocationDegrees = 0.01
@@ -34,8 +37,9 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-<<<<<<< HEAD
-=======
+
+
+
     //If at any time Location update does not work, display error message.  For debugging purposes only
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("Error while updating location")
@@ -64,7 +68,7 @@ class MapsViewController: UIViewController,CLLocationManagerDelegate, MKMapViewD
     
     
     
->>>>>>> FETCH_HEAD
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
