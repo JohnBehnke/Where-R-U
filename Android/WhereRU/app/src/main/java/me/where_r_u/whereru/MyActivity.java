@@ -36,6 +36,7 @@ import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+import com.parse.ui.ParseLoginBuilder;
 
 
 public class MyActivity extends Activity implements ActionBar.TabListener {
@@ -114,6 +115,16 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         // If so, just go to the normal app
         // Else, redirect to the login screen.
         // Users can log in with Facebook or a Parse account they make with us.
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+
+        if(currentUser == null) {
+            // Log the user in
+            ParseLoginBuilder builder = new ParseLoginBuilder(MyActivity.this);
+            startActivityForResult(builder.build(), 0);
+        }
+        // Continue
+
 //        ParseUser user = new ParseUser();
 //        user.setUsername("myName");
 //        user.setPassword("myPass");

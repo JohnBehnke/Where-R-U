@@ -51,6 +51,18 @@
             <meta-data
                 android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_ENABLED"
                 android:value="true"/>
+
+            <!-- Added these options below to customize the login flow -->
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.FACEBOOK_LOGIN_ENABLED"
+                android:value="true"/>
+
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_HELP_TEXT"
+                android:value="@string/reset_password"/>
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_EMAIL_AS_USERNAME"
+                android:value="true"/>
         </activity>
 
     </application>

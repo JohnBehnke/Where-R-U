@@ -1,1 +1,1 @@
-include ':app', ':Parse-1.7.0', ':facebook'
+include ':app', ':Parse-1.7.0', ':facebook', ':app:libs:ParseLoginUI'
