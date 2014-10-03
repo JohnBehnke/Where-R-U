@@ -92,7 +92,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             }
         });
 
-        Integer[] icons = {R.drawable.ic_map, R.drawable.ic_my_rides, R.drawable.ic_settings};
+        Integer[] icons = {R.drawable.ic_my_rides, R.drawable.ic_map, R.drawable.ic_settings};
 
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -276,7 +276,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
 
             mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
 
-            if(mNum == 1) {
+            if(mNum == 2) {
                 // Get a fragment manager and transaction to change the type of fragment we're gonna have.
                 FragmentManager m = getFragmentManager();
                 FragmentTransaction t = m.beginTransaction();
