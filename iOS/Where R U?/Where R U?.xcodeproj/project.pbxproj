@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		524E5B0B19D9DEA8008A0EE7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		5268471219DFC74400C13769 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		526DD42619D9D05D00DA2447 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		52B40D1119C36303001A411D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		52B40D1319C363B8001A411D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -65,12 +66,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5268471119DFC74400C13769 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5268471219DFC74400C13769 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		52F01CED19BE6EA90074884E = {
 			isa = PBXGroup;
 			children = (
 				52B40D1319C363B8001A411D /* MapKit.framework */,
 				52F01CF819BE6EA90074884E /* Where R U? */,
 				52F01D0D19BE6EA90074884E /* Where R U?Tests */,
+				5268471119DFC74400C13769 /* Frameworks */,
 				52F01CF719BE6EA90074884E /* Products */,
 			);
 			sourceTree = "<group>";

@@ -15,22 +15,30 @@ class Ride{
     
     
     
-    
-    
-    
-    init(title: String, driver: Person, startLocation: Double, destinationGPS: Double, destinationName: String  , passengers: [Person] ){ //Initalizer for one-time carpool
+    //Init when no passengers are added
+    init(title: String, driver: Person){
         self.title = title
         self.driver = driver
-       // self.startLocation = startLocation
-        self.passengers = passengers
-        self.toPickUp = passengers
-        self.startLocation = 0.0
-        self.pickedUp = []
-        self.destinationGPS = destinationGPS
-        self.destinationName = destinationName
-        self.waypoints = []
-      
+        self.passengers = []
+        self.toPickUp = self.passengers
+        self.pickedUp  = []
     }
+    
+    
+    //Uncomment when GPS works
+//    init(title: String, driver: Person, startLocation: Double, destinationGPS: Double, destinationName: String  , passengers: [Person] ){ //Initalizer for one-time carpool
+//        self.title = title
+//        self.driver = driver
+//        self.startLocation = startLocation
+//        self.passengers = passengers
+//        self.toPickUp = passengers
+//        self.pickedUp = []
+//        self.startLocation = 0.0
+//        self.destinationGPS = destinationGPS
+//        self.destinationName = destinationName
+//        self.waypoints = []
+//      
+//    }
     
     
     
@@ -39,40 +47,41 @@ class Ride{
     private var passengers: [Person]
     private var toPickUp : [Person]
     private var pickedUp : [Person]
-    private var startLocation: Double
-    private var destinationGPS : Double
-    private var destinationName: String
-    private var waypoints : [Double]
+//    private var startLocation: Double
+//    private var destinationGPS : Double
+//    private var destinationName: String
+//    private var waypoints : [Double]
+//    
     
-    
-
+    //Returns the title for the ride
     func getTitle() ->String{
         return self.title
     }
-    
+    //Sets the title for the ride
     func setTitle(newTitle: String){
         self.title = newTitle
     }
     
     
-    
-    
-    
+    //Returns the driver for the ride
     func getDriver() -> Person{
         return self.driver
     }
     
+    //Sets the driver for the ride
     func setDriver(newDriver: Person){
         self.driver = newDriver
     }
     
 
     
-    
+    //Returns the current passenger array
     func getPassengers() ->[Person]{
         return self.passengers
     }
     
+    
+    //Sets the passenger array equal to an array of person objects. Useful if an array of passengers is not specified at the creation of a ride
     func setPassengers(newPassengerGroup: [Person]){
         
         self.passengers = newPassengerGroup
@@ -80,76 +89,86 @@ class Ride{
     
     
     
-    
-    func verifyIsPassenger(verifyPassenger: Person)->Bool{
+    //Test to see of a person is a passenger of the ride. Trying to stop bad things from happening if they look for a person that is not there
+    func verifyIsPassenger(verifyPassenger: Person, passengerArray: [Person])->Bool{
         
         
-        var currentlyPresent:Bool = false
-        for (var i = 0; i < self.passengers.count; i++){
+        for (var i = 0; i < passengerArray.count; i++){
             
-            if (self.passengers[i] == verifyPassenger){
+            if (passengerArray[i] == verifyPassenger){
+                
                 return true
+                
             }
-
-            else{
-            
-                return false
         }
-
-    
+        
+        return false
     }
     
-
+    
+    //Add a new passenger to the passenger arrar.
     func addPassenger(newPassenger: Person) -> Bool{
         
-        var currentlyPresent = verifyIsPassenger(newPassenger)
-        if !currentlyPresent && self.passengers.count <= 8   {
+        var currentlyPresent = verifyIsPassenger(newPassenger, passengerArray: self.passengers)
+        
+        if !currentlyPresent && self.passengers.count <= 8 { //Must be equal to or less that 8 b/c of Google Map routing limitations
             
             self.passengers.append(newPassenger)
             
             return true
         }
+            
         else{
             
             return false
         }
     }
     
+    
+    
+    //Remove a passenger from the passenger array
     func removePassenger(toRemove: Person) -> Bool{
-        var currentlyPresent = verifyIsPassenger(toRemove)
+        
+        var currentlyPresent = verifyIsPassenger(toRemove, passengerArray: self.passengers)
+        
         if (currentlyPresent){
-        for (var i = 0; i < self.passengers.count; i++) {
             
-            if self.passengers[i] == toRemove{
+            for (var i = 0; i < self.passengers.count; i++) {
+            
+                if self.passengers[i] == toRemove{
                 
-                var removed = passengers.removeAtIndex(i)
+                    var removed = passengers.removeAtIndex(i)
                 
-                return true
+                    return true
+                
                 }
             
             }
-        }
             
-        else{
-            
-            return false
         }
+
+        return false
         
     }
     
     
+    //Return the array of people who need to be picked up
     func getToPickUp() -> [Person]{
+        
         return self.toPickUp
     }
     
     
-    
+    //Set the array of people who need to be picked up if it
     func setToPickUp(newPickUps: [Person]){
+        
         self.toPickUp = newPickUps
     }
     
+    
     func addNewPickUp(newPerson: Person) -> Bool{
-        var currentlyPresent = verifyIsPassenger(newPerson)
+        
+        var currentlyPresent = verifyIsPassenger(newPerson, passengerArray: self.toPickUp)
         
         if !currentlyPresent{
             
@@ -161,50 +180,82 @@ class Ride{
         return false
         
     }
-        
-        func removeToPickUp(removePerson: Person) -> Bool{
-            
-            var currentlyPresent = verifyIsPassenger(removePerson)
-            if (currentlyPresent){
-                for (var i = 0; i < self.toPickUp.count; i++) {
-                    
-                    if self.toPickUp[i] == removePerson{
-                        
-                        var removed = toPickUp.removeAtIndex(i)
-                        
-                        return true
-                    }
-                    
-                }
-            }
-                
-            else{
-                
-                return false
-            }
 
+
+    func removeToPickUp(removePerson: Person) -> Bool{
             
+        var currentlyPresent = verifyIsPassenger(removePerson, passengerArray: self.toPickUp)
+        
+        if (currentlyPresent){
+            
+            for (var i = 0; i < self.toPickUp.count; i++) {
+                    
+                if self.toPickUp[i] == removePerson{
+                        
+                    var removed = toPickUp.removeAtIndex(i)
+                        
+                    return true
+                }
+
+            }
+    
         }
+        
+        return false
+    }
         
     func getPickedUpArray() -> [Person]{
         return self.pickedUp
     }
     
-    func getStartLocation() ->Double{
-        return self.startLocation
+    
+    // Pick up a person. Check to make sure that they are a passenger, and that the havent been picked up, and that they need to be picked up
+    func addPickedUp(gotPickedUp: Person) -> Bool{
+        
+        
+        var inToPickUp = verifyIsPassenger(gotPickedUp, passengerArray: self.toPickUp)
+        var inPickedUp = verifyIsPassenger(gotPickedUp, passengerArray: self.pickedUp)
+        var inPassenger = verifyIsPassenger(gotPickedUp, passengerArray: self.passengers)
+        
+        if (inToPickUp && !inPickedUp && inPassenger) {
+            
+            for (var i = 0; i < self.toPickUp.count; i++){
+                
+                if (self.toPickUp[i] == gotPickedUp){
+                    
+                    self.pickedUp.append(self.toPickUp.removeAtIndex(i))
+                    
+                    return true
+                }
+            }
+        }
+        
+        return false
     }
     
-    func getDestinationGPS() -> Double{
-        return self.destinationGPS
-    }
     
-    func getDestinationName() ->String{
-        return self.destinationName
-    }
-    func getWaypoints() ->[Double]{
-        return self.waypoints
-    }
     
-}
+    
+    
+    ////UNCOMMENT WHEN ZACH DOES THE GPS SWAG
+    
+    
+//    func getStartLocation() ->Double{
+//        return self.startLocation
+//    }
+//    
+//    func getDestinationGPS() -> Double{
+//        return self.destinationGPS
+//    }
+//    
+//    func getDestinationName() ->String{
+//        return self.destinationName
+//    }
+//    func getWaypoints() ->[Double]{
+//        return self.waypoints
+//    }
+    
+    
 
+}
 

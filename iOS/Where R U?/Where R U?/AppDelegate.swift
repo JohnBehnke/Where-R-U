@@ -19,8 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         UITabBar.appearance().tintColor = UIColor.whiteColor() //Change selected tab color to white
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
         return true
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

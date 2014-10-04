@@ -11,9 +11,11 @@ import MapKit
 
 class MapsViewController: UIViewController, MKMapViewDelegate  {
     
-    var theMapView :MKMapView! = nil
+    //@IBOutlet weak var dsdad: MKMapView!
+    //var theMapView :MKMapView! = nil
     var locationManager :CLLocationManager! = nil
 
+     var theMapView: MKMapView! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
