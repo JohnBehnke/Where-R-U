@@ -58,4 +58,5 @@
 
     <string name="com_parse_ui_login_dispatch_user_logged_in">"User logged in, starting: "</string>
     <string name="com_parse_ui_login_dispatch_user_not_logged_in">User not logged in, starting ParseLoginActivity</string>
+    <string name="app_id">294070160778013</string>
 </resources>
