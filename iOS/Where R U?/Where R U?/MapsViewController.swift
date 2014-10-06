@@ -20,6 +20,10 @@ class MapsViewController: UIViewController, MKMapViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var testObject = PFObject(className:"TestObject")
+        testObject["foo"] = "bar"
+        testObject.saveInBackground()
+        
         var me = Person(firstName: "first",lastName: "last",userName: "user")
     
         if (CLLocationManager.locationServicesEnabled()){
