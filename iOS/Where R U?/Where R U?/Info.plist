@@ -51,7 +51,7 @@
 		<string>MKDirectionsModeCar</string>
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<true/>
+	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

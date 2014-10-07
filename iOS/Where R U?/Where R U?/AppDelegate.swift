@@ -17,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
         //Facebook intializers
+        Parse.setApplicationId("rFyIaj0hCHAGihSIBTOYj4OZt9lkOJoAXJVZ7Qlu", clientKey:"bofitiLWSYm7JA5FC94tpytNlH6ViCIM51HyvtUS")
         PFFacebookUtils.initializeFacebook()
-        Parse.setApplicationId("parseAppId", clientKey:"parseClientKey")
         
         UITabBar.appearance().tintColor = UIColor.whiteColor() //Change selected tab color to white
         //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        PFFacebookUtils.session().close()
     }
     
     //Parse Initiziler stuff

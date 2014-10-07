@@ -11,7 +11,7 @@ import MapKit
 
 
 //Person class. Needs a firstName, lastName (Strings) and GPS locations (GPS type objects?)
-class Person: NSObject, CLLocationManagerDelegate {
+class Person: NSObject {
     
     var locationManager : CLLocationManager! = nil
     
@@ -27,25 +27,17 @@ class Person: NSObject, CLLocationManagerDelegate {
         if (CLLocationManager.locationServicesEnabled()){
             //gets gps data
             locationManager = CLLocationManager()
-            locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
             let newLocation = locationManager.location
-            currentLocation = newLocation
+            //self.setLocation(newLocation)       <- Problem Child for simulating
+            locationManager.stopUpdatingLocation()
         }
     }
     
-    //CLLocationManager Delegate
-    
-    //If Location was successfully updated, this function is run
-    //THIS FUNCTION IS NOT BEING CALLED  PROBLEM WITH DELEGATE
-    func locationManager(manager: CLLocationManager!, didUpdateLocations location:[AnyObject]) {
-        let location = locationManager.location
+    func setLocation(location: CLLocation) {
         self.currentLocation = location
     }
-    
-    //End Delegate
     
     func getLocation() ->CLLocation {
         return currentLocation
