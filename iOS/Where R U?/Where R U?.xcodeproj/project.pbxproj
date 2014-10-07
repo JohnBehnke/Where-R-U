@@ -31,7 +31,7 @@
 		924D755719E3385D00B3B8C7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755619E3385D00B3B8C7 /* StoreKit.framework */; };
 		924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755819E3386600B3B8C7 /* SystemConfiguration.framework */; };
 		924D772219E345A200B3B8C7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D772119E345A200B3B8C7 /* FacebookSDK.framework */; };
-		92F6CFF119E4651100C6F40D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F6CFF019E4651100C6F40D /* LoginViewController.swift */; };
+		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,7 @@
 		924D755619E3385D00B3B8C7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		924D755819E3386600B3B8C7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		924D772119E345A200B3B8C7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		92F6CFF019E4651100C6F40D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92B084E519E482860078757C /* Social.framework in Frameworks */,
 				924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */,
 				924D755719E3385D00B3B8C7 /* StoreKit.framework in Frameworks */,
 				924D755519E3385300B3B8C7 /* Security.framework in Frameworks */,
@@ -114,6 +115,7 @@
 		5268471119DFC74400C13769 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92B084E419E482860078757C /* Social.framework */,
 				924D755819E3386600B3B8C7 /* SystemConfiguration.framework */,
 				924D755619E3385D00B3B8C7 /* StoreKit.framework */,
 				924D755419E3385300B3B8C7 /* Security.framework */,
@@ -160,7 +162,6 @@
 				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
 				524E5B0B19D9DEA8008A0EE7 /* Person.swift */,
 				52F01CFD19BE6EA90074884E /* MyRidesViewController.swift */,
-				92F6CFF019E4651100C6F40D /* LoginViewController.swift */,
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
 				52F01D0119BE6EA90074884E /* Main.storyboard */,
@@ -306,7 +307,6 @@
 			files = (
 				524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */,
 				52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */,
-				92F6CFF119E4651100C6F40D /* LoginViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
 				52F01CFE19BE6EA90074884E /* MyRidesViewController.swift in Sources */,

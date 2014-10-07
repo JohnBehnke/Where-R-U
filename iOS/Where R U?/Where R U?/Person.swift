@@ -23,6 +23,14 @@ class Person: NSObject {
         super.init()
     }
     
+    override init() {
+        self.firstName = ""
+        self.lastName = ""
+        self.userName = ""
+        self.currentLocation = CLLocation()
+        super.init()
+    }
+    
     func updateLocation(){  //activates location updates
         if (CLLocationManager.locationServicesEnabled()){
             //gets gps data
@@ -30,8 +38,14 @@ class Person: NSObject {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
             let newLocation = locationManager.location
-            //self.setLocation(newLocation)       <- Problem Child for simulating
-            locationManager.stopUpdatingLocation()
+            if (newLocation != nil) {
+                println("Location Updated")
+                self.setLocation(newLocation)       //<- Problem Child for simulating
+                locationManager.stopUpdatingLocation()
+            }
+            else {
+                println("Location was nil")
+            }
         }
     }
     
@@ -54,6 +68,10 @@ class Person: NSObject {
     //For user security, may want only user name to be displayed
     func getUserName() ->String {
         return userName
+    }
+    
+    func getPersonByUserName(uName: String) -> Person {
+        return self
     }
     
 
