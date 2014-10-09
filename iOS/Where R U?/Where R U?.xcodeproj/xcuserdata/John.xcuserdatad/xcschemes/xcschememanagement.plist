@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>NCView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Where R U?.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5268470F19DFC74300C13769</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>52F01CF519BE6EA90074884E</key>
 		<dict>
 			<key>primary</key>
