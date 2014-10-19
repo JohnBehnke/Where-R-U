@@ -77,19 +77,6 @@ public class mapFragment extends Fragment implements
         super.onCreate(savedInstanceState);
 
 
-        // Set up location stuff
-        map.setMyLocationEnabled(true);
-        lr = LocationRequest.create();
-        lr.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        lc = new LocationClient(this.getActivity().getApplicationContext(), this, this);
-        lc.connect();
-
-
-        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map1)).getMap();
-
-        map.getUiSettings().setMyLocationButtonEnabled(true);
-        map.getUiSettings().setCompassEnabled(true);
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_map, container, false);
 
