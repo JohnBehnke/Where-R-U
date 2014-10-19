@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MyRidesViewController: UIViewController {
+class MyRidesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,31 @@ class MyRidesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    //UITableViewDataSource
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        println(indexPath.row)
+        var cell: ridesTableViewCell = tableView.dequeueReusableCellWithIdentifier("ridesCell") as ridesTableViewCell
+        
+        
+        
+        cell.driverLabel.text = "Seve"
+        cell.rideLabel.text = "To RCOS"
+        cell.timeLabel.text = "30 minutes"
+        
+        return cell
+        }
+    
+
+    //UITableViewDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    }
 
 }
 

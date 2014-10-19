@@ -32,7 +32,7 @@ class Person: NSObject, CLLocationManagerDelegate {
             locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
             let newLocation = locationManager.location
-            currentLocation = newLocation
+            //currentLocation = newLocation
         }
     }
     
