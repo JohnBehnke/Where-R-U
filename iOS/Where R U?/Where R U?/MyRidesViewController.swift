@@ -28,7 +28,7 @@ class MyRidesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 2000
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -38,7 +38,7 @@ class MyRidesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         
-        cell.driverLabel.text = "Seve"
+        cell.driverLabel.text = "Goldschmidt"
         cell.rideLabel.text = "To RCOS"
         cell.timeLabel.text = "30 minutes"
         
