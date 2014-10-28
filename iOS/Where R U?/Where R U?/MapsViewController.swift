@@ -67,6 +67,9 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
         var currentUser = PFUser.currentUser()
         if currentUser != nil {
             var uName = PFUser.currentUser().username
+            
+            println("Hello " + uName +  "! ")
+            
             var me = Person(firstName: "first",lastName: "last",userName: uName)
             if (CLLocationManager.locationServicesEnabled()){
                 
