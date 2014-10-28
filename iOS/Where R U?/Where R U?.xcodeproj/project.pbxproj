@@ -17,7 +17,6 @@
 		52F01D0319BE6EA90074884E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F01D0119BE6EA90074884E /* Main.storyboard */; };
 		52F01D0519BE6EA90074884E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F01D0419BE6EA90074884E /* Images.xcassets */; };
 		52F01D1119BE6EA90074884E /* Where_R_U_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01D1019BE6EA90074884E /* Where_R_U_Tests.swift */; };
-		52FB461719F44273000F5C38 /* ridesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FB461619F44273000F5C38 /* ridesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +45,6 @@
 		52F01D0A19BE6EA90074884E /* Where R U?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where R U?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01D0F19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01D1019BE6EA90074884E /* Where_R_U_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Where_R_U_Tests.swift; sourceTree = "<group>"; };
-		52FB461619F44273000F5C38 /* ridesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ridesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,6 @@
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
 				52F01D0119BE6EA90074884E /* Main.storyboard */,
-				52FB461619F44273000F5C38 /* ridesTableViewCell.swift */,
 				52F01D0419BE6EA90074884E /* Images.xcassets */,
 				52F01CF919BE6EA90074884E /* Supporting Files */,
 			);
@@ -252,7 +249,6 @@
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
 				52F01CFE19BE6EA90074884E /* MyRidesViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,
-				52FB461719F44273000F5C38 /* ridesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
