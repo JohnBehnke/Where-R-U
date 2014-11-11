@@ -62,18 +62,18 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
 
         Parse.initialize(this, "xvMUWOgtfsYb6hYIhog61pAyjmIsBYAmBkwcw1ih", "jttPcBwMtBnWbwGtDlcv5RaBIyFQy872e0XGExyE");
 
-        login();
+        //login(); // Comment out when testing so you don't get annoyed by needing to log in.
 
         setContentView(R.layout.activity_my);
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
-        // Hide Actionbar Icon
-        actionBar.setDisplayShowHomeEnabled(false);
-        // Hide Actionbar Title
-        actionBar.setDisplayShowTitleEnabled(false);
+//
+//        // Hide Actionbar Icon
+//        actionBar.setDisplayShowHomeEnabled(false);
+//        // Hide Actionbar Title
+//        actionBar.setDisplayShowTitleEnabled(false);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -93,7 +93,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             }
         });
 
-        Integer[] icons = {R.drawable.ic_my_rides, R.drawable.ic_map, R.drawable.ic_settings};
+        Integer[] icons = {R.drawable.ic_my_rides, R.drawable.ic_map};
 
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -176,7 +176,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
 
         @Override
@@ -211,6 +211,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         public GoogleMap map;
         private LocationRequest lr;
         private LocationClient lc;
+        private Fragment currentFragment;
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -265,18 +266,30 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                 Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
 
+
             View rootView;
 
             mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
 
-            if(mNum == 2) {
+            if(mNum == 1) {
+                container.removeAllViewsInLayout();
+                // Make a list view
+                FragmentManager m = getFragmentManager();
+                FragmentTransaction t = m.beginTransaction();
+
+                rootView = inflater.inflate(R.layout.fragment_rides_list, container, false);
+                currentFragment = RidesFragment2.newRidesInstance("Hello", "World");
+                t.replace(R.layout.fragment_map, currentFragment);
+
+            } else if(mNum == 2) {
+                container.removeAllViewsInLayout();
                 // Get a fragment manager and transaction to change the type of fragment we're gonna have.
                 FragmentManager m = getFragmentManager();
                 FragmentTransaction t = m.beginTransaction();
 
-                t.replace(R.layout.fragment_my, new mapFragment());
-
                 rootView = inflater.inflate(R.layout.fragment_map, container, false);
+                currentFragment = new mapFragment();
+                t.replace(R.layout.fragment_rides_list, currentFragment);
 
                 map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map1)).getMap();
                 map.setMyLocationEnabled(true);
@@ -288,8 +301,11 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                 lc = new LocationClient(this.getActivity().getApplicationContext(), this, this);
                 lc.connect();
 
-          } else {
+
+
+            } else {
                 // Get a fragment manager and transaction to change the type of fragment we're gonna have.
+                // This shouldn't get executed. If it does, then well shit.
                 FragmentManager m = getFragmentManager();
                 FragmentTransaction t = m.beginTransaction();
 
@@ -297,7 +313,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
 
                 rootView = inflater.inflate(R.layout.fragment_my, container, false);
                 View tv = rootView.findViewById(R.id.mainText);
-                ((TextView)tv).setText("Fragment #" + mNum);
+                ((TextView)tv).setText("How did you even get here");
             }
 
             return rootView;
