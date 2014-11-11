@@ -4,15 +4,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--My Rides-->
         <scene sceneID="x8J-KM-sXs">
             <objects>
                 <tableViewController id="CE6-2L-RaW" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Gx2-k1-SYa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="99Y-nB-aXv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Test" rowHeight="70" id="99Y-nB-aXv">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99Y-nB-aXv" id="jMf-jM-dcG">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -25,14 +26,17 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="rPr-cF-p2T">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="Wcv-0D-WJQ">
+                    <navigationItem key="navigationItem" title="My Rides" id="d0O-I8-lVf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kRh-on-7uI">
                             <connections>
-                                <segue destination="NVR-i3-m0i" kind="push" id="dEc-K1-LiW"/>
+                                <segue destination="NVR-i3-m0i" kind="show" id="cal-5F-RQw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="rideTable" destination="Gx2-k1-SYa" id="ego-da-Eg3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpW-Ut-4yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,12 +45,13 @@
         <!--Add Ride View Controller-->
         <scene sceneID="WZh-bv-ke7">
             <objects>
-                <viewController id="NVR-i3-m0i" customClass="AddRideViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NVR-i3-m0i" customClass="AddRideViewController" customModule="Where_R_U_" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nVf-6X-xFK"/>
                         <viewControllerLayoutGuide type="bottom" id="HXy-fT-5Vg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MvO-5Q-0hB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Ride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW1-IM-qod">
@@ -91,12 +96,15 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2l-J5-zRe">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Done">
+                                <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="182" y="455" width="37" height="30"/>
+                                    <rect key="frame" x="182" y="455" width="34" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="donePressed:" destination="NVR-i3-m0i" eventType="touchUpInside" id="otg-rE-J39"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,7 +129,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="zRF-eP-WoJ"/>
                     <connections>
-                        <outlet property="donePressed" destination="L2l-J5-zRe" id="Epy-03-xBl"/>
                         <outlet property="txtDriver" destination="3c5-8D-Gzt" id="z3d-j6-91h"/>
                         <outlet property="txtName" destination="rel-UE-smP" id="Xq8-Wh-VRE"/>
                     </connections>

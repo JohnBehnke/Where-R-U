@@ -10,6 +10,7 @@ import UIKit
 
 class MyRidesViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var rideTable: UITableView!
       
     
     override func viewDidLoad() {
@@ -23,7 +24,9 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
 
-    
+    override func viewWillAppear(animated: Bool) {
+        return rideTable.reloadData()
+    }
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) ->Int{
         return rideManager.rides.count
         

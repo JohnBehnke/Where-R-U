@@ -31,11 +31,12 @@ class AddRideViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func donePressed(sender: UIButton){
+        rideManager.addRide(txtName.text, driver: txtDriver.text)
         self.view.endEditing(true)
         txtDriver.text = ""
         txtName.text = ""
         
-        rideManager.addRide(txtName.text, driver: txtDriver.text)
+        
         
     }
     
