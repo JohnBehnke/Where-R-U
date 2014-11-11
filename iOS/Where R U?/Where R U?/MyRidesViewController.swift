@@ -8,10 +8,9 @@
 
 import UIKit
 
-class MyRidesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyRidesViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableView: UITableView!
-    
+      
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +24,21 @@ class MyRidesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     
+     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) ->Int{
+        return rideManager.rides.count
+        
+    }
     
-    //UITableViewDataSource
-    
+      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        
+        
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
+        
+        cell.textLabel.text = rideManager.rides[indexPath.row].name
+        cell.detailTextLabel?.text = rideManager.rides[indexPath.row].driver
+        
+        return cell
+        
+    }
 }
 

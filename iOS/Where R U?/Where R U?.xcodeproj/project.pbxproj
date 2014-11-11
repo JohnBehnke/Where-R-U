@@ -11,6 +11,8 @@
 		526DD42719D9D05D00DA2447 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DD42619D9D05D00DA2447 /* Ride.swift */; };
 		52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B40D1119C36303001A411D /* SettingsViewController.swift */; };
 		52B40D1419C363B8001A411D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B40D1319C363B8001A411D /* MapKit.framework */; };
+		52E264D91A12843A00B6444F /* RideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E264D81A12843A00B6444F /* RideManager.swift */; };
+		52E264DB1A128B4600B6444F /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E264DA1A128B4600B6444F /* AddRideViewController.swift */; };
 		52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFB19BE6EA90074884E /* AppDelegate.swift */; };
 		52F01CFE19BE6EA90074884E /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFD19BE6EA90074884E /* MyRidesViewController.swift */; };
 		52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFF19BE6EA90074884E /* MapsViewController.swift */; };
@@ -35,6 +37,8 @@
 		526DD42619D9D05D00DA2447 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		52B40D1119C36303001A411D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		52B40D1319C363B8001A411D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		52E264D81A12843A00B6444F /* RideManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideManager.swift; sourceTree = "<group>"; };
+		52E264DA1A128B4600B6444F /* AddRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		52F01CF619BE6EA90074884E /* Where R U?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where R U?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01CFA19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01CFB19BE6EA90074884E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		52E264D61A127F1300B6444F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				52F01CFD19BE6EA90074884E /* MyRidesViewController.swift */,
+				52E264DA1A128B4600B6444F /* AddRideViewController.swift */,
+				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
+				52B40D1119C36303001A411D /* SettingsViewController.swift */,
+				52E264D81A12843A00B6444F /* RideManager.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		52E264D71A127F3800B6444F /* Object Classes */ = {
+			isa = PBXGroup;
+			children = (
+				526DD42619D9D05D00DA2447 /* Ride.swift */,
+				524E5B0B19D9DEA8008A0EE7 /* Person.swift */,
+			);
+			name = "Object Classes";
+			sourceTree = "<group>";
+		};
 		52F01CED19BE6EA90074884E = {
 			isa = PBXGroup;
 			children = (
@@ -97,12 +122,9 @@
 		52F01CF819BE6EA90074884E /* Where R U? */ = {
 			isa = PBXGroup;
 			children = (
-				526DD42619D9D05D00DA2447 /* Ride.swift */,
+				52E264D61A127F1300B6444F /* View Controllers */,
+				52E264D71A127F3800B6444F /* Object Classes */,
 				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
-				524E5B0B19D9DEA8008A0EE7 /* Person.swift */,
-				52F01CFD19BE6EA90074884E /* MyRidesViewController.swift */,
-				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
-				52B40D1119C36303001A411D /* SettingsViewController.swift */,
 				52F01D0119BE6EA90074884E /* Main.storyboard */,
 				52F01D0419BE6EA90074884E /* Images.xcassets */,
 				52F01CF919BE6EA90074884E /* Supporting Files */,
@@ -245,8 +267,10 @@
 			files = (
 				524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */,
 				52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */,
+				52E264DB1A128B4600B6444F /* AddRideViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
+				52E264D91A12843A00B6444F /* RideManager.swift in Sources */,
 				52F01CFE19BE6EA90074884E /* MyRidesViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,
 			);
