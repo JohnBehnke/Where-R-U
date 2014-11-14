@@ -25,13 +25,11 @@
 		924D755119E3384600B3B8C7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755019E3384600B3B8C7 /* MobileCoreServices.framework */; };
 		924D755319E3384D00B3B8C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755219E3384D00B3B8C7 /* QuartzCore.framework */; };
 		924D755519E3385300B3B8C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755419E3385300B3B8C7 /* Security.framework */; };
-		924D755719E3385D00B3B8C7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755619E3385D00B3B8C7 /* StoreKit.framework */; };
 		924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755819E3386600B3B8C7 /* SystemConfiguration.framework */; };
-		9251E96319FFFAB500F361A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E96219FFFAB500F361A9 /* Bolts.framework */; };
-		9251E96519FFFABA00F361A9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E96419FFFABA00F361A9 /* FacebookSDK.framework */; };
-		9251E96719FFFAC100F361A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E96619FFFAC100F361A9 /* Bolts.framework */; };
-		9251E96919FFFAC600F361A9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E96819FFFAC600F361A9 /* Parse.framework */; };
-		9251E96B19FFFACB00F361A9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E96A19FFFACB00F361A9 /* ParseFacebookUtils.framework */; };
+		9251E97B19FFFFC500F361A9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E97719FFFFC500F361A9 /* FacebookSDK.framework */; };
+		9251E97C19FFFFC500F361A9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E97819FFFFC500F361A9 /* Parse.framework */; };
+		9251E97D19FFFFC500F361A9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E97919FFFFC500F361A9 /* ParseFacebookUtils.framework */; };
+		9251E9811A00001400F361A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E9801A00001400F361A9 /* Bolts.framework */; };
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,13 +68,11 @@
 		924D755019E3384600B3B8C7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		924D755219E3384D00B3B8C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		924D755419E3385300B3B8C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		924D755619E3385D00B3B8C7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		924D755819E3386600B3B8C7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		9251E96219FFFAB500F361A9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
-		9251E96419FFFABA00F361A9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
-		9251E96619FFFAC100F361A9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "parse-library-1/Bolts.framework"; sourceTree = "<group>"; };
-		9251E96819FFFAC600F361A9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "parse-library-1/Parse.framework"; sourceTree = "<group>"; };
-		9251E96A19FFFACB00F361A9 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "parse-library-1/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		9251E97719FFFFC500F361A9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Frameworks/FacebookSDK.framework; sourceTree = "<group>"; };
+		9251E97819FFFFC500F361A9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		9251E97919FFFFC500F361A9 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = Frameworks/ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		9251E9801A00001400F361A9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -85,23 +81,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9251E96719FFFAC100F361A9 /* Bolts.framework in Frameworks */,
+				9251E9811A00001400F361A9 /* Bolts.framework in Frameworks */,
 				92B084E519E482860078757C /* Social.framework in Frameworks */,
 				924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */,
-				924D755719E3385D00B3B8C7 /* StoreKit.framework in Frameworks */,
 				924D755519E3385300B3B8C7 /* Security.framework in Frameworks */,
-				9251E96B19FFFACB00F361A9 /* ParseFacebookUtils.framework in Frameworks */,
 				924D755319E3384D00B3B8C7 /* QuartzCore.framework in Frameworks */,
-				9251E96919FFFAC600F361A9 /* Parse.framework in Frameworks */,
+				9251E97D19FFFFC500F361A9 /* ParseFacebookUtils.framework in Frameworks */,
 				924D755119E3384600B3B8C7 /* MobileCoreServices.framework in Frameworks */,
 				924D754F19E3383F00B3B8C7 /* libz.dylib in Frameworks */,
-				9251E96319FFFAB500F361A9 /* Bolts.framework in Frameworks */,
 				924D754D19E3383500B3B8C7 /* CoreLocation.framework in Frameworks */,
+				9251E97B19FFFFC500F361A9 /* FacebookSDK.framework in Frameworks */,
+				9251E97C19FFFFC500F361A9 /* Parse.framework in Frameworks */,
 				924D754B19E3382F00B3B8C7 /* CoreGraphics.framework in Frameworks */,
 				924D754919E3382500B3B8C7 /* CFNetwork.framework in Frameworks */,
 				924D754719E3382000B3B8C7 /* AudioToolbox.framework in Frameworks */,
 				52B40D1419C363B8001A411D /* MapKit.framework in Frameworks */,
-				9251E96519FFFABA00F361A9 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,9 +112,13 @@
 		5268471119DFC74400C13769 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9251E9801A00001400F361A9 /* Bolts.framework */,
+				9251E97719FFFFC500F361A9 /* FacebookSDK.framework */,
+				9251E97819FFFFC500F361A9 /* Parse.framework */,
+				9251E97919FFFFC500F361A9 /* ParseFacebookUtils.framework */,
+				52B40D1319C363B8001A411D /* MapKit.framework */,
 				92B084E419E482860078757C /* Social.framework */,
 				924D755819E3386600B3B8C7 /* SystemConfiguration.framework */,
-				924D755619E3385D00B3B8C7 /* StoreKit.framework */,
 				924D755419E3385300B3B8C7 /* Security.framework */,
 				924D755219E3384D00B3B8C7 /* QuartzCore.framework */,
 				924D755019E3384600B3B8C7 /* MobileCoreServices.framework */,
@@ -137,12 +135,6 @@
 		52F01CED19BE6EA90074884E = {
 			isa = PBXGroup;
 			children = (
-				9251E96A19FFFACB00F361A9 /* ParseFacebookUtils.framework */,
-				9251E96819FFFAC600F361A9 /* Parse.framework */,
-				9251E96619FFFAC100F361A9 /* Bolts.framework */,
-				9251E96419FFFABA00F361A9 /* FacebookSDK.framework */,
-				9251E96219FFFAB500F361A9 /* Bolts.framework */,
-				52B40D1319C363B8001A411D /* MapKit.framework */,
 				52F01CF819BE6EA90074884E /* Where R U? */,
 				52F01D0D19BE6EA90074884E /* Where R U?Tests */,
 				5268471119DFC74400C13769 /* Frameworks */,
@@ -250,7 +242,11 @@
 				TargetAttributes = {
 					52F01CF519BE6EA90074884E = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 68GTUE267H;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
 							com.apple.SafariKeychain = {
 								enabled = 0;
 							};
@@ -435,15 +431,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Zach/Desktop/parse-library-1",
-					/Users/Zach/Documents/FacebookSDK,
-					/Users/Zach/Documents/FacebookSDK/FBAudienceNetwork,
-					"$(PROJECT_DIR)/parse-library-1",
-					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Where R U?/Where R U?-Bridging-Header.h";
@@ -461,15 +454,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Zach/Desktop/parse-library-1",
-					/Users/Zach/Documents/FacebookSDK,
-					/Users/Zach/Documents/FacebookSDK/FBAudienceNetwork,
-					"$(PROJECT_DIR)/parse-library-1",
-					"$(PROJECT_DIR)/FacebookSDK",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Where R U?/Where R U?-Bridging-Header.h";

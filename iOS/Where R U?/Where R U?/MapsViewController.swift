@@ -17,8 +17,10 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
     
     //Login Screen stuff
     
+    //This function is run every time the view is opened? IDK why
     override func viewDidAppear(animated: Bool) {
         //Create Login
+        super.viewDidAppear(animated)
         var currentUser = PFUser.currentUser()
         if currentUser == nil {
             var loginViewController:PFLogInViewController = PFLogInViewController()
@@ -56,10 +58,12 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
     
     //End Signup
     
+    //This function is only run once when app opens
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    //This is the refresh function for the view I think
     override func viewWillAppear(animated: Bool) {
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
@@ -67,9 +71,6 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
         var currentUser = PFUser.currentUser()
         if currentUser != nil {
             var uName = PFUser.currentUser().username
-            
-            println("Hello " + uName +  "! ")
-            
             var me = Person(firstName: "first",lastName: "last",userName: uName)
             if (CLLocationManager.locationServicesEnabled()){
                 
