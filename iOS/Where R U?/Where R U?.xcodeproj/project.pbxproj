@@ -30,6 +30,7 @@
 		9251E97C19FFFFC500F361A9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E97819FFFFC500F361A9 /* Parse.framework */; };
 		9251E97D19FFFFC500F361A9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E97919FFFFC500F361A9 /* ParseFacebookUtils.framework */; };
 		9251E9811A00001400F361A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9251E9801A00001400F361A9 /* Bolts.framework */; };
+		927D88011A16B6EE00E8E70D /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 927D88001A16B6EE00E8E70D /* ParseUI.framework */; };
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		9251E97819FFFFC500F361A9 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
 		9251E97919FFFFC500F361A9 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = Frameworks/ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		9251E9801A00001400F361A9 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		927D88001A16B6EE00E8E70D /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = Frameworks/ParseUI.framework; sourceTree = "<group>"; };
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				924D755519E3385300B3B8C7 /* Security.framework in Frameworks */,
 				924D755319E3384D00B3B8C7 /* QuartzCore.framework in Frameworks */,
 				9251E97D19FFFFC500F361A9 /* ParseFacebookUtils.framework in Frameworks */,
+				927D88011A16B6EE00E8E70D /* ParseUI.framework in Frameworks */,
 				924D755119E3384600B3B8C7 /* MobileCoreServices.framework in Frameworks */,
 				924D754F19E3383F00B3B8C7 /* libz.dylib in Frameworks */,
 				924D754D19E3383500B3B8C7 /* CoreLocation.framework in Frameworks */,
@@ -112,6 +115,7 @@
 		5268471119DFC74400C13769 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				927D88001A16B6EE00E8E70D /* ParseUI.framework */,
 				9251E9801A00001400F361A9 /* Bolts.framework */,
 				9251E97719FFFFC500F361A9 /* FacebookSDK.framework */,
 				9251E97819FFFFC500F361A9 /* Parse.framework */,
