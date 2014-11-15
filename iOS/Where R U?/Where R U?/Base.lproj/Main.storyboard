@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--My Rides-->
+        <!--My Rides View Controller-->
         <scene sceneID="x8J-KM-sXs">
             <objects>
                 <tableViewController id="CE6-2L-RaW" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,18 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="My Rides" id="d0O-I8-lVf">
+                    <navigationItem key="navigationItem" id="d0O-I8-lVf">
+                        <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title="Done" id="EGx-lD-Jn1"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="MWE-eC-fcq">
+                            <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All Rides"/>
+                                <segment title="Scheduled Rides"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kRh-on-7uI">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -142,7 +153,7 @@
         <!--My Rides-->
         <scene sceneID="4zX-Za-kbA">
             <objects>
-                <navigationController id="klB-kz-SfK" sceneMemberID="viewController">
+                <navigationController hidesBarsOnSwipe="YES" id="klB-kz-SfK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Rides" image="myRidesIcon" id="U8x-rH-By9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LY1-6e-1C6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -154,6 +165,10 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="d42-Mi-7wF">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.96470588235294119" green="0.21568627450980393" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                    </toolbar>
                     <connections>
                         <segue destination="CE6-2L-RaW" kind="relationship" relationship="rootViewController" id="YRh-Cu-tVd"/>
                     </connections>
