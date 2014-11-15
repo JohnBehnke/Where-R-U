@@ -11,7 +11,7 @@ import MapKit
 
 
 //Person class. Needs a firstName, lastName (Strings) and GPS locations (GPS type objects?)
-class Person: NSObject, CLLocationManagerDelegate {
+class Person: NSObject {
     
     var locationManager : CLLocationManager! = nil
     
@@ -23,29 +23,35 @@ class Person: NSObject, CLLocationManagerDelegate {
         super.init()
     }
     
+    override init() {
+        self.firstName = ""
+        self.lastName = ""
+        self.userName = ""
+        self.currentLocation = CLLocation()
+        super.init()
+    }
+    
     func updateLocation(){  //activates location updates
         if (CLLocationManager.locationServicesEnabled()){
             //gets gps data
             locationManager = CLLocationManager()
-            locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestAlwaysAuthorization()
             locationManager.startUpdatingLocation()
             let newLocation = locationManager.location
-            //currentLocation = newLocation
+            if (newLocation != nil) {
+                println("Location Updated")
+                self.setLocation(newLocation)       //<- Problem Child for simulating
+                locationManager.stopUpdatingLocation()
+            }
+            else {
+                println("Location was nil")
+            }
         }
     }
     
-    //CLLocationManager Delegate
-    
-    //If Location was successfully updated, this function is run
-    //THIS FUNCTION IS NOT BEING CALLED  PROBLEM WITH DELEGATE
-    func locationManager(manager: CLLocationManager!, didUpdateLocations location:[AnyObject]) {
-        let location = locationManager.location
+    func setLocation(location: CLLocation) {
         self.currentLocation = location
     }
-    
-    //End Delegate
     
     func getLocation() ->CLLocation {
         return currentLocation
@@ -62,6 +68,10 @@ class Person: NSObject, CLLocationManagerDelegate {
     //For user security, may want only user name to be displayed
     func getUserName() ->String {
         return userName
+    }
+    
+    func getPersonByUserName(uName: String) -> Person {
+        return self
     }
     
 

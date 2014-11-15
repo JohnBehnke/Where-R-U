@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--My Rides-->
+        <scene sceneID="x8J-KM-sXs">
+            <objects>
+                <tableViewController id="CE6-2L-RaW" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="Gx2-k1-SYa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Test" rowHeight="100" id="99Y-nB-aXv">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99Y-nB-aXv" id="jMf-jM-dcG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CE6-2L-RaW" id="pvf-HL-klH"/>
+                            <outlet property="delegate" destination="CE6-2L-RaW" id="aB1-XQ-Wsc"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="My Rides" id="d0O-I8-lVf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kRh-on-7uI">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="NVR-i3-m0i" kind="show" id="cal-5F-RQw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="rideTable" destination="Gx2-k1-SYa" id="ego-da-Eg3"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PpW-Ut-4yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6157.5" y="280.5"/>
+        </scene>
+        <!--Add Ride View Controller-->
+        <scene sceneID="WZh-bv-ke7">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="formSheet" id="NVR-i3-m0i" customClass="AddRideViewController" customModule="Where_R_U_" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nVf-6X-xFK"/>
+                        <viewControllerLayoutGuide type="bottom" id="HXy-fT-5Vg"/>
+                    </layoutGuides>
+<<<<<<< HEAD
+                    <view key="view" contentMode="scaleToFill" id="MvO-5Q-0hB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Ride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW1-IM-qod">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="148" y="124" width="105" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Driver" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc8-e2-ctq">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="148" y="255" width="115" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rel-UE-smP">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="31" y="164" width="339" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="NVR-i3-m0i" id="zFd-qJ-4Sy"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3c5-8D-Gzt">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="31" y="325" width="339" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="NVR-i3-m0i" id="u23-Zf-eyK"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2l-J5-zRe">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="182" y="455" width="34" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="donePressed:" destination="NVR-i3-m0i" eventType="touchUpInside" id="otg-rE-J39"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="TW1-IM-qod"/>
+                                <exclude reference="Mc8-e2-ctq"/>
+                                <exclude reference="rel-UE-smP"/>
+                                <exclude reference="3c5-8D-Gzt"/>
+                                <exclude reference="L2l-J5-zRe"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="TW1-IM-qod"/>
+                                <include reference="Mc8-e2-ctq"/>
+                                <include reference="rel-UE-smP"/>
+                                <include reference="3c5-8D-Gzt"/>
+                                <include reference="L2l-J5-zRe"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="zRF-eP-WoJ"/>
+                    <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="txtDriver" destination="3c5-8D-Gzt" id="z3d-j6-91h"/>
+                        <outlet property="txtName" destination="rel-UE-smP" id="Xq8-Wh-VRE"/>
+                    </connections>
+=======
+                    <view key="view" contentMode="scaleToFill" id="BiA-9U-JxU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Rides" image="myRidesIcon" id="acW-dT-cKf"/>
+>>>>>>> Parse
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YmK-zm-XZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+<<<<<<< HEAD
+            <point key="canvasLocation" x="6928.5" y="285"/>
+        </scene>
+        <!--My Rides-->
+        <scene sceneID="4zX-Za-kbA">
+            <objects>
+                <navigationController id="klB-kz-SfK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Rides" image="myRidesIcon" id="U8x-rH-By9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LY1-6e-1C6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CE6-2L-RaW" kind="relationship" relationship="rootViewController" id="YRh-Cu-tVd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lBt-uW-SZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5355" y="280.5"/>
+=======
+            <point key="canvasLocation" x="5383.5" y="273.75"/>
+>>>>>>> Parse
+        </scene>
+        <!--Settings-->
+        <scene sceneID="KGc-am-Ekw">
+            <objects>
+                <viewController id="crT-uE-Ga3" customClass="SettingsViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aKr-7V-BVw"/>
+                        <viewControllerLayoutGuide type="bottom" id="ukW-8M-eWc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EOq-uh-arb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJJ-Dd-sNc">
+                                <rect key="frame" x="237" y="285" width="126" height="30"/>
+                                <state key="normal" title="Log Me Out!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutRequest:" destination="crT-uE-Ga3" eventType="touchUpInside" id="pU9-XI-5ot"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="HJJ-Dd-sNc" secondAttribute="centerX" id="LSy-cC-exN"/>
+                            <constraint firstAttribute="centerY" secondItem="HJJ-Dd-sNc" secondAttribute="centerY" id="t43-85-XxL"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="11u-7B-SNh"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5272" y="1713"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="8rJ-Kc-sve" customClass="MapsViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" showsUserLocation="YES" id="90t-Ai-m8A">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outlet property="delegate" destination="8rJ-Kc-sve" id="XGQ-0o-Kx7"/>
+                        </connections>
+                    </mapView>
+                    <tabBarItem key="tabBarItem" title="Map" image="mapIcon-1" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="theMapView" destination="90t-Ai-m8A" id="Khm-64-mnp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5355" y="934.49999999999989"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5go-cQ-z7H"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="1" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="klB-kz-SfK" kind="relationship" relationship="viewControllers" id="c0p-c6-S5E"/>
+                        <segue destination="crT-uE-Ga3" kind="relationship" relationship="viewControllers" id="bZP-tM-HGA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3739.4999999999995" y="899.99999999999989"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mapIcon-1" width="30" height="30"/>
+        <image name="myRidesIcon" width="30" height="30"/>
+        <image name="settingsIcon" width="30" height="30"/>
+    </resources>
+    <color key="tintColor" red="0.96470588235294119" green="0.21568627450980393" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+</document>
