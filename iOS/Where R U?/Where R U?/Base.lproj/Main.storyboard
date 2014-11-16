@@ -153,7 +153,7 @@
         <!--My Rides-->
         <scene sceneID="4zX-Za-kbA">
             <objects>
-                <navigationController hidesBarsOnSwipe="YES" id="klB-kz-SfK" sceneMemberID="viewController">
+                <navigationController id="klB-kz-SfK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Rides" image="myRidesIcon" id="U8x-rH-By9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LY1-6e-1C6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

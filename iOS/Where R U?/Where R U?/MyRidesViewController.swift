@@ -20,6 +20,12 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     }
     
     
+    override  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            rideManager.rides.removeAtIndex(indexPath.row)
+            rideTable.reloadData()
+        }
+    }
     
     
     
