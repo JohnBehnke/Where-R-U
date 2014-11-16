@@ -33,7 +33,7 @@
                             <rect key="frame" x="-61" y="-14" width="123" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="All Rides"/>
+                                <segment title="One Time Rides"/>
                                 <segment title="Scheduled Rides"/>
                             </segments>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,9 +136,13 @@
                                     <segment title="One Time"/>
                                     <segment title="Scheduled"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="98" y="463" width="214" height="29"/>
                                 </variation>
+                                <connections>
+                                    <action selector="rideSelector:" destination="NVR-i3-m0i" eventType="valueChanged" id="fgC-ja-pkN"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
