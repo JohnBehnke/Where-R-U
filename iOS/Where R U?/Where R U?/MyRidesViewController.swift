@@ -10,8 +10,24 @@ import UIKit
 
 class MyRidesViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var isSingleRide = true
     @IBOutlet var rideTable: UITableView!
-      
+    
+    @IBAction func tableSelector(sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex
+        {
+        case 0:
+            isSingleRide = true
+             rideTable.reloadData()
+        case 1:
+            isSingleRide = false
+             rideTable.reloadData()
+        default:
+            break;
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +38,22 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     
     override  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete{
-            rideManager.rides.removeAtIndex(indexPath.row)
-            rideTable.reloadData()
+            
+            if isSingleRide{
+                rideManager.oneTimeRides.removeAtIndex(indexPath.row)
+                rideTable.reloadData()
+            }
+            
+            else{
+                rideManager.scheduledRides.removeAtIndex(indexPath.row)
+                rideTable.reloadData()
+            }
         }
     }
     
     
     
+   
     
     
 
@@ -41,19 +66,30 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
         return rideTable.reloadData()
     }
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) ->Int{
-        return rideManager.rides.count
-        
+        if isSingleRide{
+            return rideManager.oneTimeRides.count
+        }
+        else{
+            return rideManager.scheduledRides.count
+        }
     }
     
       override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
+        if isSingleRide{
+            cell.textLabel.text = rideManager.oneTimeRides[indexPath.row].getTitle()
+            cell.detailTextLabel?.text = rideManager.oneTimeRides[indexPath.row].getDriver().getFirstName()
         
-        cell.textLabel.text = rideManager.rides[indexPath.row].name
-        cell.detailTextLabel?.text = rideManager.rides[indexPath.row].driver
-        
-        return cell
+            return cell
+        }
+        else{
+            cell.textLabel.text = rideManager.scheduledRides[indexPath.row].getTitle()
+            cell.detailTextLabel?.text = rideManager.scheduledRides[indexPath.row].getDriver().getFirstName()
+            return cell
+
+        }
         
     }
 }

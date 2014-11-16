@@ -37,6 +37,9 @@
                                 <segment title="Scheduled Rides"/>
                             </segments>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="tableSelector:" destination="CE6-2L-RaW" eventType="valueChanged" id="NzV-fc-Qat"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kRh-on-7uI">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -112,12 +115,31 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="182" y="455" width="34" height="30"/>
+                                    <rect key="frame" x="182" y="552" width="34" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="donePressed:" destination="NVR-i3-m0i" eventType="touchUpInside" id="otg-rE-J39"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Ride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZQ-eA-Ayu">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="157" y="421" width="96" height="21"/>
+                                </variation>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5UQ-4g-Cqd">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <segments>
+                                    <segment title="One Time"/>
+                                    <segment title="Scheduled"/>
+                                </segments>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="98" y="463" width="214" height="29"/>
+                                </variation>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -127,6 +149,8 @@
                                 <exclude reference="rel-UE-smP"/>
                                 <exclude reference="3c5-8D-Gzt"/>
                                 <exclude reference="L2l-J5-zRe"/>
+                                <exclude reference="IZQ-eA-Ayu"/>
+                                <exclude reference="5UQ-4g-Cqd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -136,6 +160,8 @@
                                 <include reference="rel-UE-smP"/>
                                 <include reference="3c5-8D-Gzt"/>
                                 <include reference="L2l-J5-zRe"/>
+                                <include reference="IZQ-eA-Ayu"/>
+                                <include reference="5UQ-4g-Cqd"/>
                             </mask>
                         </variation>
                     </view>

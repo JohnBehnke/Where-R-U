@@ -14,6 +14,8 @@ var rideManager: RideManager = RideManager()
 
 
 struct ride {
+    
+    
     var name = "Name"
     var driver = "Driver"
     //var time = "ETA XX"
@@ -22,10 +24,20 @@ struct ride {
 
 class RideManager: NSObject{
     
-    var rides = [ride]()
+    var oneTimeRides = [Ride]()
     
-    func addRide(name: String, driver: String){
-        rides.append(ride(name: name, driver: driver))
+    var scheduledRides = [Ride]()
+    
+    
+    
+    func addOneTimeRide(name: String, driver: Person){
+        oneTimeRides.append(Ride(title: name, driver: driver))
+    }
+    
+    func addScheduledRides(name: String, driver: Person){
+        scheduledRides.append(Ride(title: name, driver: driver))
         
     }
+
+    
 }
