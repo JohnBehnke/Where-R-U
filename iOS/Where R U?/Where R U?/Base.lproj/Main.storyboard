@@ -55,7 +55,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpW-Ut-4yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6157.5" y="280.5"/>
+            <point key="canvasLocation" x="6129" y="280.5"/>
         </scene>
         <!--Add Ride View Controller-->
         <scene sceneID="WZh-bv-ke7">
@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmK-zm-XZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6928.5" y="285"/>
+            <point key="canvasLocation" x="6921" y="280.5"/>
         </scene>
         <!--My Rides-->
         <scene sceneID="4zX-Za-kbA">
@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5028" y="1675.5"/>
+            <point key="canvasLocation" x="5355" y="1567.5"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
@@ -282,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5355" y="934.5"/>
+            <point key="canvasLocation" x="5355" y="912.75"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
