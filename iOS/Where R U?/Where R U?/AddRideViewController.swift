@@ -11,12 +11,25 @@ import UIKit
 
 class AddRideViewController: UIViewController, UITextFieldDelegate {
     
+    var isSingleRide:Bool = true
     
     @IBOutlet var txtName: UITextField!
     
     @IBOutlet var txtDriver: UITextField!
     
 
+    @IBAction func rideSelector(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex
+        {
+        case 0:
+            isSingleRide = true
+        case 1:
+            isSingleRide = false
+        default:
+            break; 
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +44,27 @@ class AddRideViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func donePressed(sender: UIButton){
-        rideManager.addRide(txtName.text, driver: txtDriver.text)
-        self.view.endEditing(true)
-        txtDriver.text = ""
-        txtName.text = ""
         
+        var personObj:Person = Person(firstName: txtDriver.text, lastName: txtDriver.text, userName: "Test")
+        
+        
+        if isSingleRide{
+        
+            
+            rideManager.addOneTimeRide(txtName.text, driver: personObj)
+            self.view.endEditing(true)
+            txtDriver.text = ""
+            txtName.text = ""
+        }
+        
+        else{
+            
+            rideManager.addScheduledRides(txtName.text, driver: personObj)
+            self.view.endEditing(true)
+            txtDriver.text = ""
+            txtName.text = ""
+            
+        }
         
         
     }
