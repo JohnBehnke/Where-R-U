@@ -49,6 +49,7 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
                 rideTable.reloadData()
             }
         }
+        
     }
     
     
