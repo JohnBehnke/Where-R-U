@@ -18,7 +18,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.me.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.JohnBehnke.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -34,14 +34,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb612038995575384</string>
+				<string>fb710730552356324</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>612038995575384</string>
+	<string>710730552356324</string>
 	<key>FacebookDisplayName</key>
 	<string>Where R U?</string>
 	<key>LSRequiresIPhoneOS</key>

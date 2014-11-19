@@ -28,6 +28,8 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
             presentViewController(loginViewController, animated: true, completion: nil)
             loginViewController.delegate = self
             loginViewController.signUpController.delegate = self
+            
+            
         }
     }
     
@@ -61,6 +63,8 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
     //This function is only run once when app opens
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
     //This is the refresh function for the view I think
@@ -69,7 +73,8 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
         locationManager.requestWhenInUseAuthorization()
         
         var currentUser = PFUser.currentUser()
-        if currentUser != nil {
+        
+               if currentUser != nil {
             var uName = PFUser.currentUser().username
             var me = Person(firstName: "first",lastName: "last",userName: uName)
             if (CLLocationManager.locationServicesEnabled()){
