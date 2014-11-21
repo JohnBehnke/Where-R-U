@@ -172,11 +172,21 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             super(fm);
         }
 
+
+
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            if(position == 0) {
+                return PlaceholderFragment.newInstance(1);
+            } else {
+                return mapFragment.newInstance();
+            }
+
+
+
+
         }
 
         @Override
@@ -193,8 +203,6 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                     return getString(R.string.title_section1);
                 case 1:
                     return getString(R.string.title_section2);
-                case 2:
-                    return getString(R.string.title_section3);
             }
             return null;
         }
@@ -203,10 +211,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment implements
-            GooglePlayServicesClient.ConnectionCallbacks,
-            GooglePlayServicesClient.OnConnectionFailedListener,
-            LocationListener {
+    public static class PlaceholderFragment extends Fragment  {
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -214,10 +219,6 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         int mNum;
-        public GoogleMap map;
-        private LocationRequest lr;
-        private LocationClient lc;
-        private Fragment currentFragment;
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -234,40 +235,6 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         }
 
         @Override
-        public void onDestroyView() {
-            super.onDestroyView();
-            MapFragment f = (MapFragment) getFragmentManager().findFragmentById(R.id.map1);
-            if (f != null)
-                getFragmentManager().beginTransaction().remove(f).commit();
-        }
-
-        @Override
-        public void onLocationChanged(Location l2) {
-            Log.w("whereru", "Location changed!");
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(l2.getLatitude(), l2.getLongitude()), 15);
-            map.animateCamera(cameraUpdate);
-        }
-
-
-        @Override
-        public void onConnectionFailed(ConnectionResult arg0) {
-
-        }
-
-        @Override
-        public void onConnected(Bundle connectionHint) {
-            Log.w("whereru", "Connected!");
-            lc.requestLocationUpdates(lr, this);
-
-        }
-
-        @Override
-        public void onDisconnected() {
-
-        }
-
-        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
@@ -277,50 +244,16 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
 
             mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
 
-            if(mNum == 1) {
-                container.removeAllViewsInLayout();
-                // Make a list view
-                FragmentManager m = getFragmentManager();
-                FragmentTransaction t = m.beginTransaction();
+            // Get a fragment manager and transaction to change the type of fragment we're gonna have.
+            // This shouldn't get executed. If it does, then well shit.
+            FragmentManager m = getFragmentManager();
+            FragmentTransaction t = m.beginTransaction();
 
-                rootView = inflater.inflate(R.layout.fragment_rides_list, container, false);
-                currentFragment = RidesFragment2.newRidesInstance("Hello", "World");
-                t.replace(R.layout.fragment_map, currentFragment);
+            t.replace(R.layout.fragment_my, new PlaceholderFragment());
 
-            } else if(mNum == 2) {
-                container.removeAllViewsInLayout();
-                // Get a fragment manager and transaction to change the type of fragment we're gonna have.
-                FragmentManager m = getFragmentManager();
-                FragmentTransaction t = m.beginTransaction();
-
-                rootView = inflater.inflate(R.layout.fragment_map, container, false);
-                currentFragment = new mapFragment();
-                t.replace(R.layout.fragment_rides_list, currentFragment);
-
-                map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map1)).getMap();
-                map.setMyLocationEnabled(true);
-                map.getUiSettings().setMyLocationButtonEnabled(true);
-                map.getUiSettings().setCompassEnabled(true);
-
-                lr = LocationRequest.create();
-                lr.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-                lc = new LocationClient(this.getActivity().getApplicationContext(), this, this);
-                lc.connect();
-
-
-
-            } else {
-                // Get a fragment manager and transaction to change the type of fragment we're gonna have.
-                // This shouldn't get executed. If it does, then well shit.
-                FragmentManager m = getFragmentManager();
-                FragmentTransaction t = m.beginTransaction();
-
-                t.replace(R.layout.fragment_my, new PlaceholderFragment());
-
-                rootView = inflater.inflate(R.layout.fragment_my, container, false);
-                View tv = rootView.findViewById(R.id.mainText);
-                ((TextView)tv).setText("How did you even get here");
-            }
+            rootView = inflater.inflate(R.layout.fragment_my, container, false);
+            View tv = rootView.findViewById(R.id.mainText);
+            ((TextView)tv).setText("lolempty");
 
             return rootView;
         }

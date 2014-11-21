@@ -45,6 +45,11 @@ public class mapFragment extends Fragment implements
 
     }
 
+    public static mapFragment newInstance() {
+        mapFragment mf = new mapFragment();
+        return mf;
+    }
+
     @Override
     public void onLocationChanged(Location l2) {
         Log.w("whereru", "Location changed!");
@@ -76,9 +81,22 @@ public class mapFragment extends Fragment implements
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        View rootView;
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        rootView = inflater.inflate(R.layout.fragment_map, container, false);
+
+        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map1)).getMap();
+        map.setMyLocationEnabled(true);
+        map.getUiSettings().setMyLocationButtonEnabled(true);
+        map.getUiSettings().setCompassEnabled(true);
+
+        lr = LocationRequest.create();
+        lr.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        lc = new LocationClient(this.getActivity().getApplicationContext(), this, this);
+        lc.connect();
+
+        return rootView;
 
     }
 
