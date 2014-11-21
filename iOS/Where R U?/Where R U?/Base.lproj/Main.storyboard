@@ -145,6 +145,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
+<<<<<<< Updated upstream
                                 <exclude reference="TW1-IM-qod"/>
                                 <exclude reference="Mc8-e2-ctq"/>
                                 <exclude reference="rel-UE-smP"/>
@@ -152,10 +153,30 @@
                                 <exclude reference="IZQ-eA-Ayu"/>
                                 <exclude reference="5UQ-4g-Cqd"/>
                                 <exclude reference="L2l-J5-zRe"/>
+=======
+                                <exclude reference="alN-wW-f5d"/>
+                                <exclude reference="I0s-kA-s2Z"/>
+                                <exclude reference="af3-rG-ef9"/>
+                                <exclude reference="83u-kg-b4R"/>
+                                <exclude reference="4Ew-Rw-t0F"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Apq-P0-HyD"/>
+                                <exclude reference="VIw-8Y-gwb"/>
+                                <exclude reference="sQu-3l-cXv"/>
+                                <exclude reference="xr0-in-W5a"/>
+                                <exclude reference="58D-gr-2MA"/>
+                                <exclude reference="t0i-iy-Dft"/>
+                                <exclude reference="2VJ-7U-Iyr"/>
+                                <exclude reference="OsL-gh-khG"/>
+                                <exclude reference="rnV-GE-dMc"/>
+                                <exclude reference="uf1-c2-Rfm"/>
+>>>>>>> Stashed changes
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+<<<<<<< Updated upstream
                                 <include reference="TW1-IM-qod"/>
                                 <include reference="Mc8-e2-ctq"/>
                                 <include reference="rel-UE-smP"/>
@@ -163,6 +184,25 @@
                                 <include reference="IZQ-eA-Ayu"/>
                                 <include reference="5UQ-4g-Cqd"/>
                                 <include reference="L2l-J5-zRe"/>
+=======
+                                <include reference="alN-wW-f5d"/>
+                                <include reference="I0s-kA-s2Z"/>
+                                <include reference="af3-rG-ef9"/>
+                                <include reference="83u-kg-b4R"/>
+                                <include reference="4Ew-Rw-t0F"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Apq-P0-HyD"/>
+                                <include reference="VIw-8Y-gwb"/>
+                                <include reference="sQu-3l-cXv"/>
+                                <include reference="xr0-in-W5a"/>
+                                <include reference="58D-gr-2MA"/>
+                                <include reference="t0i-iy-Dft"/>
+                                <include reference="2VJ-7U-Iyr"/>
+                                <include reference="OsL-gh-khG"/>
+                                <include reference="rnV-GE-dMc"/>
+                                <include reference="uf1-c2-Rfm"/>
+>>>>>>> Stashed changes
                             </mask>
                         </variation>
                     </view>
