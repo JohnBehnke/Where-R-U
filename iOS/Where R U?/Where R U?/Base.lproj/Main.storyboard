@@ -87,7 +87,7 @@
                                     <rect key="frame" x="148" y="255" width="115" height="21"/>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rel-UE-smP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Ride" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rel-UE-smP">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -98,7 +98,7 @@
                                     <outlet property="delegate" destination="NVR-i3-m0i" id="zFd-qJ-4Sy"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3c5-8D-Gzt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Driver's Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3c5-8D-Gzt">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -106,18 +106,6 @@
                                     <rect key="frame" x="32" y="326" width="340" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2l-J5-zRe">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="182" y="552" width="34" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="donePressed:" destination="NVR-i3-m0i" eventType="touchUpInside" id="otg-rE-J39"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Ride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZQ-eA-Ayu">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -141,6 +129,18 @@
                                     <action selector="rideSelector:" destination="NVR-i3-m0i" eventType="valueChanged" id="fgC-ja-pkN"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2l-J5-zRe">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="183" y="574" width="34" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="donePressed:" destination="NVR-i3-m0i" eventType="touchUpInside" id="otg-rE-J39"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -149,9 +149,9 @@
                                 <exclude reference="Mc8-e2-ctq"/>
                                 <exclude reference="rel-UE-smP"/>
                                 <exclude reference="3c5-8D-Gzt"/>
-                                <exclude reference="L2l-J5-zRe"/>
                                 <exclude reference="IZQ-eA-Ayu"/>
                                 <exclude reference="5UQ-4g-Cqd"/>
+                                <exclude reference="L2l-J5-zRe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -160,9 +160,9 @@
                                 <include reference="Mc8-e2-ctq"/>
                                 <include reference="rel-UE-smP"/>
                                 <include reference="3c5-8D-Gzt"/>
-                                <include reference="L2l-J5-zRe"/>
                                 <include reference="IZQ-eA-Ayu"/>
                                 <include reference="5UQ-4g-Cqd"/>
+                                <include reference="L2l-J5-zRe"/>
                             </mask>
                         </variation>
                     </view>

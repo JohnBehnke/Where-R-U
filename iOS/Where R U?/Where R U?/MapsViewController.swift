@@ -24,7 +24,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
         var currentUser = PFUser.currentUser()
         if currentUser == nil {
             var loginViewController:PFLogInViewController = PFLogInViewController()
-            loginViewController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.Facebook | PFLogInFields.SignUpButton;
+            loginViewController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.PasswordForgotten | PFLogInFields.Facebook | PFLogInFields.SignUpButton;
             presentViewController(loginViewController, animated: true, completion: nil)
             loginViewController.delegate = self
             loginViewController.signUpController.delegate = self
