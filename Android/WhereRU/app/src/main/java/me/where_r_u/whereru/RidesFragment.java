@@ -1,7 +1,10 @@
 package me.where_r_u.whereru;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Outline;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,33 +12,33 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
+import android.widget.Button;
+
+import me.where_r_u.whereru.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RidesFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RidesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class RidesFragment extends Fragment {
     private static final String TAG = "RecyclerViewFragment";
 
     protected RecyclerView mRecyclerView;
     protected RecyclerView.Adapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset;
+    protected Ride[] mDataset;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         initDataset();
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,6 +59,19 @@ public class RidesFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
         // END_INCLUDE(initializeRecyclerView)
 
+        Button fab = (Button) rootView.findViewById(R.id.fab);
+
+        ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                // Or read size directly from the view's width/height
+                int size = getResources().getDimensionPixelSize(R.dimen.fab_size);
+                outline.setOval(0, 0, size, size);
+            }
+        };
+
+        fab.setOutlineProvider(viewOutlineProvider);
+
         return rootView;
     }
 
@@ -64,9 +80,9 @@ public class RidesFragment extends Fragment {
      * from a local content provider or remote server.
      */
     private void initDataset() {
-        mDataset = new String[60];
+        mDataset = new Ride[60];
         for (int i=0; i < 60; i++) {
-            mDataset[i] = "This is element #" + i;
+            mDataset[i] = new Ride("This is element #" + i, new Person("Brian Kelley"));
         }
     }
 

@@ -2,6 +2,7 @@ package me.where_r_u.whereru;
 
 import java.util.Locale;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -18,8 +19,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.*;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.os.Build;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -30,6 +34,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewOutlineProvider;
+import android.widget.Button;
 import android.widget.TextView;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
@@ -56,6 +62,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
      */
     ViewPager mViewPager;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +115,21 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                             .setIcon(icons[i])
                             .setTabListener(this));
         }
+
     }
+
+    public void newRide(View item) {
+        Intent intent = new Intent(this, NewRideActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickSettings(MenuItem item) {
+        // Open the settings menu
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+
+    }
+
 
     private void login() {
         // Will be used for user authentication later
@@ -180,6 +201,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if(position == 0) {
+
                 RidesFragment fragment = new RidesFragment();
                 return fragment;
             } else {

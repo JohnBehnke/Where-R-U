@@ -16,6 +16,7 @@ public class Ride {
     private ArrayList<Person> passengers;
     private ArrayList<Person> pickedUp;
     private ArrayList<Person> toPickUp;
+    private String humanReadableDestination;
 
     private LatLng startLocation;
     private LatLng currentLocation;
@@ -27,6 +28,8 @@ public class Ride {
         this.title = t;
         this.driver = d;
     }
+
+    public Ride() {}
 
     public Ride(String t, Person d, ArrayList<Person> pass) {
         this.title = t;
@@ -50,6 +53,11 @@ public class Ride {
     public ArrayList<Person> getPickedUp() {
         return pickedUp;
     }
+
+    public String getHumanReadableDestination() {
+        return humanReadableDestination;
+    }
+    public void setHumanReadableDestination(String dest) {humanReadableDestination = dest;}
 
     public void setPickedUp(ArrayList<Person> pickedUp) {
         this.pickedUp = pickedUp;

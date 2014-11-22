@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="me.where_r_u.whereru.NewRideActivity">
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/rideTitle"
+        android:hint="@string/rideTitle"
+        android:textColor="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/driverName"
+        android:hint="@string/driverName"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/rideTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/destination"
+        android:hint="@string/destination"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/driverName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:id="@+id/button"
+        android:onClick="createRide"
+        android:layout_below="@+id/destination"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

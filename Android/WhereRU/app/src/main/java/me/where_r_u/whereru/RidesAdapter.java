@@ -14,7 +14,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
 
     private static final String TAG = "CustomAdapter";
 
-    private String[] mDataSet;
+    private Ride[] mDataSet;
 
     // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
     /**
@@ -38,7 +38,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public RidesAdapter(String[] dataSet) {
+    public RidesAdapter(Ride[] dataSet) {
         mDataSet = dataSet;
     }
 
@@ -61,7 +61,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
 
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
-        viewHolder.getmTextView().setText(mDataSet[position]);
+        viewHolder.getmTextView().setText(mDataSet[position].getTitle());
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)
 
