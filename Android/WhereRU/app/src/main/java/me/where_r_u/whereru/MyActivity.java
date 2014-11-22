@@ -62,8 +62,9 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
 
         Parse.initialize(this, "xvMUWOgtfsYb6hYIhog61pAyjmIsBYAmBkwcw1ih", "jttPcBwMtBnWbwGtDlcv5RaBIyFQy872e0XGExyE");
 
-        //login(); // Comment out when testing so you don't get annoyed by needing to log in.
-
+//        while(ParseUser.getCurrentUser() == null) {
+//            login(); // Comment out when testing so you don't get annoyed by needing to log in.
+//        }
         setContentView(R.layout.activity_my);
 
         // Set up the action bar.
@@ -179,19 +180,17 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if(position == 0) {
-                return PlaceholderFragment.newInstance(1);
+                RidesFragment fragment = new RidesFragment();
+                return fragment;
             } else {
                 return mapFragment.newInstance();
             }
-
-
-
 
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 2 total pages.
             return 2;
         }
 
