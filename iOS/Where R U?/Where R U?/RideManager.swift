@@ -13,14 +13,6 @@ import UIKit
 var rideManager: RideManager = RideManager()
 
 
-struct ride {
-    
-    
-    var name = "Name"
-    var driver = "Driver"
-    //var time = "ETA XX"
-    
-}
 
 class RideManager: NSObject{
     
