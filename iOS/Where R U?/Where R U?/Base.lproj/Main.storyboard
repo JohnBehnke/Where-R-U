@@ -8,16 +8,88 @@
         <scene sceneID="x8J-KM-sXs">
             <objects>
                 <tableViewController id="CE6-2L-RaW" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="Gx2-k1-SYa">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="Gx2-k1-SYa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Test" rowHeight="100" id="99Y-nB-aXv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rideTableCell" id="99Y-nB-aXv" customClass="rideCell" customModule="Where_R_U_" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="99Y-nB-aXv" id="jMf-jM-dcG">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride of Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVe-Wl-bEQ">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="8" y="8" width="162" height="34"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyP-fm-Yfe">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="276" y="11" width="102" height="35"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETA: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooV-3X-41g">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="276" y="76" width="102" height="37"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMY-iY-HaK">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="8" y="76" width="255" height="30"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="449-Xg-Ygg">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="8" y="43" width="120" height="34"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="PVe-Wl-bEQ"/>
+                                            <exclude reference="NyP-fm-Yfe"/>
+                                            <exclude reference="ooV-3X-41g"/>
+                                            <exclude reference="KMY-iY-HaK"/>
+                                            <exclude reference="449-Xg-Ygg"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="PVe-Wl-bEQ"/>
+                                            <include reference="NyP-fm-Yfe"/>
+                                            <include reference="ooV-3X-41g"/>
+                                            <include reference="KMY-iY-HaK"/>
+                                            <include reference="449-Xg-Ygg"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="rideDate" destination="NyP-fm-Yfe" id="eHz-S6-e7w"/>
+                                    <outlet property="rideDestination" destination="KMY-iY-HaK" id="yh8-4q-kTR"/>
+                                    <outlet property="rideDriver" destination="449-Xg-Ygg" id="CGg-96-9wH"/>
+                                    <outlet property="rideETA" destination="ooV-3X-41g" id="1mL-ES-Aba"/>
+                                    <outlet property="rideName" destination="PVe-Wl-bEQ" id="3rw-IZ-7c4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -27,8 +99,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="d0O-I8-lVf">
-                        <nil key="title"/>
-                        <barButtonItem key="backBarButtonItem" title="Done" id="EGx-lD-Jn1"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="MWE-eC-fcq">
                             <rect key="frame" x="183.5" y="7.5" width="233" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -41,16 +111,18 @@
                                 <action selector="tableSelector:" destination="CE6-2L-RaW" eventType="valueChanged" id="NzV-fc-Qat"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kRh-on-7uI">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="kRh-on-7uI">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="NVR-i3-m0i" kind="show" id="cal-5F-RQw"/>
+                                <action selector="addButtonPressed:" destination="CE6-2L-RaW" id="HOy-um-2W4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="rideTable" destination="Gx2-k1-SYa" id="ego-da-Eg3"/>
+                        <segue destination="NVR-i3-m0i" kind="presentation" identifier="showRideAdd" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="fLE-gG-gDk"/>
+                        <segue destination="Hsa-fh-pUK" kind="show" identifier="ShowRideDetail" id="yjK-Xf-hrI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpW-Ut-4yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,50 +141,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Ride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW1-IM-qod">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Ride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TW1-IM-qod">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="148" y="124" width="105" height="21"/>
+                                    <rect key="frame" x="148" y="63" width="105" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of Driver" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc8-e2-ctq">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="148" y="255" width="115" height="21"/>
-                                </variation>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Ride" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rel-UE-smP">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="32" y="162" width="340" height="30"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="NVR-i3-m0i" id="zFd-qJ-4Sy"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Driver's Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3c5-8D-Gzt">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="32" y="326" width="340" height="30"/>
-                                </variation>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Ride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZQ-eA-Ayu">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="157" y="421" width="96" height="21"/>
+                                    <rect key="frame" x="152" y="289" width="96" height="21"/>
                                 </variation>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5UQ-4g-Cqd">
@@ -123,7 +167,7 @@
                                 </segments>
                                 <color key="tintColor" red="1" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="97" y="462" width="216" height="29"/>
+                                    <rect key="frame" x="92" y="330" width="216" height="29"/>
                                 </variation>
                                 <connections>
                                     <action selector="rideSelector:" destination="NVR-i3-m0i" eventType="valueChanged" id="fgC-ja-pkN"/>
@@ -135,47 +179,90 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="183" y="574" width="34" height="30"/>
+                                    <rect key="frame" x="183" y="395" width="34" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="donePressed:" destination="NVR-i3-m0i" eventType="touchUpInside" id="otg-rE-J39"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEw-bl-hyW">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="176" y="445" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="NVR-i3-m0i" eventType="touchUpInside" id="tMV-II-Jw9"/>
+                                    <action selector="donePressed:" destination="NVR-i3-m0i" eventType="touchUpInside" id="QMb-Z9-xmk"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Ride" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rel-UE-smP">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="108" width="340" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="NVR-i3-m0i" id="zFd-qJ-4Sy"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where to?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHO-qp-8A7">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="232" width="340" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Driver's Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3c5-8D-Gzt">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="30" y="170" width="340" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="TW1-IM-qod"/>
-                                <exclude reference="Mc8-e2-ctq"/>
-                                <exclude reference="rel-UE-smP"/>
-                                <exclude reference="3c5-8D-Gzt"/>
                                 <exclude reference="IZQ-eA-Ayu"/>
                                 <exclude reference="5UQ-4g-Cqd"/>
                                 <exclude reference="L2l-J5-zRe"/>
+                                <exclude reference="uEw-bl-hyW"/>
+                                <exclude reference="rel-UE-smP"/>
+                                <exclude reference="SHO-qp-8A7"/>
+                                <exclude reference="3c5-8D-Gzt"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="TW1-IM-qod"/>
-                                <include reference="Mc8-e2-ctq"/>
-                                <include reference="rel-UE-smP"/>
-                                <include reference="3c5-8D-Gzt"/>
                                 <include reference="IZQ-eA-Ayu"/>
                                 <include reference="5UQ-4g-Cqd"/>
                                 <include reference="L2l-J5-zRe"/>
+                                <include reference="uEw-bl-hyW"/>
+                                <include reference="rel-UE-smP"/>
+                                <include reference="SHO-qp-8A7"/>
+                                <include reference="3c5-8D-Gzt"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="zRF-eP-WoJ"/>
                     <modalFormSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="txtDestination" destination="SHO-qp-8A7" id="5CF-Kr-X0U"/>
                         <outlet property="txtDriver" destination="3c5-8D-Gzt" id="z3d-j6-91h"/>
                         <outlet property="txtName" destination="rel-UE-smP" id="Xq8-Wh-VRE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmK-zm-XZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6723" y="220.5"/>
+            <point key="canvasLocation" x="6610.5" y="220.5"/>
         </scene>
         <!--My Rides-->
         <scene sceneID="4zX-Za-kbA">
@@ -282,6 +369,112 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3939" y="912.75"/>
+        </scene>
+        <!--Ride Detail View Controller-->
+        <scene sceneID="3tQ-P2-V9P">
+            <objects>
+                <viewController modalTransitionStyle="partialCurl" id="Hsa-fh-pUK" customClass="RideDetailViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wqc-ji-4IV"/>
+                        <viewControllerLayoutGuide type="bottom" id="yqQ-ZR-gd2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qdk-oX-RtS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name of Ride" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOx-u7-yaw">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="87" width="171" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Destination" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnm-hW-X4r">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="156" width="171" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Driver" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dPv-dt-rXL">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="225" width="171" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sdk-Bm-4gl">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="291" width="171" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ETA" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d0G-ku-cnO">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="364" width="171" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name of Ride" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQO-yO-aP0">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="87" width="171" height="30"/>
+                                </variation>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="cOx-u7-yaw"/>
+                                <exclude reference="gnm-hW-X4r"/>
+                                <exclude reference="dPv-dt-rXL"/>
+                                <exclude reference="sdk-Bm-4gl"/>
+                                <exclude reference="d0G-ku-cnO"/>
+                                <exclude reference="UQO-yO-aP0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="cOx-u7-yaw"/>
+                                <include reference="gnm-hW-X4r"/>
+                                <include reference="dPv-dt-rXL"/>
+                                <include reference="sdk-Bm-4gl"/>
+                                <include reference="d0G-ku-cnO"/>
+                                <include reference="UQO-yO-aP0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LGz-O4-6Id">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SZY-ES-fiZ">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="Hsa-fh-pUK" id="7sH-QM-azp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="IV6-uN-oN7">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="Hsa-fh-pUK" id="Stt-Nu-Jec"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="rideDestination" destination="gnm-hW-X4r" id="to7-KB-yMN"/>
+                        <outlet property="rideDriver" destination="dPv-dt-rXL" id="So2-oj-Jzp"/>
+                        <outlet property="rideName" destination="UQO-yO-aP0" id="BxU-id-xLL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmk-Zg-1ru" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5974.5" y="1122"/>
         </scene>
     </scenes>
     <resources>

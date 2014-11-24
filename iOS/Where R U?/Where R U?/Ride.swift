@@ -16,9 +16,11 @@ class Ride{
     
     
     //Init when no passengers are added
-    init(title: String, driver: Person){
+    init(title: String, destination: String ,driver: Person){
         self.title = title
         self.driver = driver
+        self.destinationName = destination
+
         self.passengers = []
         self.toPickUp = self.passengers
         self.pickedUp  = []
@@ -49,7 +51,7 @@ class Ride{
     private var pickedUp : [Person]
 //    private var startLocation: Double
 //    private var destinationGPS : Double
-//    private var destinationName: String
+    private var destinationName: String
 //    private var waypoints : [Double]
 //    
     
@@ -248,9 +250,9 @@ class Ride{
 //        return self.destinationGPS
 //    }
 //    
-//    func getDestinationName() ->String{
-//        return self.destinationName
-//    }
+    func getDestinationName() ->String{
+        return self.destinationName
+    }
 //    func getWaypoints() ->[Double]{
 //        return self.waypoints
 //    }
