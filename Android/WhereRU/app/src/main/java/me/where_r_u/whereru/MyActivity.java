@@ -1,5 +1,6 @@
 package me.where_r_u.whereru;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import android.annotation.TargetApi;
@@ -62,6 +63,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
      */
     ViewPager mViewPager;
 
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +79,6 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-//
-//        // Hide Actionbar Icon
-//        actionBar.setDisplayShowHomeEnabled(false);
-//        // Hide Actionbar Title
-//        actionBar.setDisplayShowTitleEnabled(false);
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -101,6 +98,7 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             }
         });
 
+
         Integer[] icons = {R.drawable.ic_my_rides, R.drawable.ic_map};
 
         // For each of the sections in the app, add a tab to the action bar.
@@ -116,12 +114,10 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                             .setTabListener(this));
         }
 
+        mSectionsPagerAdapter.mDataset = new ArrayList<Ride>();
+
     }
 
-    public void newRide(View item) {
-        Intent intent = new Intent(this, NewRideActivity.class);
-        startActivity(intent);
-    }
 
     public void onClickSettings(MenuItem item) {
         // Open the settings menu
@@ -190,6 +186,8 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+        public ArrayList<Ride> mDataset;
+
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -201,8 +199,9 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if(position == 0) {
-
                 RidesFragment fragment = new RidesFragment();
+                Log.d("whereru", "Rides fragment being created");
+                fragment.fill(mDataset);
                 return fragment;
             } else {
                 return mapFragment.newInstance();
@@ -226,57 +225,6 @@ public class MyActivity extends Activity implements ActionBar.TabListener {
                     return getString(R.string.title_section2);
             }
             return null;
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment  {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        int mNum;
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-
-
-            View rootView;
-
-            mNum = getArguments() != null ? getArguments().getInt(ARG_SECTION_NUMBER) : 1;
-
-            // Get a fragment manager and transaction to change the type of fragment we're gonna have.
-            // This shouldn't get executed. If it does, then well shit.
-            FragmentManager m = getFragmentManager();
-            FragmentTransaction t = m.beginTransaction();
-
-            t.replace(R.layout.fragment_my, new PlaceholderFragment());
-
-            rootView = inflater.inflate(R.layout.fragment_my, container, false);
-            View tv = rootView.findViewById(R.id.mainText);
-            ((TextView)tv).setText("lolempty");
-
-            return rootView;
         }
     }
 

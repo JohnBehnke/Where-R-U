@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by kelleb3 on 11/21/14.
  */
@@ -14,33 +16,49 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
 
     private static final String TAG = "CustomAdapter";
 
-    private Ride[] mDataSet;
+    private ArrayList<Ride> mDataSet;
 
     // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
     /**
      * Provide a reference to the type of views that you are using (custom viewholder)
      */
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView mTextView;
+        private final TextView rideTitle;
+        private final TextView driverName;
+        private final TextView destination;
 
         public ViewHolder(View v) {
             super(v);
-            mTextView = (TextView) v.findViewById(R.id.textView);
+            rideTitle = (TextView) v.findViewById(R.id.rideTitle);
+            driverName = (TextView) v.findViewById(R.id.driverName);
+            destination = (TextView) v.findViewById(R.id.destination);
         }
 
-        public TextView getmTextView() {
-            return mTextView;
+        public TextView getRideTitle() {
+            return rideTitle;
+        }
+
+        public TextView getDriverName() {
+            return driverName;
+        }
+
+        public TextView getDestination() {
+            return destination;
         }
     }
+
     // END_INCLUDE(recyclerViewSampleViewHolder)
     /**
      * Initialize the dataset of the Adapter.
      *
      * @param dataSet String[] containing the data to populate views to be used by RecyclerView.
      */
-    public RidesAdapter(Ride[] dataSet) {
+    public RidesAdapter(ArrayList<Ride> dataSet) {
         mDataSet = dataSet;
     }
+
+
 
     // BEGIN_INCLUDE(recyclerViewOnCreateViewHolder)
     // Create new views (invoked by the layout manager)
@@ -57,16 +75,20 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
     // BEGIN_INCLUDE(recyclerViewOnBindViewHolder)
     // Replace the contents of a view (invoked by the layout manager)
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        Log.d(TAG, "Element " + position + " set.");
-
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
-        viewHolder.getmTextView().setText(mDataSet[position].getTitle());
+        viewHolder.getRideTitle().setText(mDataSet.get(position).getTitle());
+        viewHolder.getDriverName().setText("Driver: " + mDataSet.get(position).getDriver().getName());
+        viewHolder.getDestination().setText("Destination: " + mDataSet.get(position).getHumanReadableDestination());
     }
     // END_INCLUDE(recyclerViewOnBindViewHolder)
 
     // Return the size of your dataset (invoked by the layout manager)
     public int getItemCount() {
-        return mDataSet.length;
+        if (mDataSet != null) {
+            return mDataSet.size();
+        } else {
+            return 0;
+        }
     }
 }

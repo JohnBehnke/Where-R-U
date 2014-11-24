@@ -2,9 +2,8 @@ package me.where_r_u.whereru;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -36,7 +35,6 @@ public class NewRideActivity extends Activity {
     }
 
     public void createRide(View v) {
-        Ride newRide = new Ride();
         String name = ((EditText) findViewById(R.id.driverName)).getText().toString();
         String title = ((EditText) findViewById(R.id.rideTitle)).getText().toString();
         String destination = ((EditText) findViewById(R.id.destination)).getText().toString();
@@ -45,17 +43,19 @@ public class NewRideActivity extends Activity {
 
         int duration = Toast.LENGTH_SHORT;
 
-        if (title.trim().length() > 0) {
-            newRide.setDriver(new Person(name));
+        if (name.trim().length() > 0) {
+            if (title.trim().length() > 0) {
 
-            if (name.trim().length() > 0) {
-                newRide.setTitle(title);
 
                 if (destination.trim().length() > 0) {
-                    newRide.setHumanReadableDestination(destination);
 
+                    Intent resultData = new Intent();
+                    resultData.putExtra("name", name);
+                    resultData.putExtra("title", title);
+                    resultData.putExtra("destination", destination);
+                    setResult(Activity.RESULT_OK, resultData);
 
-
+                    finish();
                 } else {
                     CharSequence text = "Enter a destination!";
                     Toast toast = Toast.makeText(context, text, duration);

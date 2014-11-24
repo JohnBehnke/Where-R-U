@@ -80,12 +80,14 @@ public class mapFragment extends Fragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // This is the onCreate. What we want to do here is initialize the map and start the location stuff
 
         View rootView;
 
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_map, container, false);
 
+        // Get the map, start location services
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map1)).getMap();
         map.setMyLocationEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(true);
