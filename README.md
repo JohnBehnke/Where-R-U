@@ -7,3 +7,4 @@ We hope to create an intuitive carpool and ride organiser.  People will be able 
 Before the driver leaves to pick people up, he/she presses the "on my way" button, which alerts riders.  Conversly, when riders are ready to be picked up, they can send a "ready" alert.
 Using GPS and Google maps integration, the driver will be able to broadcast his position in real time, so riders can track their location.  Likewise, the driver will recieve locations of where to pick up the riders.
 
+We hope to be able to make it easier to organize and schedule carpools
