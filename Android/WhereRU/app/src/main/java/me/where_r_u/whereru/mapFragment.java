@@ -6,7 +6,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,28 +14,25 @@ import android.view.ViewGroup;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.model.*;
 import com.google.android.gms.maps.model.LatLng;
 
 
-/**
- * A simple {@link Fragment} subclass.
- *
- */
+
 public class mapFragment extends Fragment implements
         GooglePlayServicesClient.ConnectionCallbacks,
         GooglePlayServicesClient.OnConnectionFailedListener,
-        LocationListener {
+        LocationListener, OnMapReadyCallback {
 
     public GoogleMap map;
     private LocationRequest lr;
-    private LocationClient lc;
 
     public mapFragment() {
         // Log.w("whereru", "empty constructor, should be called");
@@ -67,7 +64,6 @@ public class mapFragment extends Fragment implements
     @Override
     public void onConnected(Bundle connectionHint) {
         Log.w("whereru", "Connected!");
-        lc.requestLocationUpdates(lr, this);
 
     }
 
@@ -88,21 +84,25 @@ public class mapFragment extends Fragment implements
         rootView = inflater.inflate(R.layout.fragment_map, container, false);
 
         // Get the map, start location services
-        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map1)).getMap();
-        map.setMyLocationEnabled(true);
-        map.getUiSettings().setMyLocationButtonEnabled(true);
-        map.getUiSettings().setCompassEnabled(true);
+        SupportMapFragment mf = (SupportMapFragment) this.getChildFragmentManager()
+                .findFragmentById(R.id.map1);
+        mf.getMapAsync(mapFragment.this);
 
-        lr = LocationRequest.create();
-        lr.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        lc = new LocationClient(this.getActivity().getApplicationContext(), this, this);
-        lc.connect();
+
 
         return rootView;
 
     }
 
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
+        map.setMyLocationEnabled(true);
+        map.getUiSettings().setMyLocationButtonEnabled(true);
+        map.getUiSettings().setCompassEnabled(true);
 
-
+        lr = LocationRequest.create();
+        lr.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    }
 }

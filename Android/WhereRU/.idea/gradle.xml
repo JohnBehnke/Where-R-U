@@ -5,15 +5,12 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2" />
+        <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.2.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/Parse-1.7.0" />
+            <option value="$PROJECT_DIR$/ParseLoginUI" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app/libs" />
-            <option value="$PROJECT_DIR$/app/libs/ParseLoginUI" />
-            <option value="$PROJECT_DIR$/facebook" />
           </set>
         </option>
       </GradleProjectSettings>

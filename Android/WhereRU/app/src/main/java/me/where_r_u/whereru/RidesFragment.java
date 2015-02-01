@@ -7,7 +7,7 @@ import android.graphics.Outline;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
@@ -51,7 +52,7 @@ public class RidesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_rides, container, false);
         rootView.setTag(TAG);
 
-        Button mButton = (Button) rootView.findViewById(R.id.fab);
+        ImageButton mButton = (ImageButton) rootView.findViewById(R.id.fab);
         mButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 newRide(v);
@@ -71,25 +72,6 @@ public class RidesFragment extends Fragment {
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
         // END_INCLUDE(initializeRecyclerView)
-
-        Button fab = (Button) rootView.findViewById(R.id.fab);
-
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
-
-        if(SDK_INT == 21) {
-
-            ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
-                @Override
-                public void getOutline(View view, Outline outline) {
-                    // Or read size directly from the view's width/height
-                    int size = getResources().getDimensionPixelSize(R.dimen.fab_size);
-                    outline.setOval(0, 0, size, size);
-                }
-            };
-
-            fab.setOutlineProvider(viewOutlineProvider);
-
-        }
 
         return rootView;
     }

@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by kelleb3 on 11/21/14.
- */
 public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> {
 
     private static final String TAG = "CustomAdapter";

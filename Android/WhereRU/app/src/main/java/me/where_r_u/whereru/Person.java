@@ -3,7 +3,7 @@ package me.where_r_u.whereru;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
- * Created by Brian Kelley on 9/29/14.
+ * Created by brian on 2/1/15.
  */
 public class Person {
     private String name;
@@ -35,7 +35,5 @@ public class Person {
     public void setPickupLocation(LatLng location) {
         pickupLocation = location;
     }
-
-
 
 }

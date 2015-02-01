@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 
 /**
- * Created by kelleb3 on 9/29/14.
+ * Created by brian on 2/1/15.
  */
 public class Ride {
     // Member variables
