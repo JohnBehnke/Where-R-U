@@ -16,7 +16,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:onClick="newRide"
         android:id="@+id/fab"
         android:contentDescription="@string/fab_description" />
 
