@@ -30,6 +30,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
             rideTitle = (TextView) v.findViewById(R.id.rideTitle);
             driverName = (TextView) v.findViewById(R.id.driverName);
             destination = (TextView) v.findViewById(R.id.destination);
+
         }
 
         public TextView getRideTitle() {

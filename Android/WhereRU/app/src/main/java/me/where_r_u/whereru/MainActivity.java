@@ -98,6 +98,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
         mSectionsPagerAdapter.mDataset = new ArrayList<Ride>();
 
+
+
     }
 
 
@@ -128,8 +130,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         if (resultCode != RESULT_OK) {
             login();
         }
-
-
     }
 
     @Override
@@ -169,12 +169,21 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
 
+    public void logOut(MenuItem item) {
+        ParseUser.logOut();
+        Intent i = getBaseContext().getPackageManager()
+                .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+    }
+
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         public ArrayList<Ride> mDataset;
+        RidesFragment f;
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -185,10 +194,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if(position == 0) {
-                RidesFragment fragment = new RidesFragment();
-                Log.d("whereru", "Rides fragment being created");
-                fragment.fill(mDataset);
-                return fragment;
+                f = new RidesFragment();
+                f.fill(mDataset);
+                return f;
             } else {
                 return mapFragment.newInstance();
             }

@@ -22,6 +22,7 @@ public class Ride {
     private LatLng currentLocation;
     private LatLng destination;
     private ArrayList<LatLng> waypoints;
+    private String rideId;
 
     // Constructors
     public Ride(String t, Person d) {
@@ -126,5 +127,13 @@ public class Ride {
     public String getTitle() {
 
         return title;
+    }
+
+    public String getRideId() {
+        return rideId;
+    }
+
+    public void setRideId(String rideId) {
+        this.rideId = rideId;
     }
 }

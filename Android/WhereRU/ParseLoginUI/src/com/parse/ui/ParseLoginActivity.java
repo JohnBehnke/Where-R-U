@@ -229,4 +229,8 @@ public class ParseLoginActivity extends FragmentActivity implements
 
     return mergedOptions;
   }
+
+    public void onBackPressed() {
+        finish();
+    }
 }

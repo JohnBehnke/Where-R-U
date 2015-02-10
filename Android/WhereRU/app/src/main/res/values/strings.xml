@@ -11,5 +11,6 @@
     <string name="rideTitle">Ride Title</string>
     <string name="driverName">Driver</string>
     <string name="destination">Destination</string>
+    <string name="log_out">Log Out</string>
 
 </resources>

@@ -18,7 +18,15 @@ import android.view.ViewOutlineProvider;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import me.where_r_u.whereru.R;
 
@@ -72,6 +80,10 @@ public class RidesFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
         // END_INCLUDE(initializeRecyclerView)
 
+        // If the user is already logged in, get his/her rides
+        // Continuously try to get rides until it succeeds.
+        while (!getRides());
+
         return rootView;
     }
 
@@ -80,13 +92,50 @@ public class RidesFragment extends Fragment {
         startActivityForResult(intent, 1);
     }
 
+    public Boolean getRides() {
+
+        if (ParseUser.getCurrentUser() == null) {
+            return false;
+        }
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Ride");
+        query.whereEqualTo("user", ParseUser.getCurrentUser());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    for (ParseObject element : objects) {
+                        Ride r = new Ride();
+                        r.setHumanReadableDestination(element.getString("hrDest"));
+                        r.setDriver(new Person(element.getString("driver")));
+                        r.setTitle(element.getString("title"));
+                        r.setRideId(element.getObjectId());
+                        mDataset.add(r);
+
+                    }
+                } else {
+                    Log.e("whereru-Parse", e.toString());
+                }
+            }
+        });
+        mAdapter.notifyDataSetChanged();
+        return true;
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK && requestCode == 1) {
-            Log.d("whereru", "onActivityResult called!!!");
             Ride newRide = new Ride();
             newRide.setDriver(new Person(data.getStringExtra("name")));
             newRide.setTitle(data.getStringExtra("title"));
             newRide.setHumanReadableDestination(data.getStringExtra("destination"));
+
+            ParseUser user = ParseUser.getCurrentUser();
+            ParseObject ride = new ParseObject("Ride");
+            ride.put("driver", newRide.getDriver().getName());
+            ride.put("title", newRide.getTitle());
+            ride.put("hrDest", newRide.getHumanReadableDestination());
+            ride.put("user", user);
+            ride.saveInBackground();
+
             mDataset.add(newRide);
             mAdapter.notifyDataSetChanged();
         }
