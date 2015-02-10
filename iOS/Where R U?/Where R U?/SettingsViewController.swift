@@ -15,8 +15,22 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBAction func zachCantPArselolo(sender: UIButton) {
+        
+        var friendship = PFObject(className: "Friends")
+        friendship.addObject(PFUser.currentUser(), forKey: "user1")
+        friendship.addObject(PFUser.currentUser(), forKey: "user2")
+        
+        
+    }
+
     
     @IBAction func logoutRequest(sender: UIButton) {
         
