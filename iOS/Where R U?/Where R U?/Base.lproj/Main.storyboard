@@ -111,7 +111,7 @@
                                 <action selector="tableSelector:" destination="CE6-2L-RaW" eventType="valueChanged" id="NzV-fc-Qat"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="kRh-on-7uI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kRh-on-7uI">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addButtonPressed:" destination="CE6-2L-RaW" id="HOy-um-2W4"/>
@@ -262,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmK-zm-XZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6610.5" y="220.5"/>
+            <point key="canvasLocation" x="6640.5" y="220.5"/>
         </scene>
         <!--My Rides-->
         <scene sceneID="4zX-Za-kbA">
@@ -347,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4989" y="1639.5"/>
+            <point key="canvasLocation" x="4989" y="1672.5"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
@@ -486,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmk-Zg-1ru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5974.5" y="1122"/>
+            <point key="canvasLocation" x="5865" y="912.75"/>
         </scene>
     </scenes>
     <resources>

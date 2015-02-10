@@ -9,7 +9,6 @@
 import Foundation
 import MapKit
 
-
 //Person class. Needs a firstName, lastName (Strings) and GPS locations (GPS type objects?)
 class Person: NSObject {
     
