@@ -25,8 +25,22 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
     @IBAction func zachCantPArselolo(sender: UIButton) {
         
         var friendship = PFObject(className: "Friends")
-        friendship.addObject(PFUser.currentUser(), forKey: "user1")
-        friendship.addObject(PFUser.currentUser(), forKey: "user2")
+        var query = PFUser.query()
+        query.whereKey("username", equalTo:"butts") //program crashes here for some reason
+        query.getFirstObjectInBackgroundWithBlock {
+            (user2, error: NSError!) -> Void in
+            if user2 != nil {
+                NSLog("The getFirstObject request failed.")
+            } else {
+                // The find succeeded.
+                NSLog("Successfully retrieved the object.")
+                friendship["user1"] = PFUser.currentUser().objectId
+                friendship["user2"] = user2.objectId
+                friendship.save()
+            }
+        }
+        
+
         
         
     }
