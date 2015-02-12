@@ -1,15 +1,26 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+//            When we want to run the app, we can now just press the green "play" button in Android Studio
+//            We no longer need to build a signed APK and push.
+//            Probably should have figured this out a while ago.
+            keyAlias 'whereru'
+            keyPassword 'PUTPASSWORDHERE'
+            storeFile file('/home/brian/Desktop/Where-R-U/Android/WhereRU/keystore.jks')
+            storePassword 'PUTPASSWORDHERE'
+        }
+    }
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
-
     defaultConfig {
         applicationId "me.where_r_u.whereru"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+        signingConfig signingConfigs.debug
     }
     buildTypes {
         release {
@@ -17,19 +28,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 repositories { mavenCentral() }
 
 dependencies {
     compile project(':ParseLoginUI')
-
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.parse.bolts:bolts-android:1.+'
     compile 'com.facebook.android:facebook-android-sdk:3.21.1'
-
     compile 'com.google.android.gms:play-services:6.5.87'
     compile 'com.android.support:recyclerview-v7:21.0.2'
     compile 'com.android.support:support-v13:21.0.2'
-
 }
