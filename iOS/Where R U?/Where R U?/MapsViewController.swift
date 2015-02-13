@@ -87,8 +87,8 @@ class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewContro
                 let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude , longitude: location.coordinate.longitude)
                 let region:MKCoordinateRegion = MKCoordinateRegionMake(center, Span)
                 
-                self.theMapView.setCenterCoordinate(center, animated: true)
-                self.theMapView.setRegion(region, animated: true)
+                //self.theMapView.setCenterCoordinate(center, animated: true)
+                //self.theMapView.setRegion(region, animated: true)
                 
             }
         }

@@ -40,6 +40,7 @@ class AddRideViewController: UIViewController, UITextFieldDelegate {
         
         if isSingleRide{
             var ride = Ride(title: txtName.text,destination: txtDestination.text ,driver: personObj)
+            ride.setOwner()
         
             ridesVC.oneTimeRides.append(ride)
 
@@ -47,9 +48,9 @@ class AddRideViewController: UIViewController, UITextFieldDelegate {
         
         else{
             var ride = Ride(title: txtName.text,destination: txtDestination.text ,driver: personObj)
+             ride.setOwner()
             ridesVC.scheduledRides.append(ride)
-
-            
+           
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

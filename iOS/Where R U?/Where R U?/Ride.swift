@@ -24,6 +24,8 @@ class Ride{
         self.passengers = []
         self.toPickUp = self.passengers
         self.pickedUp  = []
+        self.isOwner = false
+    
     }
     
     
@@ -49,6 +51,7 @@ class Ride{
     private var passengers: [Person]
     private var toPickUp : [Person]
     private var pickedUp : [Person]
+    private var isOwner : Bool;
 //    private var startLocation: Double
 //    private var destinationGPS : Double
     private var destinationName: String
@@ -76,7 +79,9 @@ class Ride{
     }
     
 
-    
+    func setOwner(){
+        isOwner = true
+    }
     //Returns the current passenger array
     func getPassengers() ->[Person]{
         return self.passengers

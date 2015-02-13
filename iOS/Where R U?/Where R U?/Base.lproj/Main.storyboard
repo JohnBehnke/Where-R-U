@@ -362,6 +362,7 @@
                         </connections>
                     </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="mapIcon-1" id="cPa-gy-q4n"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="theMapView" destination="90t-Ai-m8A" id="Khm-64-mnp"/>
                     </connections>
