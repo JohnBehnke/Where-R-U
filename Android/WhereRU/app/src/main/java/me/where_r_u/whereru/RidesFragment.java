@@ -2,8 +2,11 @@ package me.where_r_u.whereru;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Outline;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +28,9 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,25 +104,57 @@ public class RidesFragment extends Fragment {
             return false;
         }
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Ride");
-        query.whereEqualTo("user", ParseUser.getCurrentUser());
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> objects, ParseException e) {
-                if (e == null) {
-                    for (ParseObject element : objects) {
-                        Ride r = new Ride();
-                        r.setHumanReadableDestination(element.getString("hrDest"));
-                        r.setDriver(new Person(element.getString("driver")));
-                        r.setTitle(element.getString("title"));
-                        r.setRideId(element.getObjectId());
-                        mDataset.add(r);
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) this.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        Boolean isConnected = activeNetworkInfo != null && activeNetworkInfo.isConnected();
 
+        if (isConnected) {
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Ride");
+            query.whereEqualTo("user", ParseUser.getCurrentUser());
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if (e == null) {
+                        for (ParseObject element : objects) {
+                            Ride r = new Ride();
+                            element.pinInBackground();
+                            r.setHumanReadableDestination(element.getString("hrDest"));
+                            r.setDriver(new Person(element.getString("driver")));
+                            r.setTitle(element.getString("title"));
+                            r.setRideId(element.getObjectId());
+                            mDataset.add(r);
+
+                        }
+                    } else {
+                        Log.e("whereru-Parse", e.toString());
                     }
-                } else {
-                    Log.e("whereru-Parse", e.toString());
                 }
-            }
-        });
+            });
+
+
+        } else {
+            ParseQuery<ParseObject> localQuery = ParseQuery.getQuery("Ride");
+            localQuery.whereEqualTo("user", ParseUser.getCurrentUser());
+            localQuery.fromLocalDatastore();
+            localQuery.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if (e == null) {
+                        for (ParseObject element : objects) {
+                            Ride r = new Ride();
+                            element.pinInBackground();
+                            r.setHumanReadableDestination(element.getString("hrDest"));
+                            r.setDriver(new Person(element.getString("driver")));
+                            r.setTitle(element.getString("title"));
+                            r.setRideId(element.getObjectId());
+                            mDataset.add(r);
+
+                        }
+                    } else {
+                        Log.e("whereru-Parse", e.toString());
+                    }
+                }
+            });
+        }
         mAdapter.notifyDataSetChanged();
         return true;
     }
@@ -135,6 +173,7 @@ public class RidesFragment extends Fragment {
             ride.put("hrDest", newRide.getHumanReadableDestination());
             ride.put("user", user);
             ride.saveInBackground();
+            ride.pinInBackground();
 
             mDataset.add(newRide);
             mAdapter.notifyDataSetChanged();

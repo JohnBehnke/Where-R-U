@@ -89,6 +89,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
         // Initialize Parse. Don't leave the actual keys here.
         // this, applicationId, clientKey
+        Parse.enableLocalDatastore(this);
         Parse.initialize(this, getString(R.string.parse_app_id), getString(R.string.parse_client_key));
 
         //ParseUser.logOut();
