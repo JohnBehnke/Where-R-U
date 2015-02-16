@@ -48,9 +48,17 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     }
     
     
+    @IBAction func newAddPressed(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("showAdd", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        
         
         self.rideTable.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
@@ -91,11 +99,15 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
             }
             detailVC.detailRide = thisRide
         }
-        //If we are going to the Create a Ride VC
-        else if segue.identifier == "showRideAdd"{
+        //If we are  going to the Create a Ride VC
+
         
-            let addRideVC:AddRideViewController = segue.destinationViewController as AddRideViewController
+        else if segue.identifier == "showAdd"{
+        
+            var addRideVC:AddRideViewController = segue.destinationViewController as AddRideViewController
             addRideVC.ridesVC = self
+            
+            
         }
     }
     
@@ -140,21 +152,17 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     
         if isSingleRide{
             cell.rideName.text = thisRide.getTitle()
-            cell.rideDriver.text = thisRide.getDriver().getFirstName()
-        }
+            cell.rideDriver.text = thisRide.getDriver().getFirstName()        }
         else{
             cell.rideName.text = thisRide.getTitle()
-            cell.rideDriver.text = thisRide.getDriver().getFirstName()
-
-        }
+            cell.rideDriver.text = thisRide.getDriver()  .getFirstName()      }
         return cell
     }
     
     //Gets ready to go to the Show Ride Detail view
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println(indexPath.row)
+       
         performSegueWithIdentifier("ShowRideDetail", sender: self)
-        println(":")
-    }
+            }
 }
 

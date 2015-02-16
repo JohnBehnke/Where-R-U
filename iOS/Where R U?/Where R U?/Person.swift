@@ -22,13 +22,13 @@ class Person: NSObject {
         super.init()
     }
     
-    override init() {
-        self.firstName = ""
-        self.lastName = ""
-        self.userName = ""
-        self.currentLocation = CLLocation()
-        super.init()
-    }
+//    override init() {
+//        self.firstName = ""
+//        self.lastName = ""
+//        self.userName = ""
+//        self.currentLocation = CLLocation()
+//        super.init()
+//    }
     
     func updateLocation(){  //activates location updates
         if (CLLocationManager.locationServicesEnabled()){

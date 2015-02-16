@@ -45,7 +45,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<data>NzEwNzMwNTUyMzU2MzI0</data>
+	<string>710730552356324</string>
 	<key>FacebookDisplayName</key>
 	<string>Where R U?</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -57,7 +57,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<true/>
+	<false/>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
@@ -69,7 +69,7 @@
 	<key>UIStatusBarHidden</key>
 	<false/>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleDefault</string>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UIStatusBarTintParameters</key>
 	<dict>
 		<key>UINavigationBar</key>
