@@ -8,7 +8,7 @@ android {
 //            Probably should have figured this out a while ago.
             keyAlias 'whereru'
             keyPassword 'PUTPASSWORDHERE'
-            storeFile file('/home/brian/Desktop/Where-R-U/Android/WhereRU/keystore.jks')
+            storeFile file('../keystore.jks')
             storePassword 'PUTPASSWORDHERE'
         }
     }

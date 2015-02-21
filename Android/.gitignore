@@ -15,10 +15,7 @@ gen/
 # Gradle files
 .gradle/
 build/
-/*/build/
-
-# .idea folder
-./WhereRU/.idea
+*/build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -28,3 +25,5 @@ proguard/
 
 # Log Files
 *.log
+
+keys.xml
