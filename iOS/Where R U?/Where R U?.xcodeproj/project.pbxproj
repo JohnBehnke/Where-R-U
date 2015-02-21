@@ -28,6 +28,7 @@
 		52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFF19BE6EA90074884E /* MapsViewController.swift */; };
 		52F01D0519BE6EA90074884E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F01D0419BE6EA90074884E /* Images.xcassets */; };
 		52F01D1119BE6EA90074884E /* Where_R_U_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01D1019BE6EA90074884E /* Where_R_U_Tests.swift */; };
+		52F6E76A1A992DBB00512CD1 /* DestinationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6E7691A992DBB00512CD1 /* DestinationSelectViewController.swift */; };
 		924D754719E3382000B3B8C7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D754619E3382000B3B8C7 /* AudioToolbox.framework */; };
 		924D754919E3382500B3B8C7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D754819E3382500B3B8C7 /* CFNetwork.framework */; };
 		924D754B19E3382F00B3B8C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D754A19E3382F00B3B8C7 /* CoreGraphics.framework */; };
@@ -77,6 +78,7 @@
 		52F01D0A19BE6EA90074884E /* Where R U?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where R U?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01D0F19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01D1019BE6EA90074884E /* Where_R_U_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Where_R_U_Tests.swift; sourceTree = "<group>"; };
+		52F6E7691A992DBB00512CD1 /* DestinationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationSelectViewController.swift; sourceTree = "<group>"; };
 		924D753D19E3371800B3B8C7 /* Where R U?-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Where R U?-Bridging-Header.h"; sourceTree = "<group>"; };
 		924D754619E3382000B3B8C7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		924D754819E3382500B3B8C7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -160,6 +162,7 @@
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
 				52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
+				52F6E7691A992DBB00512CD1 /* DestinationSelectViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,
 				52B646871A8AA775003F05AF /* appKeys.swift in Sources */,
+				52F6E76A1A992DBB00512CD1 /* DestinationSelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
