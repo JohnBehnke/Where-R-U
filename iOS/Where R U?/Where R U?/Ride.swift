@@ -15,22 +15,23 @@ class Ride{
     
     
     
-    //Init when no passengers are added
-    init(title: String, destination: String ,driver: Person){
+    
+    init(title: String,description: String ,destination: String ,driver: Person){
         self.title = title
+        self.description = description
         self.driver = driver
         self.destinationName = destination
-
         self.passengers = []
         self.toPickUp = self.passengers
         self.pickedUp  = []
         self.isOwner = false
-    
+        
     }
+
     
-    
+
     //Uncomment when GPS works
-//    init(title: String, driver: Person, startLocation: Double, destinationGPS: Double, destinationName: String  , passengers: [Person] ){ //Initalizer for one-time carpool
+    //    init(title: String, driver: Person, startLocation: Double, destinationGPS: Double, destinationName: String  , passengers: [Person] ){ //Initalizer for one-time carpool
 //        self.title = title
 //        self.driver = driver
 //        self.startLocation = startLocation
@@ -43,20 +44,21 @@ class Ride{
 //        self.waypoints = []
 //      
 //    }
-    
+    //Passenger Array needs to be dictoinary Key = Person Object, Value = Array of Times
     
     
     private var title: String
+    private var description: String
     private var driver: Person
     private var passengers: [Person]
     private var toPickUp : [Person]
     private var pickedUp : [Person]
     private var isOwner : Bool;
-//    private var startLocation: Double
-//    private var destinationGPS : Double
+    
+    //private var startLocation: Double
+   //private var destinationGPS : Double
     private var destinationName: String
-//    private var waypoints : [Double]
-//    
+   // private var waypoints : [Double]
     
     //Returns the title for the ride
     func getTitle() ->String{
