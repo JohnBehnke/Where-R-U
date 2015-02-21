@@ -37,6 +37,7 @@
 		924D755319E3384D00B3B8C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755219E3384D00B3B8C7 /* QuartzCore.framework */; };
 		924D755519E3385300B3B8C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755419E3385300B3B8C7 /* Security.framework */; };
 		924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755819E3386600B3B8C7 /* SystemConfiguration.framework */; };
+		927A733B1A992B0500023F19 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A733A1A992B0500023F19 /* LoginViewController.swift */; };
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		924D755219E3384D00B3B8C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		924D755419E3385300B3B8C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		924D755819E3386600B3B8C7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		927A733A1A992B0500023F19 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 		52E264D61A127F1300B6444F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				927A733A1A992B0500023F19 /* LoginViewController.swift */,
 				52A604471A914D12004A0552 /* AddRideViewController.swift */,
 				5233C6431A22BD910091E54E /* RideDetailViewController.swift */,
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
@@ -290,7 +293,7 @@
 				TargetAttributes = {
 					52F01CF519BE6EA90074884E = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = JRS59Q3JZW;
+						DevelopmentTeam = 68GTUE267H;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -363,6 +366,7 @@
 				52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,
 				52B646871A8AA775003F05AF /* appKeys.swift in Sources */,
+				927A733B1A992B0500023F19 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +477,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
-					/Users/John/Documents/FacebookSDK,
+					/Users/Zach/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -497,7 +501,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
-					/Users/John/Documents/FacebookSDK,
+					/Users/Zach/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
