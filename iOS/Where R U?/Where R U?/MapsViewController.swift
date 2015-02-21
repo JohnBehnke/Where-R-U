@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Foundation
 
-class MapsViewController: UIViewController, MKMapViewDelegate {
+class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
     var locationManager :CLLocationManager! = nil
     var theMapView: MKMapView! = nil
@@ -23,13 +23,58 @@ class MapsViewController: UIViewController, MKMapViewDelegate {
         
     }
     
+    
+    //Login Screen stuff
+    
+    //This function is run every time the view is opened? IDK why
+    override func viewDidAppear(animated: Bool) {
+        //Create Login
+        super.viewDidAppear(animated)
+        var currentUser = PFUser.currentUser()
+        if currentUser == nil {
+            var loginViewController:PFLogInViewController = PFLogInViewController()
+            loginViewController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.Default | PFLogInFields.PasswordForgotten | PFLogInFields.Facebook | PFLogInFields.SignUpButton;
+            presentViewController(loginViewController, animated: true, completion: nil)
+            loginViewController.delegate = self
+            loginViewController.signUpController.delegate = self
+            
+        }
+    }
+    
+    func logInViewController(logInViewController: PFLogInViewController!,
+        didLogInUser user: PFUser!) {
+            
+            logInViewController.dismissViewControllerAnimated(true, completion: nil)
+            
+    }
+    
+    func logInViewController(logInViewController: PFLogInViewController!,
+        didCancelLogIn user: PFUser!) {
+            
+            logInViewController.dismissViewControllerAnimated(true, completion: nil)
+            
+    }
+    //End Login Screen
+    
+    //Sign Up Screen
+    
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) -> Void {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController) -> Void {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //End Signup
+    
     //This is the refresh function for the view I think
     override func viewWillAppear(animated: Bool) {
         locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
         
         var currentUser = PFUser.currentUser()
-               if currentUser != nil {
+            if currentUser != nil {
                 
             var uName = PFUser.currentUser().username
             var me = Person(firstName: "first",lastName: "last",userName: uName)

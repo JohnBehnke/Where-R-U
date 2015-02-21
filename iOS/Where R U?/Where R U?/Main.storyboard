@@ -102,7 +102,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="d0O-I8-lVf">
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="MWE-eC-fcq">
-                            <rect key="frame" x="184" y="8" width="233" height="29"/>
+                            <rect key="frame" x="183.5" y="7.5" width="233" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="One Time"/>
@@ -190,6 +190,14 @@
                                     <action selector="zachCantPArselolo:" destination="crT-uE-Ga3" eventType="touchUpInside" id="zbE-3e-hdZ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMU-V3-1cA">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="116" y="546" width="171" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -200,16 +208,21 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="SF2-r7-xB4"/>
+                                <exclude reference="oMU-V3-1cA"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="SF2-r7-xB4"/>
+                                <include reference="oMU-V3-1cA"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="11u-7B-SNh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="userNameText" destination="oMU-V3-1cA" id="4aq-Zh-NTP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
