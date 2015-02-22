@@ -24,7 +24,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
          seatCountLabel.text = Int(sender.value).description
         
     }
-    @IBOutlet var txtName: UITextField!
+    @IBOutlet var rideTitle: UITextField!
     
     @IBAction func rideTypeToggle(sender: UISegmentedControl) {
         
@@ -43,7 +43,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     @IBAction func savePressed(sender: UIBarButtonItem) {
         
         var personObj:Person = Person(firstName: "John", lastName: "Behnke", userName: "Test")
-        var ride:Ride = Ride(title: txtName.text, description: rideDescription.text, destination: "RCOS", driver: personObj)
+        var ride:Ride = Ride(title: rideTitle.text, description: rideDescription.text, destination: "RCOS", seatsAvailable: Int(seatSteper.value), driver: personObj)
         
         if isSingleRide{
             ridesVC.oneTimeRides.append(ride)        }

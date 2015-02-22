@@ -477,7 +477,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
-					/Users/John/Documents/FacebookSDK,
+					/Library/Developer/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -501,7 +501,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
-					/Users/John/Documents/FacebookSDK,
+					/Library/Developer/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
