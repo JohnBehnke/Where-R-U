@@ -481,9 +481,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                        <rect key="frame" x="15" y="12" width="76" height="23"/>
                                                     </variation>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rzP-Vj-z6G">
@@ -493,24 +492,45 @@
                                                         <segment title="Scheduled"/>
                                                     </segments>
                                                     <color key="tintColor" red="0.97254901959999995" green="0.2156862745" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="228" y="8" width="157" height="29"/>
-                                                    </variation>
                                                     <connections>
                                                         <action selector="rideTypeToggle:" destination="EXo-tM-pGZ" eventType="valueChanged" id="elQ-1X-qCn"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="HfD-Vf-OBt" firstAttribute="bottom" secondItem="44X-Vt-gr6" secondAttribute="bottomMargin" id="Fwm-mn-qBn"/>
+                                                <constraint firstAttribute="centerX" secondItem="HfD-Vf-OBt" secondAttribute="centerX" constant="147" id="JOX-Od-vnb"/>
+                                                <constraint firstItem="HfD-Vf-OBt" firstAttribute="leading" secondItem="44X-Vt-gr6" secondAttribute="leadingMargin" constant="7" id="a4S-i6-X28"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rzP-Vj-z6G" secondAttribute="trailing" constant="7" id="bnK-eD-n5Z"/>
+                                                <constraint firstItem="rzP-Vj-z6G" firstAttribute="top" secondItem="44X-Vt-gr6" secondAttribute="topMargin" id="gOd-zp-TUf"/>
+                                                <constraint firstItem="HfD-Vf-OBt" firstAttribute="top" secondItem="44X-Vt-gr6" secondAttribute="topMargin" constant="4" id="hzC-EG-37K"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="HfD-Vf-OBt"/>
                                                     <exclude reference="rzP-Vj-z6G"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="Fwm-mn-qBn"/>
+                                                    <exclude reference="JOX-Od-vnb"/>
+                                                    <exclude reference="a4S-i6-X28"/>
+                                                    <exclude reference="hzC-EG-37K"/>
+                                                    <exclude reference="bnK-eD-n5Z"/>
+                                                    <exclude reference="gOd-zp-TUf"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="HfD-Vf-OBt"/>
                                                     <include reference="rzP-Vj-z6G"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="Fwm-mn-qBn"/>
+                                                    <include reference="JOX-Od-vnb"/>
+                                                    <include reference="a4S-i6-X28"/>
+                                                    <include reference="hzC-EG-37K"/>
+                                                    <include reference="bnK-eD-n5Z"/>
+                                                    <include reference="gOd-zp-TUf"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -525,43 +545,69 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="259" y="10" width="10" height="21"/>
-                                                    </variation>
                                                 </label>
+                                                <stepper autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" value="1" minimumValue="1" maximumValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="fx4-nk-gkL">
+                                                    <rect key="frame" x="-47" y="-14" width="94" height="29"/>
+                                                    <color key="tintColor" red="0.97254901959999995" green="0.2156862745" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="seatStepper:" destination="EXo-tM-pGZ" eventType="valueChanged" id="fpU-rq-9cI"/>
+                                                    </connections>
+                                                </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Seats" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igf-vJ-Aw8">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <rect key="frame" x="15" y="11" width="117" height="21"/>
                                                     </variation>
                                                 </label>
-                                                <stepper autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" value="1" minimumValue="1" maximumValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="fx4-nk-gkL">
-                                                    <rect key="frame" x="-47" y="-14" width="94" height="29"/>
-                                                    <color key="tintColor" red="0.97254901959999995" green="0.2156862745" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="291" y="6" width="94" height="29"/>
-                                                    </variation>
-                                                    <connections>
-                                                        <action selector="seatStepper:" destination="EXo-tM-pGZ" eventType="valueChanged" id="fpU-rq-9cI"/>
-                                                    </connections>
-                                                </stepper>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="Igf-vJ-Aw8" secondAttribute="centerX" constant="126.5" id="6Fp-fo-S82"/>
+                                                <constraint firstItem="fx4-nk-gkL" firstAttribute="bottom" secondItem="eol-Ob-DBq" secondAttribute="bottomMargin" id="9eY-i1-i8X"/>
+                                                <constraint firstItem="tnW-ML-z7P" firstAttribute="top" secondItem="eol-Ob-DBq" secondAttribute="topMargin" constant="2" id="EEB-8k-795"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fx4-nk-gkL" secondAttribute="trailing" constant="7" id="EFE-se-vQX"/>
+                                                <constraint firstItem="fx4-nk-gkL" firstAttribute="leading" secondItem="tnW-ML-z7P" secondAttribute="trailing" constant="22" id="Pns-sq-tSk"/>
+                                                <constraint firstItem="fx4-nk-gkL" firstAttribute="top" secondItem="eol-Ob-DBq" secondAttribute="topMargin" constant="-2" id="VUd-ce-dvr"/>
+                                                <constraint firstItem="Igf-vJ-Aw8" firstAttribute="top" secondItem="eol-Ob-DBq" secondAttribute="topMargin" constant="3" id="ZNh-Z4-sdK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Igf-vJ-Aw8" secondAttribute="bottom" constant="3" id="csK-Mm-Br5"/>
+                                                <constraint firstItem="Igf-vJ-Aw8" firstAttribute="leading" secondItem="eol-Ob-DBq" secondAttribute="leadingMargin" constant="7" id="nAV-Fq-ncS"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="tnW-ML-z7P"/>
-                                                    <exclude reference="Igf-vJ-Aw8"/>
                                                     <exclude reference="fx4-nk-gkL"/>
+                                                    <exclude reference="Igf-vJ-Aw8"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="6Fp-fo-S82"/>
+                                                    <exclude reference="ZNh-Z4-sdK"/>
+                                                    <exclude reference="csK-Mm-Br5"/>
+                                                    <exclude reference="nAV-Fq-ncS"/>
+                                                    <exclude reference="EEB-8k-795"/>
+                                                    <exclude reference="9eY-i1-i8X"/>
+                                                    <exclude reference="EFE-se-vQX"/>
+                                                    <exclude reference="Pns-sq-tSk"/>
+                                                    <exclude reference="VUd-ce-dvr"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="tnW-ML-z7P"/>
-                                                    <include reference="Igf-vJ-Aw8"/>
                                                     <include reference="fx4-nk-gkL"/>
+                                                    <include reference="Igf-vJ-Aw8"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="6Fp-fo-S82"/>
+                                                    <include reference="ZNh-Z4-sdK"/>
+                                                    <include reference="csK-Mm-Br5"/>
+                                                    <include reference="nAV-Fq-ncS"/>
+                                                    <include reference="EEB-8k-795"/>
+                                                    <include reference="9eY-i1-i8X"/>
+                                                    <include reference="EFE-se-vQX"/>
+                                                    <include reference="Pns-sq-tSk"/>
+                                                    <include reference="VUd-ce-dvr"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
