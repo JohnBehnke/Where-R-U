@@ -39,6 +39,7 @@
 		924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755819E3386600B3B8C7 /* SystemConfiguration.framework */; };
 		927A733B1A992B0500023F19 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A733A1A992B0500023F19 /* LoginViewController.swift */; };
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
+		92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		924D755819E3386600B3B8C7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		927A733A1A992B0500023F19 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,11 +160,12 @@
 			isa = PBXGroup;
 			children = (
 				927A733A1A992B0500023F19 /* LoginViewController.swift */,
-				52A604471A914D12004A0552 /* AddRideViewController.swift */,
-				5233C6431A22BD910091E54E /* RideDetailViewController.swift */,
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
 				52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */,
+				52A604471A914D12004A0552 /* AddRideViewController.swift */,
+				5233C6431A22BD910091E54E /* RideDetailViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
+				92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */,
 				5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
+				92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */,
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
 				52C7ED3E1A229B32004B1DA6 /* rideCell.swift in Sources */,
 				52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyRidesViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource {
     
     var isSingleRide = true
     

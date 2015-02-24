@@ -16,8 +16,8 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     
@@ -53,10 +53,7 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
         
     }
 
-    
     @IBAction func logoutRequest(sender: UIButton) {
-        
-        
         PFUser.logOut()
         var currentUser = PFUser.currentUser() // this will now be nil
         
@@ -64,10 +61,29 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
         
         
     }
+    
+    //Prepares to transition to another view controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showFriendRequests"{
+            
+            var showFriendRequestVC:FriendRequestViewController = segue.destinationViewController as FriendRequestViewController
+            showFriendRequestVC.settingsVC = self
+            
+        }
+    }
+    
+    @IBAction func friendRequestButtonPressed(sender: UIButton) {
+        self.performSegueWithIdentifier("showFriendRequests", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    
     
     
 }
