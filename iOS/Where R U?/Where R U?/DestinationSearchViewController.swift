@@ -22,7 +22,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     
     
     var searchResults:[MKMapItem]  = []
-    var searchResultAddresses:[CLPlacemark] = []
+    var searchResultAddresses:[String] = []
     
     
     
@@ -65,25 +65,29 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
        let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
-        if self.searchResults.count > 0 && self.searchResultAddresses.count > 0 && self.searchResultAddresses.count == self.searchResults.count{
+        getAddress(self.searchResults[indexPath.row])
         
-       //let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
+        if searchResultAddresses.count != 0{
         var resultName: String = self.searchResults[indexPath.row].name
-            //var resultAddress: String = ( (self.searchResultAddresses[indexPath.row].subThoroughfare + self.searchResultAddresses[indexPath.row].thoroughfare))
         
-//        println("RESUTS")
-//        println(self.searchResults.count)
-//        println(self.searchResultAddresses.count)
+        println(searchResultAddresses.count)
+         var addressName: String = self.searchResultAddresses[0]
+        self.searchResultAddresses.removeAtIndex(0)
+
         
-       // println(resultName)
+        //self.searchResultAddresses.removeAll(keepCapacity: false)
+        
+        println(searchResultAddresses.count)
+        
         cell.textLabel?.text = resultName
         
-        //cell.detailTextLabel?.text = resultAddress
+        cell.detailTextLabel?.text = addressName
         return cell
         }
-        return cell
-        
+       return cell
     }
     
     // MARK: - UISearchResultsUpdating
@@ -94,20 +98,6 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         self.tableView.reloadData()
     }
     
-//    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-//         performSearch()
-//        return true
-//    }
-//
-//    
-//    func searchDisplayController(controller: UISearchDisplayController!,
-//        shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-//            let scope = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
-//            performSearch()
-//            self.tableView.reloadData()
-//            //self.filterContentForSearchText(self.searchDisplayController!.searchBar.text, scope: scope[searchOption])
-//            return true
-//    }
 
     
     //MARK: - MapKit Searching
@@ -141,7 +131,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
                         self.searchResults.append(item)
                         self.tableView.reloadData()
                         
-                    CLGeocoder().reverseGeocodeLocation(item.placemark.location, completionHandler: {(placemarks, error) -> Void in
+                        CLGeocoder().reverseGeocodeLocation(item.placemark.location, completionHandler: {(placemarks, error) -> Void in
                             //println(item.placemark.location)
                             
                             if error != nil {
@@ -153,7 +143,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
                                 let pm: CLPlacemark = placemarks[0] as CLPlacemark
                             if pm.subThoroughfare != nil{
                                 println(item.name + " " + pm.subThoroughfare + " " + pm.thoroughfare)}
-                                self.searchResultAddresses.append(pm)
+                                //self.searchResultAddresses.append(pm)
                             self.tableView.reloadData()//}
                             }
 //                            else {
@@ -168,4 +158,44 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
             }
         })
     }
- }
+    func getAddress(searchLocation: MKMapItem){
+        
+        var geocoder = CLGeocoder()
+        var addressString : String = ""
+
+        geocoder.reverseGeocodeLocation(searchLocation.placemark.location, completionHandler: {(placemarks, error)->Void in
+            var placemark:CLPlacemark!
+            
+            if error == nil && placemarks.count > 0 {
+                placemark = placemarks[0] as CLPlacemark
+                
+                                   if placemark.subThoroughfare != nil {
+                        addressString = placemark.subThoroughfare + " "
+                    }
+                    if placemark.thoroughfare != nil {
+                        addressString = addressString + placemark.thoroughfare + ", "
+                    }
+                    if placemark.postalCode != nil {
+                        addressString = addressString + placemark.postalCode + " "
+                    }
+                    if placemark.locality != nil {
+                        addressString = addressString + placemark.locality + ", "
+                    }
+                    if placemark.administrativeArea != nil {
+                        addressString = addressString + placemark.administrativeArea + " "
+                    }
+                    if placemark.country != nil {
+                        addressString = addressString + placemark.country
+                    }
+                }
+                
+                self.doi(addressString)
+            //println(addressString)
+            })
+        }
+    
+    func doi(addressString: String){
+        self.searchResultAddresses.append(addressString)
+
+    }
+}
