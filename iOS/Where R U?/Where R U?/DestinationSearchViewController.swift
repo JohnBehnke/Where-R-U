@@ -17,10 +17,13 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
     }
     
+    //@IBOutlet weak var uiSearch: UISearchBar!
     var searchController: UISearchController!
     
     
-    var searchResults:[String]  = []
+    var searchResults:[MKMapItem]  = []
+    var searchResultAddresses:[CLPlacemark] = []
+    
     
     
     override func viewDidLoad() {
@@ -30,12 +33,13 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.hidesNavigationBarDuringPresentation = false
+       
+        //self.searchController.searchBar.barTintColor = UIColor.redColor()
+        self.searchController.searchBar.showsCancelButton = false
        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
         
         self.tableView.tableHeaderView = self.searchController.searchBar
 
-        
-        
         self.searchController.searchBar.delegate = self
         
         self.definesPresentationContext  = true
@@ -62,25 +66,55 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
-        var resultName: String = self.searchResults[indexPath.row]
+        if self.searchResults.count > 0 && self.searchResultAddresses.count > 0 && self.searchResultAddresses.count == self.searchResults.count{
         
-        println(resultName)
+       //let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
+        var resultName: String = self.searchResults[indexPath.row].name
+            //var resultAddress: String = ( (self.searchResultAddresses[indexPath.row].subThoroughfare + self.searchResultAddresses[indexPath.row].thoroughfare))
+        
+//        println("RESUTS")
+//        println(self.searchResults.count)
+//        println(self.searchResultAddresses.count)
+        
+       // println(resultName)
         cell.textLabel?.text = resultName
+        
+        //cell.detailTextLabel?.text = resultAddress
         return cell
+        }
+        return cell
+        
     }
     
     // MARK: - UISearchResultsUpdating
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+         self.searchController.searchBar.showsCancelButton = false
             performSearch()
         self.tableView.reloadData()
-        
     }
+    
+//    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+//         performSearch()
+//        return true
+//    }
+//
+//    
+//    func searchDisplayController(controller: UISearchDisplayController!,
+//        shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+//            let scope = self.searchDisplayController!.searchBar.scopeButtonTitles as [String]
+//            performSearch()
+//            self.tableView.reloadData()
+//            //self.filterContentForSearchText(self.searchDisplayController!.searchBar.text, scope: scope[searchOption])
+//            return true
+//    }
+
     
     //MARK: - MapKit Searching
     func performSearch() {
         
         self.searchResults.removeAll()
+        self.searchResultAddresses.removeAll()
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = self.searchController.searchBar.text
         var currentLocation = CLLocation()
@@ -91,12 +125,9 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         let region:MKCoordinateRegion = MKCoordinateRegionMake(center, Span)
 
         request.region = region
-      // println("TEST")
-        
         let search = MKLocalSearch(request: request)
         
-        search.startWithCompletionHandler({(response:
-            MKLocalSearchResponse!,
+        search.startWithCompletionHandler({(response: MKLocalSearchResponse!,
             error: NSError!) in
             
             if error != nil {
@@ -104,23 +135,37 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
             } else if response.mapItems.count == 0 {
                 println("No matches found")
             } else {
-               // println("Matches found")
-                
-                for item in response.mapItems as [MKMapItem] {
-                    println("Name = \(item.name)")
-                   // println("Phone = \(item.phoneNumber)")
+                    for item in response.mapItems as [MKMapItem] {
+                        //println("Name = \(item.name)")
+                        
+                        self.searchResults.append(item)
+                        self.tableView.reloadData()
+                        
+                    CLGeocoder().reverseGeocodeLocation(item.placemark.location, completionHandler: {(placemarks, error) -> Void in
+                            //println(item.placemark.location)
+                            
+                            if error != nil {
+                                println("Reverse geocoder failed with error" + error.localizedDescription)
+                                return
+                            }
+                            
+                            if placemarks.count > 0 {
+                                let pm: CLPlacemark = placemarks[0] as CLPlacemark
+                            if pm.subThoroughfare != nil{
+                                println(item.name + " " + pm.subThoroughfare + " " + pm.thoroughfare)}
+                                self.searchResultAddresses.append(pm)
+                            self.tableView.reloadData()//}
+                            }
+//                            else {
+//                                println("Problem with the data received from geocoder")
+//                            }
+                        })
+                        
+                        
+                        
                     
-                    self.searchResults.append(item.name)
-                    self.tableView.reloadData()
-                   // println("Matching items = \(self.searchResults.count)")
-                    
-//                    var annotation = MKPointAnnotation()
-//                    annotation.coordinate = item.placemark.coordinate
-//                    annotation.title = item.name
-//                    self.mapView.addAnnotation(annotation)
                 }
             }
         })
     }
-
  }
