@@ -10,10 +10,13 @@ import UIKit
 import MapKit
 import Foundation
 
+
+
+
 class MapsViewController: UIViewController, MKMapViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
     var locationManager :CLLocationManager! = nil
-    var theMapView: MKMapView! = nil
+    var theMapView: MKMapView!
     
     
     //Login Screen stuff

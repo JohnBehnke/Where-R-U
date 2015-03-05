@@ -17,6 +17,8 @@
 		5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233C6431A22BD910091E54E /* RideDetailViewController.swift */; };
 		524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E5B0B19D9DEA8008A0EE7 /* Person.swift */; };
 		526DD42719D9D05D00DA2447 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DD42619D9D05D00DA2447 /* Ride.swift */; };
+		52861DE51AA7A2B7006CA122 /* DestinationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */; };
+		52861DE71AA7C47D006CA122 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52861DE61AA7C47D006CA122 /* Launch Screen.xib */; };
 		52A604461A914396004A0552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A604451A914396004A0552 /* Main.storyboard */; };
 		52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A604471A914D12004A0552 /* AddRideViewController.swift */; };
 		52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B40D1119C36303001A411D /* SettingsViewController.swift */; };
@@ -28,7 +30,6 @@
 		52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFF19BE6EA90074884E /* MapsViewController.swift */; };
 		52F01D0519BE6EA90074884E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F01D0419BE6EA90074884E /* Images.xcassets */; };
 		52F01D1119BE6EA90074884E /* Where_R_U_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01D1019BE6EA90074884E /* Where_R_U_Tests.swift */; };
-		52F6E76A1A992DBB00512CD1 /* DestinationSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6E7691A992DBB00512CD1 /* DestinationSelectViewController.swift */; };
 		924D754719E3382000B3B8C7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D754619E3382000B3B8C7 /* AudioToolbox.framework */; };
 		924D754919E3382500B3B8C7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D754819E3382500B3B8C7 /* CFNetwork.framework */; };
 		924D754B19E3382F00B3B8C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D754A19E3382F00B3B8C7 /* CoreGraphics.framework */; };
@@ -63,6 +64,8 @@
 		524E5B0B19D9DEA8008A0EE7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5268471219DFC74400C13769 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		526DD42619D9D05D00DA2447 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationSearchViewController.swift; sourceTree = "<group>"; };
+		52861DE61AA7C47D006CA122 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		52A604451A914396004A0552 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52A604471A914D12004A0552 /* AddRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRideViewController.swift; sourceTree = "<group>"; };
 		52B40D1119C36303001A411D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +81,6 @@
 		52F01D0A19BE6EA90074884E /* Where R U?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Where R U?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01D0F19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01D1019BE6EA90074884E /* Where_R_U_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Where_R_U_Tests.swift; sourceTree = "<group>"; };
-		52F6E7691A992DBB00512CD1 /* DestinationSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationSelectViewController.swift; sourceTree = "<group>"; };
 		924D753D19E3371800B3B8C7 /* Where R U?-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Where R U?-Bridging-Header.h"; sourceTree = "<group>"; };
 		924D754619E3382000B3B8C7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		924D754819E3382500B3B8C7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -162,7 +164,7 @@
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
 				52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
-				52F6E7691A992DBB00512CD1 /* DestinationSelectViewController.swift */,
+				52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 				52E264D71A127F3800B6444F /* Object Classes */,
 				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
 				52A604451A914396004A0552 /* Main.storyboard */,
+				52861DE61AA7C47D006CA122 /* Launch Screen.xib */,
 				52F01D0419BE6EA90074884E /* Images.xcassets */,
 				52F01CF919BE6EA90074884E /* Supporting Files */,
 				924D753D19E3371800B3B8C7 /* Where R U?-Bridging-Header.h */,
@@ -339,6 +342,7 @@
 			files = (
 				52A604461A914396004A0552 /* Main.storyboard in Resources */,
 				52F01D0519BE6EA90074884E /* Images.xcassets in Resources */,
+				52861DE71AA7C47D006CA122 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +370,7 @@
 				52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,
 				52B646871A8AA775003F05AF /* appKeys.swift in Sources */,
-				52F6E76A1A992DBB00512CD1 /* DestinationSelectViewController.swift in Sources */,
+				52861DE51AA7A2B7006CA122 /* DestinationSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

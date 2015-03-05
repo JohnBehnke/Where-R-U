@@ -11,35 +11,35 @@ import UIKit
 
 class AddRideViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate {
 
+    //MARK: - Class Variables
     
-    @IBOutlet weak var seatCountLabel: UILabel!
     var isSingleRide = true
     
     var ridesVC: MyRidesViewController!
 
+    
+    //MARK: - IBOutlets
+    
+    @IBOutlet weak var seatCountLabel: UILabel!
+    
     @IBOutlet weak var seatSteper: UIStepper!
 
-    
-    @IBAction func seatStepper(sender: UIStepper) {
-         seatCountLabel.text = Int(sender.value).description
-        
-    }
+  
     @IBOutlet var rideTitle: UITextField!
     
-    @IBAction func rideTypeToggle(sender: UISegmentedControl) {
-        
-        switch sender.selectedSegmentIndex
-        {
-        case 0:
-            isSingleRide = true
-                  case 1:
-            isSingleRide = false
-        default:
-            break;
-        }
-    }
     @IBOutlet weak var rideDescription: UITextField!
+    
    
+    //MARK: - IBActions
+    
+    @IBAction func cancelPressed(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+      @IBAction func seatStepper(sender: UIStepper) {
+         seatCountLabel.text = Int(sender.value).description
+    }
+    
     @IBAction func savePressed(sender: UIBarButtonItem) {
         
         var personObj:Person = Person(firstName: "John", lastName: "Behnke", userName: "Test")
@@ -54,21 +54,34 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         
         self.navigationController?.popViewControllerAnimated(true)
     }
-    @IBAction func cancelPressed(sender: UIBarButtonItem) {
-        self.navigationController?.popViewControllerAnimated(true)
+
+    @IBAction func rideTypeToggle(sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex
+        {
+        case 0:
+            isSingleRide = true
+                  case 1:
+            isSingleRide = false
+        default:
+            break;
+        }
     }
 
+    
+    //MARK: - Default
     override func viewDidLoad() {
         super.viewDidLoad()
         
        
     }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: - Touch Controls
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
                 self.view.endEditing(true)
     }

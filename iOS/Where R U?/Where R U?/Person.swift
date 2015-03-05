@@ -19,7 +19,7 @@ class Person: NSObject {
         self.lastName = lastName
         self.userName = userName
         self.currentLocation = CLLocation()
-        super.init()
+        //super.init()
     }
     
 //    override init() {
