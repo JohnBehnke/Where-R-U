@@ -19,7 +19,8 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     var searchResults:[MKMapItem]  = []
     var searchResultAddresses:[String] = []
     
-
+    var addRideVC: AddRideViewController!
+    
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     //MARK: - IBActions
@@ -84,6 +85,18 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
        return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        self.addRideVC.destination =  self.searchResults[indexPath.row]
+        
+        self.addRideVC.rideDestination.text  = self.searchResults[indexPath.row].name
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        
+        
+    }
+    
     //MARK: - Search Controller Functions
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -101,15 +114,20 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         self.searchResultAddresses.removeAll()
         
         let request = MKLocalSearchRequest()
+        
+        
+        
         request.naturalLanguageQuery = self.searchController.searchBar.text
         
         var currentLocation = CLLocation()
-        var latDelta:CLLocationDegrees = 0.0001
-        var longDelta:CLLocationDegrees = 0.0001
+        var latDelta:CLLocationDegrees = 0.6250
+        var longDelta:CLLocationDegrees = 0.6250
         var Span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         let center = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude , longitude: currentLocation.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(center, Span)
 
+        
+        
         request.region = region
         let search = MKLocalSearch(request: request)
         

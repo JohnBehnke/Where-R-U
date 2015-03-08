@@ -25,6 +25,7 @@
 		52B40D1419C363B8001A411D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B40D1319C363B8001A411D /* MapKit.framework */; };
 		52B646871A8AA775003F05AF /* appKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B646861A8AA775003F05AF /* appKeys.swift */; };
 		52C7ED3E1A229B32004B1DA6 /* rideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7ED3D1A229B32004B1DA6 /* rideCell.swift */; };
+		52CB02981AABE1990000F780 /* destinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB02971AABE1990000F780 /* destinationCell.swift */; };
 		52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */; };
 		52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFB19BE6EA90074884E /* AppDelegate.swift */; };
 		52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFF19BE6EA90074884E /* MapsViewController.swift */; };
@@ -72,6 +73,7 @@
 		52B40D1319C363B8001A411D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		52B646861A8AA775003F05AF /* appKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = appKeys.swift; path = ../../../../../../Desktop/appKeys.swift; sourceTree = "<group>"; };
 		52C7ED3D1A229B32004B1DA6 /* rideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = rideCell.swift; path = ../rideCell.swift; sourceTree = "<group>"; };
+		52CB02971AABE1990000F780 /* destinationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = destinationCell.swift; sourceTree = "<group>"; };
 		52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
 		52F01CF619BE6EA90074884E /* Where R U?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where R U?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01CFA19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				52B646861A8AA775003F05AF /* appKeys.swift */,
 				52C7ED3D1A229B32004B1DA6 /* rideCell.swift */,
+				52CB02971AABE1990000F780 /* destinationCell.swift */,
 			);
 			name = "Data Storage Types";
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
+				52CB02981AABE1990000F780 /* destinationCell.swift in Sources */,
 				52C7ED3E1A229B32004B1DA6 /* rideCell.swift in Sources */,
 				52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,

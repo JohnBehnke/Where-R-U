@@ -9,10 +9,14 @@
 import UIKit
 
 class RideDetailViewController: UIViewController {
-
+    
+    //MARK: - Class Variables
+    
     var detailRide: Ride!
     
     var rideVC: MyRidesViewController!
+    
+    //MARK: - IBOutlets
     
     @IBOutlet weak var rideName: UITextField!
     
@@ -20,6 +24,21 @@ class RideDetailViewController: UIViewController {
     
     @IBOutlet weak var rideDestination: UITextField!
     
+    //MARK: - IBActions
+    
+    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
+    @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
+    
+    //MARK: - Default Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,15 +55,5 @@ class RideDetailViewController: UIViewController {
     }
     
 
-    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
-        
-        self.navigationController?.popViewControllerAnimated(true)
-        
-    }
-  
-    @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
-        
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-
+    
 }

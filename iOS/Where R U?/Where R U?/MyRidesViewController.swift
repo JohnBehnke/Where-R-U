@@ -16,7 +16,7 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     
     var scheduledRides:[Ride] = []
     
-    
+    var addRideVC: AddRideViewController!
    
     
     //The Ride Table in the actual StoryBoard
@@ -43,8 +43,7 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
         
         self.performSegueWithIdentifier("showRideAdd", sender: self)
-        
-        
+
     }
     
     
@@ -152,10 +151,13 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     
         if isSingleRide{
             cell.rideName.text = thisRide.getTitle()
-            cell.rideDriver.text = thisRide.getDriver().getFirstName()        }
+            cell.rideDriver.text = thisRide.getDriver().getFirstName()
+            cell.rideDestination.text = thisRide.getDestinationName()
+        }
         else{
             cell.rideName.text = thisRide.getTitle()
-            cell.rideDriver.text = thisRide.getDriver()  .getFirstName()      }
+            cell.rideDriver.text = thisRide.getDriver().getFirstName()
+        cell.rideDestination.text = thisRide.getDestinationName()}
         return cell
     }
     

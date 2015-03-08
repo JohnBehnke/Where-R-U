@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class AddRideViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate {
 
@@ -16,6 +17,8 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     var isSingleRide = true
     
     var ridesVC: MyRidesViewController!
+    
+    var destination: MKMapItem!
 
     
     //MARK: - IBOutlets
@@ -24,10 +27,11 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     
     @IBOutlet weak var seatSteper: UIStepper!
 
-  
-    @IBOutlet var rideTitle: UITextField!
+    @IBOutlet weak var rideTitle: UITextField!
     
     @IBOutlet weak var rideDescription: UITextField!
+    
+    @IBOutlet weak var rideDestination: UITextField!
     
    
     //MARK: - IBActions
@@ -36,14 +40,14 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-      @IBAction func seatStepper(sender: UIStepper) {
+    @IBAction func seatStepper(sender: UIStepper) {
          seatCountLabel.text = Int(sender.value).description
     }
     
     @IBAction func savePressed(sender: UIBarButtonItem) {
         
         var personObj:Person = Person(firstName: "John", lastName: "Behnke", userName: "Test")
-        var ride:Ride = Ride(title: rideTitle.text, description: rideDescription.text, destination: "RCOS", seatsAvailable: Int(seatSteper.value), driver: personObj)
+        var ride:Ride = Ride(title: rideTitle.text, description: self.rideDescription.text, destination: self.destination.name, seatsAvailable: Int(self.seatSteper.value), driver: personObj)
         
         if isSingleRide{
             ridesVC.oneTimeRides.append(ride)
@@ -69,10 +73,27 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         }
     }
 
+    //MARK: - Segue Preperation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+        if segue.identifier == "showDestination"{
+            let destinationVC: DestinationSearchViewController = segue.destinationViewController as DestinationSearchViewController
+            destinationVC.addRideVC = self
+            
+            
+            
+           
+        }
+        
+    
+    
+    }
     
     //MARK: - Default Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.rideDestination.text? = self.destination.name
         
        
     }
