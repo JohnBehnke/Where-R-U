@@ -11,21 +11,24 @@ import MapKit
 
 class DestinationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating,MKMapViewDelegate {
 
+    
+    
+    //MARK: - Class Variables
     var locationManager :CLLocationManager = CLLocationManager()
-    
-    @IBOutlet weak var tableView: UITableView!
-    @IBAction func cancelPressed(sender: UIBarButtonItem) {
-    }
-    
-    //@IBOutlet weak var uiSearch: UISearchBar!
     var searchController: UISearchController!
-    
-    
     var searchResults:[MKMapItem]  = []
     var searchResultAddresses:[String] = []
     
+
+    //MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    //MARK: - IBActions
+   
+    @IBAction func cancelPressed(sender: UIBarButtonItem) {
+         self.navigationController?.popViewControllerAnimated(true)
+    }
     
-    
+    //MARK: - Default Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,10 +36,8 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.hidesNavigationBarDuringPresentation = false
-       
-        //self.searchController.searchBar.barTintColor = UIColor.redColor()
         self.searchController.searchBar.showsCancelButton = false
-       self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
+        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
         
         self.tableView.tableHeaderView = self.searchController.searchBar
 
@@ -44,9 +45,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         
         self.definesPresentationContext  = true
         
-        
-        
-        
+    
     }
 
    override func viewWillAppear(animated: Bool) {
@@ -58,7 +57,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     }
     
     
-    //MARK: - UITableViewDataSource
+    //MARK: - Table View Functions
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.searchResults.count
@@ -71,42 +70,39 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         getAddress(self.searchResults[indexPath.row])
         
         if searchResultAddresses.count != 0{
-        var resultName: String = self.searchResults[indexPath.row].name
+            var resultName: String = self.searchResults[indexPath.row].name
         
-        println(searchResultAddresses.count)
-         var addressName: String = self.searchResultAddresses[0]
-        self.searchResultAddresses.removeAtIndex(0)
-
+       
+            var addressName: String = self.searchResultAddresses[0]
+            self.searchResultAddresses.removeAtIndex(0)
         
-        //self.searchResultAddresses.removeAll(keepCapacity: false)
+            cell.textLabel?.text = resultName
         
-        println(searchResultAddresses.count)
-        
-        cell.textLabel?.text = resultName
-        
-        cell.detailTextLabel?.text = addressName
-        return cell
+            cell.detailTextLabel?.text = addressName
+            return cell
         }
        return cell
     }
     
-    // MARK: - UISearchResultsUpdating
+    //MARK: - Search Controller Functions
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-         self.searchController.searchBar.showsCancelButton = false
-            performSearch()
-        self.tableView.reloadData()
+        self.searchController.searchBar.showsCancelButton = false
+        performSearch()
+      
     }
     
 
     
-    //MARK: - MapKit Searching
+    //MARK: - Helper Functions
     func performSearch() {
         
         self.searchResults.removeAll()
         self.searchResultAddresses.removeAll()
+        
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = self.searchController.searchBar.text
+        
         var currentLocation = CLLocation()
         var latDelta:CLLocationDegrees = 0.0001
         var longDelta:CLLocationDegrees = 0.0001
@@ -125,39 +121,18 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
             } else if response.mapItems.count == 0 {
                 println("No matches found")
             } else {
-                    for item in response.mapItems as [MKMapItem] {
-                        //println("Name = \(item.name)")
-                        
+                for item in response.mapItems as [MKMapItem] {
+                    if self.canAppend(self.searchResults, newDestination: item){
                         self.searchResults.append(item)
-                        self.tableView.reloadData()
-                        
-                        CLGeocoder().reverseGeocodeLocation(item.placemark.location, completionHandler: {(placemarks, error) -> Void in
-                            //println(item.placemark.location)
-                            
-                            if error != nil {
-                                println("Reverse geocoder failed with error" + error.localizedDescription)
-                                return
-                            }
-                            
-                            if placemarks.count > 0 {
-                                let pm: CLPlacemark = placemarks[0] as CLPlacemark
-                            if pm.subThoroughfare != nil{
-                                println(item.name + " " + pm.subThoroughfare + " " + pm.thoroughfare)}
-                                //self.searchResultAddresses.append(pm)
-                            self.tableView.reloadData()//}
-                            }
-//                            else {
-//                                println("Problem with the data received from geocoder")
-//                            }
-                        })
-                        
-                        
-                        
-                    
+                    }
+                    self.tableView.reloadData()
+                     
                 }
             }
         })
     }
+    
+    
     func getAddress(searchLocation: MKMapItem){
         
         var geocoder = CLGeocoder()
@@ -169,33 +144,37 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
             if error == nil && placemarks.count > 0 {
                 placemark = placemarks[0] as CLPlacemark
                 
-                                   if placemark.subThoroughfare != nil {
-                        addressString = placemark.subThoroughfare + " "
-                    }
-                    if placemark.thoroughfare != nil {
-                        addressString = addressString + placemark.thoroughfare + ", "
-                    }
-                    if placemark.postalCode != nil {
-                        addressString = addressString + placemark.postalCode + " "
-                    }
-                    if placemark.locality != nil {
-                        addressString = addressString + placemark.locality + ", "
-                    }
-                    if placemark.administrativeArea != nil {
-                        addressString = addressString + placemark.administrativeArea + " "
-                    }
-                    if placemark.country != nil {
-                        addressString = addressString + placemark.country
-                    }
+                if placemark.subThoroughfare != nil {
+                    addressString = placemark.subThoroughfare + " "
+                }
+                if placemark.thoroughfare != nil {
+                    addressString = addressString + placemark.thoroughfare + ", "
+                }
+                if placemark.postalCode != nil {
+                    addressString = addressString + placemark.postalCode + " "
+                }
+                if placemark.locality != nil {
+                    addressString = addressString + placemark.locality + ", "
+                }
+                if placemark.administrativeArea != nil {
+                    addressString = addressString + placemark.administrativeArea + " "
+                }
+                if placemark.country != nil {
+                    addressString = addressString + placemark.country
                 }
                 
-                self.doi(addressString)
-            //println(addressString)
-            })
-        }
+                self.searchResultAddresses.append(addressString)
+            }
+        })
+    }
     
-    func doi(addressString: String){
-        self.searchResultAddresses.append(addressString)
-
+    func canAppend(searchArray: [MKMapItem], newDestination: MKMapItem) -> Bool{
+        
+        for destination in searchArray{
+            if destination == newDestination{
+                return false
+            }
+        }
+        return true
     }
 }

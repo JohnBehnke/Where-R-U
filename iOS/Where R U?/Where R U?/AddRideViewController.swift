@@ -46,7 +46,8 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         var ride:Ride = Ride(title: rideTitle.text, description: rideDescription.text, destination: "RCOS", seatsAvailable: Int(seatSteper.value), driver: personObj)
         
         if isSingleRide{
-            ridesVC.oneTimeRides.append(ride)        }
+            ridesVC.oneTimeRides.append(ride)
+        }
         else{
             
             ridesVC.scheduledRides.append(ride)
@@ -69,7 +70,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     }
 
     
-    //MARK: - Default
+    //MARK: - Default Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         

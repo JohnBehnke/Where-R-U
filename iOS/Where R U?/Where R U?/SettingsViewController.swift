@@ -10,18 +10,10 @@ import UIKit
 
 class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
     
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
     
-
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
     
+    //MARK: - IBActions
     @IBAction func zachCantPArselolo(sender: UIButton) {
         
         var friendship = PFObject(className: "Friends")
@@ -39,10 +31,7 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
                 friendship.save()
             }
         }
-        
 
-        
-        
     }
 
     
@@ -50,12 +39,21 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
         
         
         PFUser.logOut()
-        var currentUser = PFUser.currentUser() // this will now be nil
+       // var currentUser = PFUser.currentUser() // this will now be nil
         
         tabBarController?.selectedIndex = 0
         
         
     }
+    
+    //MARK: - Default Functions
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -726,21 +726,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchDisplayController" destination="XOb-I7-EOl" id="Cbm-gC-zDW"/>
                         <outlet property="tableView" destination="uoL-kg-7Im" id="5NX-oI-zG8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CfH-cs-Fze" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="XOb-I7-EOl">
-                    <connections>
-                        <outlet property="delegate" destination="3uL-g7-yE0" id="cEf-bk-d3y"/>
-                        <outlet property="searchContentsController" destination="3uL-g7-yE0" id="4tW-Lx-Hbn"/>
-                        <outlet property="searchResultsDataSource" destination="3uL-g7-yE0" id="oPf-Eb-sHe"/>
-                        <outlet property="searchResultsDelegate" destination="3uL-g7-yE0" id="xwK-ts-EfA"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="7468.5" y="222"/>
+            <point key="canvasLocation" x="7437" y="220.5"/>
         </scene>
     </scenes>
     <resources>
