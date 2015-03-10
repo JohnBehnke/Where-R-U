@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -98,9 +99,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         }
 
         mSectionsPagerAdapter.mDataset = new ArrayList<Ride>();
-
-
-
     }
 
 

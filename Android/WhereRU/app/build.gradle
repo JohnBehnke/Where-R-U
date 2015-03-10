@@ -7,9 +7,9 @@ android {
 //            We no longer need to build a signed APK and push.
 //            Probably should have figured this out a while ago.
             keyAlias 'whereru'
-            keyPassword 'PUTPASSWORDHERE'
+            keyPassword 'billsin2017'
             storeFile file('../keystore.jks')
-            storePassword 'PUTPASSWORDHERE'
+            storePassword 'billsin2017'
         }
     }
     compileSdkVersion 21
