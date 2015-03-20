@@ -18,6 +18,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     var searchController: UISearchController!
     var searchResults:[MKMapItem]  = []
     var searchResultAddresses:[String] = []
+    //var addressString:String!
     
     var addRideVC: AddRideViewController!
     
@@ -44,6 +45,8 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
 
         self.searchController.searchBar.delegate = self
         
+        self.searchController.searchBar.translucent  = true
+        
         self.definesPresentationContext  = true
         
     
@@ -66,22 +69,51 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        var tempAddressString: String = ""
+        let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
         
-       let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
-        getAddress(self.searchResults[indexPath.row])
+        var placemark = self.searchResults[indexPath.row].placemark
+        //v//ar tempAddressString: String
         
-        if searchResultAddresses.count != 0{
+        
+        if placemark.subThoroughfare != nil {
+            tempAddressString += placemark.subThoroughfare + " "
+        }
+        if placemark.thoroughfare != nil {
+            tempAddressString +=  placemark.thoroughfare + ", "
+        }
+        if placemark.postalCode != nil {
+            tempAddressString +=  placemark.postalCode + " "
+        }
+        if placemark.locality != nil {
+            tempAddressString +=   placemark.locality + ", "
+        }
+        if placemark.administrativeArea != nil {
+            tempAddressString +=  placemark.administrativeArea + " "
+        }
+        if placemark.country != nil {
+            tempAddressString += placemark.country
+        }
+
+        
+        //addressString = self.searchResults[indexPath.row].placemark.subThoroughfare + " " + self.searchResults[indexPath.row].placemark.thoroughfare
+        
+        
+        
             var resultName: String = self.searchResults[indexPath.row].name
         
-       
-            var addressName: String = self.searchResultAddresses[0]
-            self.searchResultAddresses.removeAtIndex(0)
+           // if searchResultAddresses.count != 0{
+            //var addressrownName: String = self.searchResultAddresses[0]
+            //self.searchResultAddresses.removeAtIndex(0)
+        //getAddress(self.searchResults[indexPath.row])
         
-            cell.textLabel?.text = resultName
+        cell.detailTextLabel?.text = tempAddressString
+            //self.addressString.removeAll(keepCapacity: true)
         
-            cell.detailTextLabel?.text = addressName
-            return cell
-        }
+        
+        //}
+        cell.textLabel?.text = resultName
+        
        return cell
     }
     
@@ -116,12 +148,17 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         let request = MKLocalSearchRequest()
         
         
+        var searchString: String =  self.searchController.searchBar.text
         
-        request.naturalLanguageQuery = self.searchController.searchBar.text
+        
+        
+        searchString = searchString.stringByReplacingOccurrencesOfString(" ", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        request.naturalLanguageQuery = searchString
         
         var currentLocation = CLLocation()
-        var latDelta:CLLocationDegrees = 0.6250
-        var longDelta:CLLocationDegrees = 0.6250
+        var latDelta:CLLocationDegrees = 0.01
+        var longDelta:CLLocationDegrees = 0.01
         var Span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         let center = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude , longitude: currentLocation.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(center, Span)
@@ -143,6 +180,8 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
                     if self.canAppend(self.searchResults, newDestination: item){
                         self.searchResults.append(item)
                     }
+                    
+                    
                     self.tableView.reloadData()
                      
                 }
@@ -151,40 +190,6 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     }
     
     
-    func getAddress(searchLocation: MKMapItem){
-        
-        var geocoder = CLGeocoder()
-        var addressString : String = ""
-
-        geocoder.reverseGeocodeLocation(searchLocation.placemark.location, completionHandler: {(placemarks, error)->Void in
-            var placemark:CLPlacemark!
-            
-            if error == nil && placemarks.count > 0 {
-                placemark = placemarks[0] as CLPlacemark
-                
-                if placemark.subThoroughfare != nil {
-                    addressString = placemark.subThoroughfare + " "
-                }
-                if placemark.thoroughfare != nil {
-                    addressString = addressString + placemark.thoroughfare + ", "
-                }
-                if placemark.postalCode != nil {
-                    addressString = addressString + placemark.postalCode + " "
-                }
-                if placemark.locality != nil {
-                    addressString = addressString + placemark.locality + ", "
-                }
-                if placemark.administrativeArea != nil {
-                    addressString = addressString + placemark.administrativeArea + " "
-                }
-                if placemark.country != nil {
-                    addressString = addressString + placemark.country
-                }
-                
-                self.searchResultAddresses.append(addressString)
-            }
-        })
-    }
     
     func canAppend(searchArray: [MKMapItem], newDestination: MKMapItem) -> Bool{
         

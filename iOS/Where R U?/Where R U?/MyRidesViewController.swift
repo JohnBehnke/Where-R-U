@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MyRidesViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +19,7 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     
     var addRideVC: AddRideViewController!
    
+
     
     //The Ride Table in the actual StoryBoard
     @IBOutlet var rideTable: UITableView!
