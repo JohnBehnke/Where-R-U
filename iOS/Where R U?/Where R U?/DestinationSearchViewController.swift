@@ -69,52 +69,15 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var tempAddressString: String = ""
         let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
         
-        var placemark = self.searchResults[indexPath.row].placemark
-        //v//ar tempAddressString: String
+        var resultPlace: MKMapItem = self.searchResults[indexPath.row]
+        var resultAddress: String = generateAddress(resultPlace)
         
+        cell.textLabel?.text = resultPlace.name
         
-        if placemark.subThoroughfare != nil {
-            tempAddressString += placemark.subThoroughfare + " "
-        }
-        if placemark.thoroughfare != nil {
-            tempAddressString +=  placemark.thoroughfare + ", "
-        }
-        if placemark.postalCode != nil {
-            tempAddressString +=  placemark.postalCode + " "
-        }
-        if placemark.locality != nil {
-            tempAddressString +=   placemark.locality + ", "
-        }
-        if placemark.administrativeArea != nil {
-            tempAddressString +=  placemark.administrativeArea + " "
-        }
-        if placemark.country != nil {
-            tempAddressString += placemark.country
-        }
-
-        
-        //addressString = self.searchResults[indexPath.row].placemark.subThoroughfare + " " + self.searchResults[indexPath.row].placemark.thoroughfare
-        
-        
-        
-            var resultName: String = self.searchResults[indexPath.row].name
-        
-           // if searchResultAddresses.count != 0{
-            //var addressrownName: String = self.searchResultAddresses[0]
-            //self.searchResultAddresses.removeAtIndex(0)
-        //getAddress(self.searchResults[indexPath.row])
-        
-        cell.detailTextLabel?.text = tempAddressString
-            //self.addressString.removeAll(keepCapacity: true)
-        
-        
-        //}
-        cell.textLabel?.text = resultName
-        
-       return cell
+        cell.detailTextLabel?.text = resultAddress
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -189,7 +152,34 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         })
     }
     
+    func generateAddress(inputMKMapItem: MKMapItem)->String{
     
+        let placemark = inputMKMapItem.placemark
+        
+        var tempAddressString: String = ""
+        
+        if placemark.subThoroughfare != nil {
+            tempAddressString += placemark.subThoroughfare + " "
+        }
+         if placemark.thoroughfare != nil {
+            tempAddressString +=  placemark.thoroughfare + ", "
+        }
+         if placemark.postalCode != nil {
+            tempAddressString +=  placemark.postalCode + " "
+        }
+         if placemark.locality != nil {
+            tempAddressString +=   placemark.locality + ", "
+        }
+         if placemark.administrativeArea != nil {
+            tempAddressString +=  placemark.administrativeArea + " "
+        }
+        if placemark.country != nil {
+            tempAddressString += placemark.country
+        }
+        
+        return tempAddressString
+    
+    }
     
     func canAppend(searchArray: [MKMapItem], newDestination: MKMapItem) -> Bool{
         
