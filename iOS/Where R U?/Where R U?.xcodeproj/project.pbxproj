@@ -14,6 +14,7 @@
 		52029CA81A913214006B1DBA /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52029CA51A913214006B1DBA /* ParseCrashReporting.framework */; };
 		52029CA91A913214006B1DBA /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52029CA61A913214006B1DBA /* ParseFacebookUtils.framework */; };
 		52029CAA1A913214006B1DBA /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52029CA71A913214006B1DBA /* ParseUI.framework */; };
+		521C51D01ABE133D00545697 /* DestinationPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */; };
 		5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233C6431A22BD910091E54E /* RideDetailViewController.swift */; };
 		524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E5B0B19D9DEA8008A0EE7 /* Person.swift */; };
 		526DD42719D9D05D00DA2447 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DD42619D9D05D00DA2447 /* Ride.swift */; };
@@ -61,6 +62,7 @@
 		52029CA51A913214006B1DBA /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
 		52029CA61A913214006B1DBA /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		52029CA71A913214006B1DBA /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationPreviewViewController.swift; sourceTree = "<group>"; };
 		5233C6431A22BD910091E54E /* RideDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailViewController.swift; sourceTree = "<group>"; };
 		524E5B0B19D9DEA8008A0EE7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5268471219DFC74400C13769 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -167,6 +169,7 @@
 				52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
 				52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */,
+				521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				521C51D01ABE133D00545697 /* DestinationPreviewViewController.swift in Sources */,
 				524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */,
 				52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */,
 				52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */,

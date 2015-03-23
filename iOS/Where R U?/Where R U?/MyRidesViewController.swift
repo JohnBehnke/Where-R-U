@@ -164,9 +164,9 @@ class MyRidesViewController: UITableViewController, UITableViewDelegate, UITable
     }
     
     //Gets ready to go to the Show Ride Detail view
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       
-        performSegueWithIdentifier("ShowRideDetail", sender: self)
-            }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//       
+//        performSegueWithIdentifier("ShowRideDetail", sender: self)
+//        }
 }
 

@@ -80,10 +80,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         if segue.identifier == "showDestination"{
             let destinationVC: DestinationSearchViewController = segue.destinationViewController as DestinationSearchViewController
             destinationVC.addRideVC = self
-            
-            
-            
-           
+ 
         }
         
     

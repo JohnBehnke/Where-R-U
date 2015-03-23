@@ -17,7 +17,9 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     var locationManager :CLLocationManager = CLLocationManager()
     var searchController: UISearchController!
     var searchResults:[MKMapItem]  = []
-    var searchResultAddresses:[String] = []
+    var destinationToPreview: MKMapItem!
+   
+
     //var addressString:String!
     
     var addRideVC: AddRideViewController!
@@ -60,6 +62,24 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - Segue Preperation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "viewDestination"{
+           // var indexPath = self.tableView.indexPathForSelectedRow()
+            let destinationViewVC: DestinationPreviewViewController = segue.destinationViewController as DestinationPreviewViewController
+            destinationViewVC.location = destinationToPreview
+            
+            
+      
+            destinationViewVC.destinationSearchVC = self
+            
+            
+        }
+        
+        
+    }
+
     
     //MARK: - Table View Functions
     
@@ -92,6 +112,13 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         
     }
     
+     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        
+        self.destinationToPreview  = self.searchResults[indexPath.row]
+        performSegueWithIdentifier("viewDestination", sender: self)
+        
+    }
+    
     //MARK: - Search Controller Functions
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -106,7 +133,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     func performSearch() {
         
         self.searchResults.removeAll()
-        self.searchResultAddresses.removeAll()
+        //self.searchResultAddresses.removeAll()
         
         let request = MKLocalSearchRequest()
         
