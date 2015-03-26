@@ -19,6 +19,8 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     var ridesVC: MyRidesViewController!
     
     var destination: MKMapItem!
+    
+     var datePickerHidden = false
 
     
     //MARK: - IBOutlets
@@ -33,7 +35,9 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     
     @IBOutlet weak var rideDestination: UITextField!
     
+    @IBOutlet weak var dateLabel: UILabel!
    
+    @IBOutlet weak var datePicker: UIDatePicker!
     //MARK: - IBActions
     
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
@@ -72,6 +76,14 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
             break;
         }
     }
+    
+    
+    @IBAction func didChangeDate(sender: UIDatePicker) {
+        
+        dateLabel.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
+
+    }
+ 
 
     //MARK: - Segue Preperation
     
@@ -87,9 +99,37 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     
     }
     
+     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (2, 0):
+            toggleDatePicker()
+        default:
+            ()
+        }
+    }
+    
+     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if datePickerHidden && indexPath.section == 2 && indexPath.row == 1 {
+            return 0
+        } else {
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        }
+    }
+    
+    func toggleDatePicker() {
+        datePickerHidden = !datePickerHidden
+        
+        // Force table to update its contents
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
     //MARK: - Default Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+         didChangeDate(self.datePicker)
+        toggleDatePicker()
+        //self.datePicker.hidden = true
         //self.rideDestination.text? = self.destination.name
         
        
