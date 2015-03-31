@@ -13,6 +13,10 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
 
     var settingsVC: SettingsViewController!
     
+    @IBOutlet var requestTable: UITableView!
+
+    var friendRequests:[String] = []
+    
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
@@ -21,15 +25,20 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
     
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //Make sure the data is up to date
-       
+        requestTable.reloadData()
     }
     
-    @IBAction func backButtonTapped(sender: UIBarButtonItem) {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.friendRequests.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        self.navigationController?.popViewControllerAnimated(true)
         
+        var cell: requestCell = tableView.dequeueReusableCellWithIdentifier("requestTableCell") as requestCell //this is the resualble cells
+            cell.requestSender.text = "Johnsucks"
+        
+        return cell
     }
     
 }

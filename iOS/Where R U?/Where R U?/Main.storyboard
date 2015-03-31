@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -158,7 +158,7 @@
             </objects>
             <point key="canvasLocation" x="4989" y="220.5"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="KGc-am-Ekw">
             <objects>
                 <viewController id="crT-uE-Ga3" customClass="SettingsViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
@@ -199,7 +199,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="141" y="472" width="243" height="30"/>
+                                    <rect key="frame" x="140" y="470" width="244" height="30"/>
                                 </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend's Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaC-Vv-rAT">
@@ -217,11 +217,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="141" y="416" width="144" height="30"/>
+                                    <rect key="frame" x="140" y="416" width="144" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="friendRequestButtonPressed:" destination="crT-uE-Ga3" eventType="touchUpInside" id="C1m-yc-zwd"/>
-                                    <segue destination="PUe-Nl-E9n" kind="show" identifier="showFriendRequests" id="5Yf-dJ-Y5t"/>
+                                    <segue destination="PUe-Nl-E9n" kind="show" identifier="showFriendRequests" id="7dl-YI-XTk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -248,7 +247,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="11u-7B-SNh"/>
+                    <navigationItem key="navigationItem" id="8Zx-oa-c4i"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="userNameText" destination="oMU-V3-1cA" id="4aq-Zh-NTP"/>
@@ -256,37 +255,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4920" y="1626"/>
+            <point key="canvasLocation" x="5838" y="1626"/>
         </scene>
         <!--Friend Request-->
         <scene sceneID="ce1-lT-SWa">
             <objects>
                 <tableViewController title="Friend Request" id="PUe-Nl-E9n" customClass="FriendRequestViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="114" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iee-94-14Y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="KEN-UG-PFe">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Title" id="HQ7-CB-LEU">
-                                    <barButtonItem key="leftBarButtonItem" title="Back" id="LXn-gK-WVw">
-                                        <connections>
-                                            <action selector="backButtonTapped:" destination="PUe-Nl-E9n" id="kc7-iQ-sNy"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem key="rightBarButtonItem" title="Item" id="eLF-tM-5il"/>
-                                    <connections>
-                                        <outlet property="titleView" destination="KEN-UG-PFe" id="hnu-Px-aDH"/>
-                                    </connections>
-                                </navigationItem>
-                            </items>
-                            <connections>
-                                <outlet property="delegate" destination="PUe-Nl-E9n" id="O8e-F8-FSi"/>
-                            </connections>
-                        </navigationBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="114" id="Ug5-26-dCb">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestTableCell" rowHeight="114" id="Ug5-26-dCb" customClass="requestCell" customModule="Where_R_U_" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ug5-26-dCb" id="IYc-p0-uON">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -297,7 +277,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="279" y="70" width="36" height="30"/>
+                                                <rect key="frame" x="265" y="71" width="50" height="32"/>
                                             </variation>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgK-ao-osv">
@@ -306,7 +286,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="63" y="70" width="49" height="30"/>
+                                                <rect key="frame" x="63" y="71" width="65" height="32"/>
                                             </variation>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHf-pR-EbZ">
@@ -334,6 +314,11 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="requestAccept" destination="GgK-ao-osv" id="xE0-1D-nqp"/>
+                                    <outlet property="requestDeny" destination="RqV-p2-KVj" id="PX6-ZL-hKp"/>
+                                    <outlet property="requestSender" destination="cHf-pR-EbZ" id="Qie-VF-fG7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -341,10 +326,18 @@
                             <outlet property="delegate" destination="PUe-Nl-E9n" id="eJP-pD-0AF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="cA2-Ar-1PO">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="mab-zE-sPl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="requestTable" destination="Iee-94-14Y" id="XMT-E7-dvN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYD-0U-Oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5901" y="1626"/>
+            <point key="canvasLocation" x="6819" y="1626"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
@@ -383,7 +376,7 @@
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="klB-kz-SfK" kind="relationship" relationship="viewControllers" id="c0p-c6-S5E"/>
-                        <segue destination="crT-uE-Ga3" kind="relationship" relationship="viewControllers" id="bZP-tM-HGA"/>
+                        <segue destination="Lvh-R4-xnW" kind="relationship" relationship="viewControllers" id="bZP-tM-HGA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -806,6 +799,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFc-hJ-INE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7329" y="219"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="O55-1f-oqs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lvh-R4-xnW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="11u-7B-SNh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BNd-I2-2Rh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.95294117647058818" green="0.16862745098039217" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="crT-uE-Ga3" kind="relationship" relationship="rootViewController" id="JHp-vN-A74"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahS-lD-hId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4920" y="1626"/>
         </scene>
     </scenes>
     <resources>

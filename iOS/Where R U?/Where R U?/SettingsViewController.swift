@@ -65,18 +65,15 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
     //Prepares to transition to another view controller
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "showFriendRequests"{
+        if segue.identifier == "showFriendRequests" {
             
-            var showFriendRequestVC:FriendRequestViewController = segue.destinationViewController as FriendRequestViewController
+            let showFriendRequestVC:FriendRequestViewController = segue.destinationViewController as FriendRequestViewController
             showFriendRequestVC.settingsVC = self
             
         }
     }
     
-    @IBAction func friendRequestButtonPressed(sender: UIButton) {
-        self.performSegueWithIdentifier("showFriendRequests", sender: self)
-    }
-    
+       
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
