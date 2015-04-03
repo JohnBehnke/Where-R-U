@@ -41,6 +41,7 @@
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 		92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */; };
 		92C0C09F1ACB2F060039D14E /* requestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C09E1ACB2F060039D14E /* requestCell.swift */; };
+		92F077AF1ACEFE4500C24054 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F077AE1ACEFE4500C24054 /* Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		92C0C09E1ACB2F060039D14E /* requestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestCell.swift; sourceTree = "<group>"; };
+		92F077AE1ACEFE4500C24054 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		52E264D71A127F3800B6444F /* Object Classes */ = {
 			isa = PBXGroup;
 			children = (
+				92F077AE1ACEFE4500C24054 /* Request.swift */,
 				526DD42619D9D05D00DA2447 /* Ride.swift */,
 				524E5B0B19D9DEA8008A0EE7 /* Person.swift */,
 			);
@@ -365,6 +368,7 @@
 				524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */,
 				52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */,
 				52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */,
+				92F077AF1ACEFE4500C24054 /* Request.swift in Sources */,
 				5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
 				92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */,

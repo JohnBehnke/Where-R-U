@@ -266,7 +266,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestTableCell" rowHeight="114" id="Ug5-26-dCb" customClass="requestCell" customModule="Where_R_U_" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestCell" rowHeight="114" id="Ug5-26-dCb" customClass="requestCell" customModule="Where_R_U_" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ug5-26-dCb" id="IYc-p0-uON">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -332,7 +332,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="requestTable" destination="Iee-94-14Y" id="XMT-E7-dvN"/>
+                        <outlet property="requestTable" destination="Iee-94-14Y" id="7jc-gL-1pS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYD-0U-Oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
