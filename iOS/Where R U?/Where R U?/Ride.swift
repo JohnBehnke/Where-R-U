@@ -12,53 +12,33 @@ import MapKit
 class Ride{
     
 //Variables - Driver (Person), list of participants(Person), list of person needed to be picked up, list of persons currently picked up, dates and times, locations(driver current, destinations - passenger current for pickup or static destination for dropoff)
-    
-    
-    
-    
-    init(title: String,description: String ,destination: String ,driver: Person){
+
+    init(title: String,description: String ,destination: String ,seatsAvailable: Int,driver: Person){
         self.title = title
         self.description = description
         self.driver = driver
         self.destinationName = destination
+        self.seatsAvailiable = seatsAvailable
         self.passengers = []
         self.toPickUp = self.passengers
         self.pickedUp  = []
         self.isOwner = false
         
     }
-
-    
-
-    //Uncomment when GPS works
-    //    init(title: String, driver: Person, startLocation: Double, destinationGPS: Double, destinationName: String  , passengers: [Person] ){ //Initalizer for one-time carpool
-//        self.title = title
-//        self.driver = driver
-//        self.startLocation = startLocation
-//        self.passengers = passengers
-//        self.toPickUp = passengers
-//        self.pickedUp = []
-//        self.startLocation = 0.0
-//        self.destinationGPS = destinationGPS
-//        self.destinationName = destinationName
-//        self.waypoints = []
-//      
-//    }
-    //Passenger Array needs to be dictoinary Key = Person Object, Value = Array of Times
-    
     
     private var title: String
     private var description: String
     private var driver: Person
     private var passengers: [Person]
+    private var seatsAvailiable: Int
     private var toPickUp : [Person]
     private var pickedUp : [Person]
     private var isOwner : Bool;
     
     //private var startLocation: Double
-   //private var destinationGPS : Double
+    //private var destinationGPS : Double
     private var destinationName: String
-   // private var waypoints : [Double]
+    // private var waypoints : [Double]
     
     //Returns the title for the ride
     func getTitle() ->String{
@@ -89,6 +69,20 @@ class Ride{
         return self.passengers
     }
     
+    func setSeatsAvailable(amountAvailable: Int){
+        self.seatsAvailiable = amountAvailable
+    }
+    
+    func getSeatsAvailable() -> Int{
+        return self.seatsAvailiable
+    }
+    
+    func incrementSeatsAvailable(){
+        self.seatsAvailiable++
+    }
+    func decrementSeatsAvailable(){
+        self.seatsAvailiable--
+    }
     
     //Sets the passenger array equal to an array of person objects. Useful if an array of passengers is not specified at the creation of a ride
     func setPassengers(newPassengerGroup: [Person]){

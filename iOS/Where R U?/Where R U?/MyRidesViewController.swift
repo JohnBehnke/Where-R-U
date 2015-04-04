@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource {
     
@@ -16,8 +17,9 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     
     var scheduledRides:[Ride] = []
     
-    
+    var addRideVC: AddRideViewController!
    
+
     
     //The Ride Table in the actual StoryBoard
     @IBOutlet var rideTable: UITableView!
@@ -43,8 +45,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
         
         self.performSegueWithIdentifier("showRideAdd", sender: self)
-        
-        
+
     }
     
     
@@ -152,17 +153,20 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     
         if isSingleRide{
             cell.rideName.text = thisRide.getTitle()
-            cell.rideDriver.text = thisRide.getDriver().getFirstName()        }
+            cell.rideDriver.text = thisRide.getDriver().getFirstName()
+            cell.rideDestination.text = thisRide.getDestinationName()
+        }
         else{
             cell.rideName.text = thisRide.getTitle()
-            cell.rideDriver.text = thisRide.getDriver()  .getFirstName()      }
+            cell.rideDriver.text = thisRide.getDriver().getFirstName()
+        cell.rideDestination.text = thisRide.getDestinationName()}
         return cell
     }
     
     //Gets ready to go to the Show Ride Detail view
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       
-        performSegueWithIdentifier("ShowRideDetail", sender: self)
-            }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//       
+//        performSegueWithIdentifier("ShowRideDetail", sender: self)
+//        }
 }
 

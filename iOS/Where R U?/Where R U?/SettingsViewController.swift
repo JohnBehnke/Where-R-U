@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
 
     @IBAction func logoutRequest(sender: UIButton) {
         PFUser.logOut()
-        var currentUser = PFUser.currentUser() // this will now be nil
+       // var currentUser = PFUser.currentUser() // this will now be nil
         
         tabBarController?.selectedIndex = 0
         
