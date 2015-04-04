@@ -110,7 +110,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     
      override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if datePickerHidden && indexPath.section == 2 && indexPath.row == 1 {
-            return 0
+            return 0.0
         } else {
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
@@ -127,12 +127,9 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     //MARK: - Default Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-         didChangeDate(self.datePicker)
+        didChangeDate(self.datePicker)
         toggleDatePicker()
-        //self.datePicker.hidden = true
-        //self.rideDestination.text? = self.destination.name
-        
-       
+      
     }
     
     override func didReceiveMemoryWarning() {

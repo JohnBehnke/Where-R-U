@@ -466,10 +466,17 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jdC-fT-2fu" id="SsE-de-nHW">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rjt-wl-nf5">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Destination" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rjt-wl-nf5">
                                                     <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" none="YES" staticText="YES"/>
+                                                    </accessibility>
+                                                    <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    </variation>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -545,37 +552,22 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="449028861.08256799">
                                                         <!--2015-03-26 02:14:21 +0000-->
                                                     </date>
+                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="13" width="400" height="162"/>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="didChangeDate:" destination="EXo-tM-pGZ" eventType="valueChanged" id="NcK-p8-FNJ"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="9Fx-3O-tAt" secondAttribute="bottom" constant="3.5" id="0pq-Va-l9J"/>
-                                                <constraint firstItem="9Fx-3O-tAt" firstAttribute="leading" secondItem="gso-Jy-ElN" secondAttribute="leadingMargin" constant="-8" id="ML9-25-jV0"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="9Fx-3O-tAt" secondAttribute="trailing" constant="-8" id="nYQ-Vz-Ha7"/>
-                                                <constraint firstItem="9Fx-3O-tAt" firstAttribute="top" secondItem="gso-Jy-ElN" secondAttribute="topMargin" constant="5" id="twW-QY-pCK"/>
-                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="9Fx-3O-tAt"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <exclude reference="0pq-Va-l9J"/>
-                                                    <exclude reference="ML9-25-jV0"/>
-                                                    <exclude reference="nYQ-Vz-Ha7"/>
-                                                    <exclude reference="twW-QY-pCK"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="9Fx-3O-tAt"/>
-                                                </mask>
-                                                <mask key="constraints">
-                                                    <include reference="0pq-Va-l9J"/>
-                                                    <include reference="ML9-25-jV0"/>
-                                                    <include reference="nYQ-Vz-Ha7"/>
-                                                    <include reference="twW-QY-pCK"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -800,7 +792,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfV-aQ-BWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6592.5" y="215.25"/>
+            <point key="canvasLocation" x="6592.5" y="220.5"/>
         </scene>
         <!--Destination Search View Controller-->
         <scene sceneID="c1a-N2-p4k">
