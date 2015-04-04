@@ -11,44 +11,49 @@ import UIKit
 class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
     
 
+    @IBOutlet weak var userNameText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-
-        
-        
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
+    
+    
     
     @IBAction func zachCantPArselolo(sender: UIButton) {
         
+        var username2:String = userNameText.text //This user name can be changed
+        
         var friendship = PFObject(className: "Friends")
-        var query = PFUser.query()
-        query.whereKey("username", equalTo:"butts") //program crashes here for some reason
-        query.getFirstObjectInBackgroundWithBlock {
+        var findUser:PFQuery = PFUser.query()
+        
+        findUser.whereKey("username",equalTo:username2) //program crashes here for some reason
+        
+        findUser.getFirstObjectInBackgroundWithBlock {
+            
             (user2, error: NSError!) -> Void in
-            if user2 != nil {
-                NSLog("The getFirstObject request failed.")
+            if user2 == nil {
+                println("Failure")
             } else {
-                // The find succeeded.
-                NSLog("Successfully retrieved the object.")
+                println("Successfully retrieved the object.")
                 friendship["user1"] = PFUser.currentUser().objectId
                 friendship["user2"] = user2.objectId
-                friendship.save()
+                friendship["pending"] = true
+                friendship.saveInBackgroundWithBlock {
+                    (success:Bool, error:NSError!) -> Void in
+                    if (success) {
+                        println("Friendship saved")
+                    }
+                }
             }
         }
-        
-
         
         
     }
 
-    
     @IBAction func logoutRequest(sender: UIButton) {
-        
-        
         PFUser.logOut()
         var currentUser = PFUser.currentUser() // this will now be nil
         
@@ -56,10 +61,26 @@ class SettingsViewController: UIViewController,PFLogInViewControllerDelegate {
         
         
     }
+    
+    //Prepares to transition to another view controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showFriendRequests" {
+            
+            let showFriendRequestVC:FriendRequestViewController = segue.destinationViewController as FriendRequestViewController
+            showFriendRequestVC.settingsVC = self
+            
+        }
+    }
+    
+       
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    
     
     
 }

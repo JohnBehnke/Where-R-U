@@ -1,0 +1,41 @@
+Scheduler logic:
+
+	In Ride class:
+		store driving times - the physical time that will be spent driving
+		A key-value pair data structure where key is the user and value is an array of possible driving times for that user
+		
+
+	Calculate number x - number of driving times / number of users	
+		Each user will drive that many times
+
+	Randomize each users list option available if you want different schedules each period week/month etc
+	
+	Backtracking
+		Sort users by number of available times to drive (smallest to largest)
+		Assign first person first x availale driving times
+		Continue to next person
+			ignore times that have already been assigned
+			Assign x times
+			Return true
+
+			Return false if adding driver becomes impossible
+				return to the last person and aassign different times
+
+
+
+bool WriteSchedule() {
+	
+	if there is no unassigned time
+		return true, schedule is done
+	else
+		for each possible driving time of the current user
+			make a tentative assignment that works
+			move to next user
+
+			if (WriteSchedule(schedule with assignment))
+				return true
+			else
+				Undo assignment
+		backtrack (i.e. return false) (move back one user)
+
+}
