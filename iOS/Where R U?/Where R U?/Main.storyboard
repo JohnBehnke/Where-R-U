@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -111,7 +112,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="d0O-I8-lVf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="2fp-vq-Z99"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="MWE-eC-fcq">
                             <rect key="frame" x="183.5" y="7.5" width="233" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -682,25 +682,47 @@
                                             <subviews>
                                                 <datePicker clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Fx-3O-tAt">
                                                     <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="9Fx-3O-tAt" secondAttribute="height" multiplier="200:81" id="eQj-ho-lBs"/>
+                                                    </constraints>
                                                     <date key="date" timeIntervalSinceReferenceDate="449028861.08256799">
                                                         <!--2015-03-26 02:14:21 +0000-->
                                                     </date>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="0.0" y="13" width="400" height="162"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="eQj-ho-lBs"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="eQj-ho-lBs"/>
+                                                        </mask>
                                                     </variation>
                                                     <connections>
                                                         <action selector="didChangeDate:" destination="EXo-tM-pGZ" eventType="valueChanged" id="NcK-p8-FNJ"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="9Fx-3O-tAt" secondAttribute="centerX" id="VAJ-Q2-INQ"/>
+                                                <constraint firstAttribute="centerY" secondItem="9Fx-3O-tAt" secondAttribute="centerY" constant="-0.75" id="oqW-vq-Vtw"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="9Fx-3O-tAt"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="VAJ-Q2-INQ"/>
+                                                    <exclude reference="oqW-vq-Vtw"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="9Fx-3O-tAt"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="VAJ-Q2-INQ"/>
+                                                    <include reference="oqW-vq-Vtw"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>

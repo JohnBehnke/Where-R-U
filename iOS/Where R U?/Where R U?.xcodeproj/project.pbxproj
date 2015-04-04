@@ -25,7 +25,6 @@
 		52CE855E1AD0774A00B76977 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE85581AD0774A00B76977 /* Parse.framework */; };
 		52CE855F1AD0774A00B76977 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE85591AD0774A00B76977 /* ParseCrashReporting.framework */; };
 		52CE85601AD0774A00B76977 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE855A1AD0774A00B76977 /* ParseFacebookUtils.framework */; };
-		52CE85611AD0774A00B76977 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE855B1AD0774A00B76977 /* ParseFacebookUtilsV4.framework */; };
 		52CE85621AD0774A00B76977 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE855C1AD0774A00B76977 /* ParseUI.framework */; };
 		52CE85641AD0775900B76977 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE85631AD0775900B76977 /* FacebookSDK.framework */; };
 		52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */; };
@@ -79,7 +78,6 @@
 		52CE85581AD0774A00B76977 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		52CE85591AD0774A00B76977 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
 		52CE855A1AD0774A00B76977 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		52CE855B1AD0774A00B76977 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		52CE855C1AD0774A00B76977 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		52CE85631AD0775900B76977 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../../../Library/Developer/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				52CE855E1AD0774A00B76977 /* Parse.framework in Frameworks */,
 				924D754919E3382500B3B8C7 /* CFNetwork.framework in Frameworks */,
 				924D754719E3382000B3B8C7 /* AudioToolbox.framework in Frameworks */,
-				52CE85611AD0774A00B76977 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				52CE85601AD0774A00B76977 /* ParseFacebookUtils.framework in Frameworks */,
 				52B40D1419C363B8001A411D /* MapKit.framework in Frameworks */,
 			);
@@ -154,7 +151,6 @@
 				52CE85581AD0774A00B76977 /* Parse.framework */,
 				52CE85591AD0774A00B76977 /* ParseCrashReporting.framework */,
 				52CE855A1AD0774A00B76977 /* ParseFacebookUtils.framework */,
-				52CE855B1AD0774A00B76977 /* ParseFacebookUtilsV4.framework */,
 				52CE855C1AD0774A00B76977 /* ParseUI.framework */,
 				52029CA11A9130EE006B1DBA /* libsqlite3.dylib */,
 				52B40D1319C363B8001A411D /* MapKit.framework */,
@@ -509,11 +505,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-					/Library/Developer/FacebookSDK,
 					"$(PROJECT_DIR)",
 					/Library/Developer/FacebookSDK,
-					"$(LOCAL_DEVELOPER_DIR)/FacebookSDK",
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -535,11 +528,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-					/Library/Developer/FacebookSDK,
 					"$(PROJECT_DIR)",
 					/Library/Developer/FacebookSDK,
-					"$(LOCAL_DEVELOPER_DIR)/FacebookSDK",
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
