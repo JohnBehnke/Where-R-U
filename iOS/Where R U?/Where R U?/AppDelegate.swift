@@ -20,8 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId(parseApplicationID, clientKey: parseClientKey)
         PFFacebookUtils.initializeFacebook()
         
-        UITabBar.appearance().tintColor = UIColor.whiteColor() //Change selected tab color to white
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
+        //var magicColor: UIColor = UIColor(red: 1.0, green: 0.68, blue: 0.68, alpha: 1)
+        
+        
+        UITabBar.appearance().backgroundImage = UIImage(named: "whiteColor.png")
+        UITabBar.appearance().shadowImage = UIImage(named: "redColor.png")
+        UITabBar.appearance().tintColor = UIColor(red: 1.0, green: 0.266, blue: 0.266, alpha: 1)
         
         return true
         

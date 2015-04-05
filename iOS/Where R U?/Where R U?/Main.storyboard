@@ -70,7 +70,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ride of Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVe-Wl-bEQ">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="8" y="8" width="162" height="34"/>
@@ -141,6 +141,25 @@
             </objects>
             <point key="canvasLocation" x="5865" y="220.5"/>
         </scene>
+        <!--My Profile-->
+        <scene sceneID="cRa-54-DYG">
+            <objects>
+                <viewController id="S0v-Es-3bB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8pj-Mb-Geg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kiz-uW-SzR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vjq-II-iv0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="myProfileIcon" id="yYd-E7-iXz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHU-Ap-myV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4938" y="1722.75"/>
+        </scene>
         <!--My Rides-->
         <scene sceneID="4zX-Za-kbA">
             <objects>
@@ -151,15 +170,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.97254901960784312" green="0.21568627450980393" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="d42-Mi-7wF">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.96470588235294119" green="0.21568627450980393" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
-                    </toolbar>
                     <connections>
                         <segue destination="CE6-2L-RaW" kind="relationship" relationship="rootViewController" id="YRh-Cu-tVd"/>
                     </connections>
@@ -168,7 +183,7 @@
             </objects>
             <point key="canvasLocation" x="4989" y="220.5"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="KGc-am-Ekw">
             <objects>
                 <viewController id="crT-uE-Ga3" customClass="SettingsViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
@@ -215,7 +230,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend's Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaC-Vv-rAT">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="16" y="476" width="117" height="21"/>
@@ -257,7 +272,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="8Zx-oa-c4i"/>
+                    <navigationItem key="navigationItem" title="Settings" id="8Zx-oa-c4i"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="userNameText" destination="oMU-V3-1cA" id="4aq-Zh-NTP"/>
@@ -265,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4989" y="1683"/>
+            <point key="canvasLocation" x="5085" y="2385"/>
         </scene>
         <!--Friend Request-->
         <scene sceneID="ce1-lT-SWa">
@@ -289,6 +304,9 @@
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="265" y="71" width="50" height="32"/>
                                             </variation>
+                                            <connections>
+                                                <action selector="requestDeny:" destination="Ug5-26-dCb" eventType="touchUpInside" id="vDm-yk-EMN"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgK-ao-osv">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -298,11 +316,14 @@
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="63" y="71" width="65" height="32"/>
                                             </variation>
+                                            <connections>
+                                                <action selector="requestAccept:" destination="Ug5-26-dCb" eventType="touchUpInside" id="KJv-W5-jCP"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHf-pR-EbZ">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="41" y="34" width="319" height="21"/>
@@ -336,7 +357,7 @@
                             <outlet property="delegate" destination="PUe-Nl-E9n" id="eJP-pD-0AF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cA2-Ar-1PO">
+                    <navigationItem key="navigationItem" title="Friend Requests" id="cA2-Ar-1PO">
                         <barButtonItem key="backBarButtonItem" title="Back" id="mab-zE-sPl">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
@@ -347,21 +368,21 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYD-0U-Oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5865" y="1683"/>
+            <point key="canvasLocation" x="5961" y="2385"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" id="8rJ-Kc-sve" customClass="MapsViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="standard" showsUserLocation="YES" id="90t-Ai-m8A">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <gestureRecognizers/>
                         <connections>
                             <outlet property="delegate" destination="8rJ-Kc-sve" id="XGQ-0o-Kx7"/>
                         </connections>
                     </mapView>
-                    <tabBarItem key="tabBarItem" title="Map" image="mapIcon-1" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="cPa-gy-q4n"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="theMapView" destination="90t-Ai-m8A" id="Khm-64-mnp"/>
@@ -377,21 +398,23 @@
                 <tabBarController modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5go-cQ-z7H"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="1" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="klB-kz-SfK" kind="relationship" relationship="viewControllers" id="c0p-c6-S5E"/>
+                        <segue destination="S0v-Es-3bB" kind="relationship" relationship="viewControllers" id="Qit-Hr-6dT"/>
                         <segue destination="Lvh-R4-xnW" kind="relationship" relationship="viewControllers" id="bZP-tM-HGA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3939" y="912.75"/>
+            <point key="canvasLocation" x="3216" y="818.25"/>
         </scene>
         <!--Ride Detail View Controller-->
         <scene sceneID="3tQ-P2-V9P">
@@ -1035,18 +1058,17 @@
         <!--Settings-->
         <scene sceneID="O55-1f-oqs">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lvh-R4-xnW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="11u-7B-SNh"/>
+                <navigationController title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="Lvh-R4-xnW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIconSelected" id="11u-7B-SNh"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BNd-I2-2Rh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BNd-I2-2Rh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.95294117647058818" green="0.16862745098039217" blue="0.23921568627450981" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1056,13 +1078,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahS-lD-hId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4192" y="1674"/>
+            <point key="canvasLocation" x="4287" y="2376"/>
         </scene>
     </scenes>
     <resources>
-        <image name="mapIcon-1" width="30" height="30"/>
-        <image name="myRidesIcon" width="30" height="30"/>
-        <image name="settingsIcon" width="30" height="30"/>
+        <image name="map" width="27" height="27"/>
+        <image name="myProfileIcon" width="27" height="27"/>
+        <image name="myRidesIcon" width="27" height="27"/>
+        <image name="settingsIconSelected" width="27" height="27"/>
     </resources>
-    <color key="tintColor" red="0.96470588235294119" green="0.21568627450980393" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
 </document>

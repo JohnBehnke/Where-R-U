@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "whiteColor-2.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "whiteColor-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "parseLogin.png"
+      "filename" : "whiteColor.png"
     }
   ],
   "info" : {

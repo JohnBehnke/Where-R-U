@@ -80,8 +80,8 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
         //test that works
-        var test:Request = Request(name: "WTFSWIFT")
-        friendRequests.append(test)
+        //var test:Request = Request(name: "WTFSWIFT")
+        //friendRequests.append(test)
         //real shit that doesnt
         Query()
         //data is not reloading im assuming its because the query takes longer than the table load

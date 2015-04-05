@@ -12,11 +12,12 @@ import UIKit
 class requestCell: UITableViewCell {
     
     
-    @IBOutlet weak var requestAccept: UIButton!
+   
+    @IBAction func requestAccept(sender: AnyObject) {
+    }
     
-    
-    @IBOutlet weak var requestDeny: UIButton!
-    
+    @IBAction func requestDeny(sender: AnyObject) {
+    }
     
     @IBOutlet weak var requestSender: UILabel!
     
