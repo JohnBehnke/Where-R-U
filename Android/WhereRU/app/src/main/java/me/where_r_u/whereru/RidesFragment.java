@@ -173,7 +173,7 @@ public class RidesFragment extends Fragment {
             ride.put("title", newRide.getTitle());
             ride.put("hrDest", newRide.getHumanReadableDestination());
             ride.put("user", user);
-            ride.saveInBackground();
+            ride.saveEventually();
             ride.pinInBackground();
 
             mDataset.add(newRide);
