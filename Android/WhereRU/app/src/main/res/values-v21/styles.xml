@@ -10,5 +10,18 @@
         <item name="android:background">@drawable/ripple</item>
         <item name="android:layout_height">56dp</item>
         <item name="android:layout_width">56dp</item>
+
+        <!-- enable window content transitions -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+
+        <!-- specify enter and exit transitions -->
+        <item name="android:windowEnterTransition">@transition/detail_transition</item>
+        <item name="android:windowExitTransition">@transition/detail_transition</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@transition/detail_transition</item>
+        <item name="android:windowSharedElementExitTransition">@transition/detail_transition</item>
     </style>
 </resources>

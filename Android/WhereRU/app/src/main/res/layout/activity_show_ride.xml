@@ -10,8 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/title"
+        android:text="Ride Title:"
+        android:id="@+id/titleTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -19,10 +19,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
         android:text="Large Text"
-        android:id="@+id/driver"
-        android:layout_below="@+id/title"
+        android:id="@+id/title"
+        android:layout_below="@+id/titleTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -30,8 +31,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Driver Name:"
+        android:id="@+id/driverTitle"
+        android:layout_below="@+id/title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
         android:text="Large Text"
-        android:id="@+id/hrdest"
+        android:id="@+id/driver"
+        android:layout_below="@+id/driverTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Driver Name:"
+        android:id="@+id/hrdestTitle"
         android:layout_below="@+id/driver"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -39,10 +60,32 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        android:text="Large Text"
+        android:id="@+id/hrdest"
+        android:layout_below="@+id/hrdestTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ride ID:"
+        android:id="@+id/rideidTitle"
+        android:layout_below="@+id/hrdest"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
         android:text="Large Text"
         android:id="@+id/rideid"
-        android:layout_below="@+id/hrdest"
+        android:layout_below="@+id/rideidTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

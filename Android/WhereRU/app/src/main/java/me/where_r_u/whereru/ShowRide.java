@@ -1,5 +1,6 @@
 package me.where_r_u.whereru;
 
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,9 @@ import android.widget.TextView;
 
 
 public class ShowRide extends ActionBarActivity {
+    public static final String VIEW_NAME_HEADER_TITLE = "show:header:title";
+    public static final String VIEW_NAME_HEADER_DRIVER = "show:header:driver";
+    public static final String VIEW_NAME_HEADER_DESTINATION = "show:header:dest";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,10 @@ public class ShowRide extends ActionBarActivity {
 
         TextView rideIDTV = (TextView) findViewById(R.id.rideid);
         rideIDTV.setText(rideID);
+
+        ViewCompat.setTransitionName(titleTV, VIEW_NAME_HEADER_TITLE);
+        ViewCompat.setTransitionName(driverTV, VIEW_NAME_HEADER_DRIVER);
+        ViewCompat.setTransitionName(hrDestTV, VIEW_NAME_HEADER_DESTINATION);
 
     }
 

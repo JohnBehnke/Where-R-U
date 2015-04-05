@@ -1,11 +1,15 @@
 package me.where_r_u.whereru;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -25,6 +29,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
 
     private static final String TAG = "RidesAdapter";
     private List<Ride> mDataSet;
+    private static int numSelected = 0;
 
 
     // BEGIN_INCLUDE(recyclerViewSampleViewHolder)
@@ -52,17 +57,20 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
             destination = (TextView) v.findViewById(R.id.destination);
             row = (TableLayout) v.findViewById(R.id.layout);
             isSelected = false;
+
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //Log.d("whereru", "3=================D " + rideTitle.getText().toString());
 
-                    if (RidesAdapter.OneOrMoreSelected()) {
+                    if (OneOrMoreSelected()) {
                         if (isSelected) {
                             v.setBackgroundColor(Color.parseColor("#eeeeee"));
+                            numSelected--;
                             isSelected = false;
                         } else {
                             v.setBackgroundColor(Color.BLUE);
+                            numSelected++;
                             isSelected = true;
                         }
                     } else {
@@ -74,7 +82,17 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
                         b.putString("dest", mRide.getHumanReadableDestination());
                         b.putString("rideID", mRide.getRideId());
                         intent.putExtras(b);
-                        context.startActivity(intent);
+
+                        Pair pair1 = new Pair<View, String>(v.findViewById(R.id.rideTitle), ShowRide.VIEW_NAME_HEADER_TITLE);
+                        Pair pair2 = new Pair<View, String>(v.findViewById(R.id.driverName), ShowRide.VIEW_NAME_HEADER_DRIVER);
+                        Pair pair3 = new Pair<View, String>(v.findViewById(R.id.destination), ShowRide.VIEW_NAME_HEADER_DESTINATION);
+
+//                        ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                        if (android.os.Build.VERSION.SDK_INT >= 16) {
+                            context.startActivity(intent,
+                                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                            (MainActivity) context, pair1, pair2, pair3).toBundle());
+                        }
                     }
                 }});
 
@@ -83,9 +101,11 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
                 public boolean onLongClick(View v) {
                     if (isSelected) {
                         v.setBackgroundColor(Color.parseColor("#eeeeee"));
+                        numSelected--;
                         isSelected = false;
                     } else {
                         v.setBackgroundColor(Color.BLUE);
+                        numSelected++;
                         isSelected = true;
                     }
                     RidesAdapter.this.notifyDataSetChanged();
@@ -129,8 +149,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
     }
 
     private static boolean OneOrMoreSelected() {
-
-        return false;
+        return numSelected > 0;
     }
 
     // END_INCLUDE(recyclerViewSampleViewHolder)
