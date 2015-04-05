@@ -1,8 +1,11 @@
 package me.where_r_u.whereru;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -36,12 +39,14 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
         private final TableLayout row;
         private Boolean isSelected;
         private Ride mRide;
+        private Context context;
 
         private View.OnClickListener mOnItemClickListener;
 
 
         public ViewHolder(View v) {
             super(v);
+            context = v.getContext();
             rideTitle = (TextView) v.findViewById(R.id.rideTitle);
             driverName = (TextView) v.findViewById(R.id.driverName);
             destination = (TextView) v.findViewById(R.id.destination);
@@ -60,6 +65,16 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
                             v.setBackgroundColor(Color.BLUE);
                             isSelected = true;
                         }
+                    } else {
+                        final Intent intent;
+                        intent = new Intent(context, ShowRide.class);
+                        Bundle b = new Bundle();
+                        b.putString("title", mRide.getTitle());
+                        b.putString("driver", mRide.getDriver().getName());
+                        b.putString("dest", mRide.getHumanReadableDestination());
+                        b.putString("rideID", mRide.getRideId());
+                        intent.putExtras(b);
+                        context.startActivity(intent);
                     }
                 }});
 
@@ -81,6 +96,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
         }
 
         public void bind(Ride ride){
+            mRide = ride;
             rideTitle.setText(ride.getTitle());
             driverName.setText(ride.getDriver().getName());
             destination.setText(ride.getHumanReadableDestination());
