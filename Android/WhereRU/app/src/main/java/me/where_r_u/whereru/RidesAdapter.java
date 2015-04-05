@@ -28,7 +28,7 @@ import static android.view.View.OnLongClickListener;
 public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> {
 
     private static final String TAG = "RidesAdapter";
-    private List<Ride> mDataSet;
+    public List<Ride> mDataSet;
     private static int numSelected = 0;
 
 
@@ -42,9 +42,10 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
         private final TextView driverName;
         private final TextView destination;
         private final TableLayout row;
-        private Boolean isSelected;
+        public Boolean isSelected;
         private Ride mRide;
         private Context context;
+        private View v;
 
         private View.OnClickListener mOnItemClickListener;
 
@@ -56,6 +57,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
             driverName = (TextView) v.findViewById(R.id.driverName);
             destination = (TextView) v.findViewById(R.id.destination);
             row = (TableLayout) v.findViewById(R.id.layout);
+            this.v = v;
             isSelected = false;
 
             row.setOnClickListener(new View.OnClickListener() {
@@ -64,15 +66,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
                     //Log.d("whereru", "3=================D " + rideTitle.getText().toString());
 
                     if (OneOrMoreSelected()) {
-                        if (isSelected) {
-                            v.setBackgroundColor(Color.parseColor("#eeeeee"));
-                            numSelected--;
-                            isSelected = false;
-                        } else {
-                            v.setBackgroundColor(Color.BLUE);
-                            numSelected++;
-                            isSelected = true;
-                        }
+                        toggleHighlight();
                     } else {
                         final Intent intent;
                         intent = new Intent(context, ShowRide.class);
@@ -99,16 +93,17 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
             row.setOnLongClickListener(new OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    if (isSelected) {
-                        v.setBackgroundColor(Color.parseColor("#eeeeee"));
-                        numSelected--;
-                        isSelected = false;
+                    toggleHighlight();
+                    //RidesAdapter.this.notifyDataSetChanged();
+                    if (numSelected == 0) {
+                        // make menu the usual
+                        ((MainActivity) context).itemsSelected = false;
+                        ((MainActivity) context).invalidateOptionsMenu();
                     } else {
-                        v.setBackgroundColor(Color.BLUE);
-                        numSelected++;
-                        isSelected = true;
+                        // make menu contextual
+                        ((MainActivity) context).itemsSelected = true;
+                        ((MainActivity) context).invalidateOptionsMenu();
                     }
-                    RidesAdapter.this.notifyDataSetChanged();
                     return true;
                 }
             });
@@ -121,6 +116,18 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
             driverName.setText(ride.getDriver().getName());
             destination.setText(ride.getHumanReadableDestination());
 
+        }
+
+        public void toggleHighlight() {
+            if (isSelected) {
+                v.setBackgroundColor(Color.parseColor("#eeeeee"));
+                numSelected--;
+                isSelected = false;
+            } else {
+                v.setBackgroundColor(Color.BLUE);
+                numSelected++;
+                isSelected = true;
+            }
         }
 
         public TextView getRideTitle() {

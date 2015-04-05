@@ -12,10 +12,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -49,6 +51,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
      */
     ViewPager mViewPager;
 
+    public Boolean itemsSelected = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +79,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                 actionBar.setSelectedNavigationItem(position);
             }
         });
+
+        itemsSelected = false;
 
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -136,6 +142,20 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.clear();
+        Log.d("called", "onPrepareOptionsMenu Called!");
+        if (itemsSelected) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.selected_context, menu);
+        } else {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu_main, menu);
+        }
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -221,6 +241,17 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         }
     }
 
+    public void deleteSelected(MenuItem item) {
+        RecyclerView mRecyclerView = this.mSectionsPagerAdapter.f.mRecyclerView;
 
+        // go through items backwards to delete.
+        for (int i = mRecyclerView.getAdapter().getItemCount() - 1; i >= 0; i--) {
+            RidesAdapter.ViewHolder holder = (RidesAdapter.ViewHolder) mRecyclerView.findViewHolderForPosition(i);
+            if (holder.isSelected) {
+                this.mSectionsPagerAdapter.f.removeAt(i);
+            }
+        }
+        mRecyclerView.getAdapter().notifyDataSetChanged();
+    }
 
 }

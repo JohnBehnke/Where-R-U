@@ -15,6 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
@@ -41,7 +42,7 @@ import me.where_r_u.whereru.R;
 public class RidesFragment extends Fragment {
     private static final String TAG = "RecyclerViewFragment";
 
-    protected RecyclerView mRecyclerView;
+    public RecyclerView mRecyclerView;
     protected RecyclerView.Adapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     public ArrayList<Ride> mDataset;
@@ -197,7 +198,60 @@ public class RidesFragment extends Fragment {
         mAdapter.notifyDataSetChanged();
     }
 
+    public void removeAt(int i) {
 
+        RidesAdapter.ViewHolder vh =  (RidesAdapter.ViewHolder) mRecyclerView.findViewHolderForPosition(i);
+        vh.toggleHighlight();
 
+//        ParseQuery query = new ParseQuery("Ride");
+//        query.whereEqualTo("id", mDataset.get(i).getRideId());
+//        query.findInBackground(new FindCallback() {
+//            public void done(List<ParseObject> list, ParseException e) {
+//                if (e == null) {
+//                    Log.d("score", "Retrieved " + list.size() + " test objects");
+//                    for (int i = 0; i < list.size(); i++) {
+//                        ParseObject tempTest = list.get(i);
+//                        tempTest.deleteInBackground();
+//                    }
+//                } else {
+//                    Log.d("score", "Error: " + e.getMessage());
+//                }
+//            }
+//        });
 
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Ride");
+        query.whereEqualTo("objectId", mDataset.get(i).getRideId());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    for (ParseObject element : objects) {
+                        element.deleteEventually();
+
+                    }
+                } else {
+                    Log.e("whereru-Parse", e.toString());
+                }
+            }
+        });
+
+        ParseQuery<ParseObject> query1 = ParseQuery.getQuery("Ride");
+        query1.whereEqualTo("objectId", mDataset.get(i).getRideId());
+        query1.fromLocalDatastore();
+        query1.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    for (ParseObject element : objects) {
+                        element.deleteInBackground();
+
+                    }
+                } else {
+                    Log.e("whereru-Parse", e.toString());
+                }
+            }
+        });
+
+        mDataset.remove(i);
+
+        mAdapter.notifyDataSetChanged();
+    }
 }
