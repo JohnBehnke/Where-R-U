@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
@@ -131,11 +132,19 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
 
         public void toggleHighlight() {
             if (isSelected) {
-                v.setBackgroundColor(Color.parseColor("#eeeeee"));
+                if (android.os.Build.VERSION.SDK_INT >= 16) {
+                    v.setBackground(((MainActivity) context).getDrawable(R.drawable.ripple_row));
+                } else {
+                    v.setBackgroundColor(Color.parseColor("#eeeeee"));
+                }
                 numSelected--;
                 isSelected = false;
             } else {
-                v.setBackgroundColor(Color.parseColor("#bbbbbb"));
+                if (android.os.Build.VERSION.SDK_INT >= 16) {
+                    v.setBackground(((MainActivity) context).getDrawable(R.drawable.ripple_row_dark));
+                } else {
+                    v.setBackgroundColor(Color.parseColor("#bbbbbb"));
+                }
                 numSelected++;
                 isSelected = true;
             }
