@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52029CA21A9130EE006B1DBA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52029CA11A9130EE006B1DBA /* libsqlite3.dylib */; };
+		5211C7681AD1EFD200B44711 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5211C7671AD1EFD200B44711 /* IJReachability.swift */; };
 		521C51D01ABE133D00545697 /* DestinationPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */; };
 		5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233C6431A22BD910091E54E /* RideDetailViewController.swift */; };
 		5237331F1AD06806004381EF /* appKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237331E1AD06806004381EF /* appKeys.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		52029CA11A9130EE006B1DBA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5211C7671AD1EFD200B44711 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
 		521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationPreviewViewController.swift; sourceTree = "<group>"; };
 		5233C6431A22BD910091E54E /* RideDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailViewController.swift; sourceTree = "<group>"; };
 		5237331E1AD06806004381EF /* appKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = appKeys.swift; path = ../../../../../../../Desktop/appKeys.swift; sourceTree = "<group>"; };
@@ -112,12 +114,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52029CA21A9130EE006B1DBA /* libsqlite3.dylib in Frameworks */,
+				924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */,
 				52CE85621AD0774A00B76977 /* ParseUI.framework in Frameworks */,
 				52CE85641AD0775900B76977 /* FacebookSDK.framework in Frameworks */,
-				52029CA21A9130EE006B1DBA /* libsqlite3.dylib in Frameworks */,
 				52CE855F1AD0774A00B76977 /* ParseCrashReporting.framework in Frameworks */,
 				92B084E519E482860078757C /* Social.framework in Frameworks */,
-				924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */,
 				924D755519E3385300B3B8C7 /* Security.framework in Frameworks */,
 				924D755319E3384D00B3B8C7 /* QuartzCore.framework in Frameworks */,
 				924D755119E3384600B3B8C7 /* MobileCoreServices.framework in Frameworks */,
@@ -181,6 +183,7 @@
 				92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */,
 				52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */,
 				521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */,
+				5211C7671AD1EFD200B44711 /* IJReachability.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
 				92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */,
+				5211C7681AD1EFD200B44711 /* IJReachability.swift in Sources */,
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
 				52CB02981AABE1990000F780 /* destinationCell.swift in Sources */,
 				52C7ED3E1A229B32004B1DA6 /* rideCell.swift in Sources */,

@@ -67,15 +67,6 @@
                                                 <rect key="frame" x="8" y="89" width="270" height="21"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ride of Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVe-Wl-bEQ">
-                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="8" y="8" width="162" height="34"/>
-                                            </variation>
-                                        </label>
                                     </subviews>
                                     <variation key="default">
                                         <mask key="subviews">
@@ -192,11 +183,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ukW-8M-eWc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EOq-uh-arb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJJ-Dd-sNc">
-                                <rect key="frame" x="237" y="285" width="126" height="30"/>
+                                <rect key="frame" x="237" y="253" width="126" height="30"/>
                                 <state key="normal" title="Log Me Out!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -287,7 +278,7 @@
             <objects>
                 <tableViewController title="Friend Request" id="PUe-Nl-E9n" customClass="FriendRequestViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="114" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iee-94-14Y">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -964,6 +955,7 @@
                         <outlet property="rideDescription" destination="ux3-6P-HsF" id="QUe-Me-bNd"/>
                         <outlet property="rideDestination" destination="rjt-wl-nf5" id="ztu-qu-1yG"/>
                         <outlet property="rideTitle" destination="LjL-pC-Hld" id="vip-Uh-P2l"/>
+                        <outlet property="saveButton" destination="2lH-qh-54C" id="5mO-jY-kkH"/>
                         <outlet property="seatCountLabel" destination="tnW-ML-z7P" id="pec-Vp-lIf"/>
                         <outlet property="seatSteper" destination="fx4-nk-gkL" id="CEx-dp-5Ps"/>
                     </connections>

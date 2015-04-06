@@ -23,22 +23,32 @@ class Ride{
         self.toPickUp = self.passengers
         self.pickedUp  = []
         self.isOwner = false
+        self.parseID = ""
         
     }
     
     private var title: String
-    private var description: String
+    private var description: String!
     private var driver: Person
     private var passengers: [Person]
     private var seatsAvailiable: Int
     private var toPickUp : [Person]
     private var pickedUp : [Person]
     private var isOwner : Bool;
+    private var parseID: String;
     
     //private var startLocation: Double
     //private var destinationGPS : Double
     private var destinationName: String
     // private var waypoints : [Double]
+    
+    func getParseID()-> String{
+        return self.parseID
+    }
+    
+    func setParseID(newID: String){
+        self.parseID = newID
+    }
     
     //Returns the title for the ride
     func getTitle() ->String{

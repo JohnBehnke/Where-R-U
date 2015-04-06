@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+import SystemConfiguration
+
 
 class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource {
     
@@ -55,7 +57,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var test: Bool = queryParse()
         
         
         
@@ -64,6 +66,99 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
         self.rideTable.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
 
+    }
+    
+    func queryParse()-> Bool{
+        
+        if PFUser.currentUser() == nil{
+            return false;
+            
+        }
+        
+        
+        if !IJReachability.isConnectedToNetwork(){
+ 
+            var localRideQuery:PFQuery = PFQuery(className: "Ride")
+            localRideQuery.whereKey("user", equalTo: PFUser.currentUser())
+            localRideQuery.fromLocalDatastore()
+            
+
+            localRideQuery.findObjectsInBackgroundWithBlock({
+
+                (objects: [AnyObject]!, error: NSError!) -> Void in
+                if (error == nil){
+                    
+                    for tempRide in objects{
+                        println(tempRide["hrDest"] as String)
+                        
+                        var newRide: Ride = Ride(title: tempRide["title"] as String, description: "PULLED", destination: tempRide["hrDest"] as String, seatsAvailable: 8, driver: Person(firstName: tempRide["driver"] as String, lastName: "LOCAL DATASTORE", userName: PFUser.currentUser()))
+                        
+                        //newRide.setParseID(tempRide["objectId"] as String)
+                        if tempRide["isSingleTime"] as Bool == true{
+                            self.oneTimeRides.append(newRide)
+                        }
+                        else{
+                            self.scheduledRides.append(newRide)
+                        }
+                        self.rideTable.reloadData()
+                        
+                        
+                        tempRide.pinInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+                            if success {
+                                NSLog("Object created with id: \(tempRide.objectId)")
+                            } else {
+                                NSLog("%@", error)
+                            }
+                        })
+                    }
+                }
+
+            })
+        }
+        else{
+            
+            var localRideQuery:PFQuery = PFQuery(className: "Ride")
+            localRideQuery.whereKey("user", equalTo: PFUser.currentUser())
+            
+            
+            localRideQuery.findObjectsInBackgroundWithBlock({
+                
+                (objects: [AnyObject]!, error: NSError!) -> Void in
+                //because we dont like errors
+                if (error == nil){
+                    
+                    for tempRide in objects{
+                        println(tempRide["hrDest"] as String)
+                        
+                        
+                        
+                        var newRide: Ride = Ride(title: tempRide["title"] as String, description: "PULLED", destination: tempRide["hrDest"] as String, seatsAvailable: 8, driver: Person(firstName: tempRide["driver"] as String, lastName: "LOCAL DATASTORE", userName: PFUser.currentUser()))
+                        
+                        println("loololol")
+                        if tempRide["isSingleTime"] as Bool == true{
+                            self.oneTimeRides.append(newRide)
+                        }
+                        else{
+                            self.scheduledRides.append(newRide)
+                        }
+                        self.rideTable.reloadData()
+                        tempRide.pinInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+                            if success {
+                                NSLog("Object created with id: \(tempRide.objectId)")
+                            } else {
+                                NSLog("%@", error)
+                            }
+                        })
+                        
+                    }
+                }
+
+            })
+            
+        }
+        //rideTable.reloadData()
+        return true
+        
     }
     
      override func didReceiveMemoryWarning() {
@@ -116,9 +211,17 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
       override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete{
             
+            
+            
+            
+            
+            
+            
             if isSingleRide{
                 oneTimeRides.removeAtIndex(indexPath.row)
                 rideTable.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                
+                
             }
             else{
                 scheduledRides.removeAtIndex(indexPath.row)
@@ -164,9 +267,8 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     }
     
     //Gets ready to go to the Show Ride Detail view
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//       
-//        performSegueWithIdentifier("ShowRideDetail", sender: self)
-//        }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowRideDetail", sender: self)
+        }
 }
 

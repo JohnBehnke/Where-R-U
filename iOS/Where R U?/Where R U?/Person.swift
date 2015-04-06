@@ -14,7 +14,7 @@ class Person: NSObject {
     
     var locationManager : CLLocationManager! = nil
     
-    init(firstName: String, lastName: String, userName: String){
+    init(firstName: String, lastName: String, userName: PFUser){
         self.firstName = firstName
         self.lastName = lastName
         self.userName = userName
@@ -65,7 +65,7 @@ class Person: NSObject {
     }
     
     //For user security, may want only user name to be displayed
-    func getUserName() ->String {
+    func getUserName() ->PFUser {
         return userName
     }
     
@@ -77,7 +77,7 @@ class Person: NSObject {
     
     private var firstName : String
     private var lastName : String
-    private var userName : String
+    private var userName : PFUser
     private var currentLocation : CLLocation
     //current location variable either as a CLLocationManager.location object or float coversion of lat/long
   
