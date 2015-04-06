@@ -147,7 +147,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.clear();
-        Log.d("called", "onPrepareOptionsMenu Called!");
         if (itemsSelected) {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.selected_context, menu);

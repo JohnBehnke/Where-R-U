@@ -67,6 +67,17 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
 
                     if (OneOrMoreSelected()) {
                         toggleHighlight();
+
+                        if (numSelected == 0) {
+                            // make menu the usual
+                            ((MainActivity) context).itemsSelected = false;
+                            ((MainActivity) context).invalidateOptionsMenu();
+                        } else {
+                            // make menu contextual
+                            ((MainActivity) context).itemsSelected = true;
+                            ((MainActivity) context).invalidateOptionsMenu();
+                        }
+
                     } else {
                         final Intent intent;
                         intent = new Intent(context, ShowRide.class);
@@ -124,7 +135,7 @@ public class RidesAdapter extends RecyclerView.Adapter<RidesAdapter.ViewHolder> 
                 numSelected--;
                 isSelected = false;
             } else {
-                v.setBackgroundColor(Color.BLUE);
+                v.setBackgroundColor(Color.parseColor("#bbbbbb"));
                 numSelected++;
                 isSelected = true;
             }
