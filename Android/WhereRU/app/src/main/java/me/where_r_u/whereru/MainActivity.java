@@ -246,7 +246,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         // go through items backwards to delete.
         for (int i = mRecyclerView.getAdapter().getItemCount() - 1; i >= 0; i--) {
             RidesAdapter.ViewHolder holder = (RidesAdapter.ViewHolder) mRecyclerView.findViewHolderForPosition(i);
-            if (holder.isSelected) {
+            if (holder != null && holder.isSelected) {
                 this.mSectionsPagerAdapter.f.removeAt(i);
             }
         }

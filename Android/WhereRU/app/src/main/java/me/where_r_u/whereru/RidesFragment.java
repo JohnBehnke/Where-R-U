@@ -28,6 +28,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -162,22 +163,33 @@ public class RidesFragment extends Fragment {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK && requestCode == 1) {
-            Ride newRide = new Ride();
+            final Ride newRide = new Ride();
             newRide.setDriver(new Person(data.getStringExtra("name")));
             newRide.setTitle(data.getStringExtra("title"));
             newRide.setHumanReadableDestination(data.getStringExtra("destination"));
 
             ParseUser user = ParseUser.getCurrentUser();
-            ParseObject ride = new ParseObject("Ride");
+            final ParseObject ride = new ParseObject("Ride");
             ride.put("driver", newRide.getDriver().getName());
             ride.put("title", newRide.getTitle());
             ride.put("hrDest", newRide.getHumanReadableDestination());
             ride.put("user", user);
-            ride.saveEventually();
-            ride.pinInBackground();
+            ride.saveEventually(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if (e == null) {
+                        ride.pinInBackground();
+                        if (ride.getObjectId() != null) {
+                            newRide.setRideId(ride.getObjectId());
+                        } else {
+                            Log.d("WhereRU", "NULL!!!!!");
+                        }
+                        mDataset.add(newRide);
+                        mAdapter.notifyDataSetChanged();
+                    }
+                }
+            });
 
-            mDataset.add(newRide);
-            mAdapter.notifyDataSetChanged();
         }
 
     }

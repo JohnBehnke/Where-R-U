@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Driver Name:"
+                android:text="Destination:"
                 android:id="@+id/hrdestTitle"
                 android:layout_below="@+id/driver"
                 android:layout_alignParentLeft="true"
