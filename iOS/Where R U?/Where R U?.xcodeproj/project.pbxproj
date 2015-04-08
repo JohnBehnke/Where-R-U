@@ -42,7 +42,6 @@
 		924D755319E3384D00B3B8C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755219E3384D00B3B8C7 /* QuartzCore.framework */; };
 		924D755519E3385300B3B8C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755419E3385300B3B8C7 /* Security.framework */; };
 		924D755919E3386600B3B8C7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924D755819E3386600B3B8C7 /* SystemConfiguration.framework */; };
-		927A733B1A992B0500023F19 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A733A1A992B0500023F19 /* LoginViewController.swift */; };
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 		92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */; };
 		92C0C09F1ACB2F060039D14E /* requestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C09E1ACB2F060039D14E /* requestCell.swift */; };
@@ -102,7 +101,6 @@
 		924D755219E3384D00B3B8C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		924D755419E3385300B3B8C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		924D755819E3386600B3B8C7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		927A733A1A992B0500023F19 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		92C0C09E1ACB2F060039D14E /* requestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestCell.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 		52E264D61A127F1300B6444F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				927A733A1A992B0500023F19 /* LoginViewController.swift */,
 				52F01CFF19BE6EA90074884E /* MapsViewController.swift */,
 				52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */,
 				52A604471A914D12004A0552 /* AddRideViewController.swift */,
@@ -220,11 +217,11 @@
 		52F01CF819BE6EA90074884E /* Where R U? */ = {
 			isa = PBXGroup;
 			children = (
+				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
+				52A604451A914396004A0552 /* Main.storyboard */,
 				52FCF84E1A816FCA00790276 /* Data Storage Types */,
 				52E264D61A127F1300B6444F /* View Controllers */,
 				52E264D71A127F3800B6444F /* Object Classes */,
-				52F01CFB19BE6EA90074884E /* AppDelegate.swift */,
-				52A604451A914396004A0552 /* Main.storyboard */,
 				52861DE61AA7C47D006CA122 /* Launch Screen.xib */,
 				52F01D0419BE6EA90074884E /* Images.xcassets */,
 				52F01CF919BE6EA90074884E /* Supporting Files */,
@@ -399,7 +396,6 @@
 				52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,
 				92C0C09F1ACB2F060039D14E /* requestCell.swift in Sources */,
-				927A733B1A992B0500023F19 /* LoginViewController.swift in Sources */,
 				52861DE51AA7A2B7006CA122 /* DestinationSearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

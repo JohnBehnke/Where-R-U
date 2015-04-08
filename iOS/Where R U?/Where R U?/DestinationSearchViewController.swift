@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class DestinationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating,MKMapViewDelegate {
-
+    
     
     
     //MARK: - Class Variables
@@ -18,8 +18,8 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     var searchController: UISearchController!
     var searchResults:[MKMapItem]  = []
     var destinationToPreview: MKMapItem!
-   
-
+    
+    
     //var addressString:String!
     
     var addRideVC: AddRideViewController!
@@ -27,9 +27,11 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     //MARK: - IBActions
-   
+    
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
-         self.navigationController?.popViewControllerAnimated(true)
+        //self.searchController.active = false
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //MARK: - Default Functions
@@ -40,22 +42,26 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.searchBar.showsCancelButton = false
-        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0)
         
+        self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x, self.searchController.searchBar.frame.origin.y, self.searchController.searchBar.frame.size.width, 44.0
+        )
         self.tableView.tableHeaderView = self.searchController.searchBar
-
+        
+        
+        self.searchController.searchBar.placeholder = "Search a destination!"
+        self.searchController.searchBar.tintColor = UIColor.whiteColor()
+        
+        
+        self.definesPresentationContext = true
         self.searchController.searchBar.delegate = self
         
-        self.searchController.searchBar.translucent  = true
         
-        self.definesPresentationContext  = true
         
-    
+        
     }
-
-   override func viewWillAppear(animated: Bool) {
     
+    override func viewWillAppear(animated: Bool) {
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,12 +72,12 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "viewDestination"{
-           // var indexPath = self.tableView.indexPathForSelectedRow()
+            // var indexPath = self.tableView.indexPathForSelectedRow()
             let destinationViewVC: DestinationPreviewViewController = segue.destinationViewController as DestinationPreviewViewController
             destinationViewVC.location = destinationToPreview
             
             
-      
+            
             destinationViewVC.destinationSearchVC = self
             
             
@@ -79,7 +85,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         
         
     }
-
+    
     
     //MARK: - Table View Functions
     
@@ -112,7 +118,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         
     }
     
-     func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
         
         self.destinationToPreview  = self.searchResults[indexPath.row]
         performSegueWithIdentifier("viewDestination", sender: self)
@@ -122,12 +128,12 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     //MARK: - Search Controller Functions
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.searchController.searchBar.showsCancelButton = false
+        //self.searchController.searchBar.showsCancelButton = false
         performSearch()
-      
+        
     }
     
-
+    
     
     //MARK: - Helper Functions
     func performSearch() {
@@ -152,7 +158,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         var Span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         let center = CLLocationCoordinate2D(latitude: currentLocation.coordinate.latitude , longitude: currentLocation.coordinate.longitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(center, Span)
-
+        
         
         
         request.region = region
@@ -173,14 +179,14 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
                     
                     
                     self.tableView.reloadData()
-                     
+                    
                 }
             }
         })
     }
     
     func generateAddress(inputMKMapItem: MKMapItem)->String{
-    
+        
         let placemark = inputMKMapItem.placemark
         
         var tempAddressString: String = ""
@@ -188,16 +194,16 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         if placemark.subThoroughfare != nil {
             tempAddressString += placemark.subThoroughfare + " "
         }
-         if placemark.thoroughfare != nil {
+        if placemark.thoroughfare != nil {
             tempAddressString +=  placemark.thoroughfare + ", "
         }
-         if placemark.postalCode != nil {
+        if placemark.postalCode != nil {
             tempAddressString +=  placemark.postalCode + " "
         }
-         if placemark.locality != nil {
+        if placemark.locality != nil {
             tempAddressString +=   placemark.locality + ", "
         }
-         if placemark.administrativeArea != nil {
+        if placemark.administrativeArea != nil {
             tempAddressString +=  placemark.administrativeArea + " "
         }
         if placemark.country != nil {
@@ -205,7 +211,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         }
         
         return tempAddressString
-    
+        
     }
     
     func canAppend(searchArray: [MKMapItem], newDestination: MKMapItem) -> Bool{

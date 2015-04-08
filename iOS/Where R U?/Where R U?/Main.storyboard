@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController id="CE6-2L-RaW" customClass="MyRidesViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="Gx2-k1-SYa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.97254901959999995" green="0.2156862745" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -156,7 +156,7 @@
             <objects>
                 <navigationController id="klB-kz-SfK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Rides" image="myRidesIcon" id="U8x-rH-By9"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LY1-6e-1C6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LY1-6e-1C6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -386,7 +386,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController title="Tab Bar Controller" modalTransitionStyle="flipHorizontal" hidesBottomBarWhenPushed="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5go-cQ-z7H"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
@@ -397,15 +397,15 @@
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="klB-kz-SfK" kind="relationship" relationship="viewControllers" id="c0p-c6-S5E"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="S0v-Es-3bB" kind="relationship" relationship="viewControllers" id="Qit-Hr-6dT"/>
                         <segue destination="Lvh-R4-xnW" kind="relationship" relationship="viewControllers" id="bZP-tM-HGA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3216" y="818.25"/>
+            <point key="canvasLocation" x="3165" y="810.75"/>
         </scene>
         <!--Ride Detail View Controller-->
         <scene sceneID="3tQ-P2-V9P">
@@ -416,7 +416,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yqQ-ZR-gd2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qdk-oX-RtS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Driver" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dPv-dt-rXL">
@@ -508,7 +508,7 @@
             <objects>
                 <tableViewController id="EXo-tM-pGZ" userLabel="Add Ride View Contoller" customClass="AddRideViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="524-T5-Ajw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -967,11 +967,12 @@
         <!--Destination Search View Controller-->
         <scene sceneID="c1a-N2-p4k">
             <objects>
-                <viewController id="3uL-g7-yE0" customClass="DestinationSearchViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uoL-kg-7Im">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="3uL-g7-yE0" customClass="DestinationSearchViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="uoL-kg-7Im">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.96470588239999999" green="0.2156862745" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" showsReorderControl="YES" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="destinationCell" textLabel="lqg-KU-SmD" detailTextLabel="6xx-N5-Ze2" rowHeight="65" style="IBUITableViewCellStyleSubtitle" id="412-lI-LaP" customClass="destinationCell" customModule="Where_R_U_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1024,14 +1025,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CfH-cs-Fze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7431" y="214.5"/>
+            <point key="canvasLocation" x="7425" y="220.5"/>
         </scene>
         <!--Destination Map View Controller-->
         <scene sceneID="MLH-lA-pWv">
             <objects>
                 <viewController title="Destination Map View Controller" id="4kR-rx-RVW" customClass="DestinationPreviewViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" id="d1o-9t-pS9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <connections>
                             <outlet property="delegate" destination="4kR-rx-RVW" id="iQg-8W-8yW"/>
@@ -1045,7 +1046,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSN-ha-JxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8257.5" y="214.5"/>
+            <point key="canvasLocation" x="8188.5" y="220.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="O55-1f-oqs">

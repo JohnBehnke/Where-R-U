@@ -22,13 +22,13 @@ class Person: NSObject {
         //super.init()
     }
     
-//    override init() {
-//        self.firstName = ""
-//        self.lastName = ""
-//        self.userName = ""
-//        self.currentLocation = CLLocation()
-//        super.init()
-//    }
+    //    override init() {
+    //        self.firstName = ""
+    //        self.lastName = ""
+    //        self.userName = ""
+    //        self.currentLocation = CLLocation()
+    //        super.init()
+    //    }
     
     func updateLocation(){  //activates location updates
         if (CLLocationManager.locationServicesEnabled()){
@@ -73,14 +73,14 @@ class Person: NSObject {
         return self
     }
     
-
+    
     
     private var firstName : String
     private var lastName : String
     private var userName : PFUser
     private var currentLocation : CLLocation
     //current location variable either as a CLLocationManager.location object or float coversion of lat/long
-  
+    
 }
 
 

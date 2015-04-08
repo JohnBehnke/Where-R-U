@@ -9,7 +9,7 @@
 import UIKit
 
 class destinationCell: UITableViewCell {
-
+    
     @IBOutlet weak var destinationName: UILabel!
     
     @IBOutlet weak var destinatoinAddress: UILabel!
@@ -18,11 +18,11 @@ class destinationCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

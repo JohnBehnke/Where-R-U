@@ -12,7 +12,7 @@ import UIKit
 class requestCell: UITableViewCell {
     
     
-   
+    
     @IBAction func requestAccept(sender: AnyObject) {
     }
     

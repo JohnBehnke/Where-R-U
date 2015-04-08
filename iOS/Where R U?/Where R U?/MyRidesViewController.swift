@@ -8,10 +8,10 @@
 
 import UIKit
 import Foundation
-import SystemConfiguration
 
 
-class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource {
+
+class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate {
     
     var isSingleRide = true
     
@@ -20,8 +20,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     var scheduledRides:[Ride] = []
     
     var addRideVC: AddRideViewController!
-   
-
+    
     
     //The Ride Table in the actual StoryBoard
     @IBOutlet var rideTable: UITableView!
@@ -33,21 +32,21 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
         {
         case 0:
             isSingleRide = true
-             rideTable.reloadData()
+            rideTable.reloadData()
         case 1:
             isSingleRide = false
-             rideTable.reloadData()
+            rideTable.reloadData()
         default:
             break;
         }
         
     }
     
-       //If the user wants to add a ride Segue
+    //If the user wants to add a ride Segue
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
         
         self.performSegueWithIdentifier("showRideAdd", sender: self)
-
+        
     }
     
     
@@ -59,13 +58,9 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
         super.viewDidLoad()
         var test: Bool = queryParse()
         
-        
-        
-        
-        
-        self.rideTable.reloadData()
+        //self.rideTable.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
     }
     
     func queryParse()-> Bool{
@@ -77,14 +72,14 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
         
         
         if !IJReachability.isConnectedToNetwork(){
- 
+            
             var localRideQuery:PFQuery = PFQuery(className: "Ride")
             localRideQuery.whereKey("user", equalTo: PFUser.currentUser())
             localRideQuery.fromLocalDatastore()
             
-
+            
             localRideQuery.findObjectsInBackgroundWithBlock({
-
+                
                 (objects: [AnyObject]!, error: NSError!) -> Void in
                 if (error == nil){
                     
@@ -112,7 +107,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
                         })
                     }
                 }
-
+                
             })
         }
         else{
@@ -152,7 +147,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
                         
                     }
                 }
-
+                
             })
             
         }
@@ -161,23 +156,24 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
         
     }
     
-     override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        parseLogin()
         
         //Make sure the data is up to date
-        rideTable.reloadData()
+        //rideTable.reloadData()
     }
     
     
     
     //Prepares to transition to another view controller
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         //If we are going to the Ride Detail VC
         if segue.identifier == "ShowRideDetail" {
@@ -195,11 +191,11 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
             }
             detailVC.detailRide = thisRide
         }
-        //If we are  going to the Create a Ride VC
-
-        
+            //If we are  going to the Create a Ride VC
+            
+            
         else if segue.identifier == "showAdd"{
-        
+            
             var addRideVC:AddRideViewController = segue.destinationViewController as AddRideViewController
             addRideVC.ridesVC = self
             
@@ -208,7 +204,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     }
     
     //Fucntion for the slide to delete option on the table view
-      override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete{
             
             
@@ -229,9 +225,9 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
             }
         }
     }
-
+    
     //Returns the number of rows in the section
-     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) ->Int{
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) ->Int{
         if isSingleRide{
             return oneTimeRides.count
         }
@@ -241,7 +237,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     }
     
     //Actually populates the table view with resuable prototype cells
-      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         var thisRide:Ride! //create a ride object
         
@@ -253,7 +249,7 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
         }
         
         var cell: rideCell = tableView.dequeueReusableCellWithIdentifier("rideTableCell") as rideCell //this is the resualble cells
-    
+        
         if isSingleRide{
             cell.rideName.text = thisRide.getTitle()
             cell.rideDriver.text = thisRide.getDriver().getFirstName()
@@ -262,13 +258,55 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
         else{
             cell.rideName.text = thisRide.getTitle()
             cell.rideDriver.text = thisRide.getDriver().getFirstName()
-        cell.rideDestination.text = thisRide.getDestinationName()}
+            cell.rideDestination.text = thisRide.getDestinationName()}
         return cell
     }
     
     //Gets ready to go to the Show Ride Detail view
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("ShowRideDetail", sender: self)
+    }
+    
+    //MARK: Parse Login
+    
+    func parseLogin(){
+        
+        var currentUser = PFUser.currentUser()
+        if currentUser == nil {
+            var loginViewController:PFLogInViewController = PFLogInViewController()
+            loginViewController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.Default | PFLogInFields.PasswordForgotten | PFLogInFields.Facebook | PFLogInFields.SignUpButton;
+            presentViewController(loginViewController, animated: true, completion: nil)
+            
+            loginViewController.delegate = self
+            loginViewController.signUpController.delegate = self
+            
         }
+    }
+    func logInViewController(logInViewController: PFLogInViewController!,
+        didLogInUser user: PFUser!) {
+            
+            logInViewController.dismissViewControllerAnimated(true, completion: nil)
+            
+    }
+    
+    func logInViewController(logInViewController: PFLogInViewController!, didCancelLogIn user: PFUser!) {
+        
+        logInViewController.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+    }
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
 }
+
+
 

@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 
 class AddRideViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate {
-
+    
     //MARK: - Class Variables
     
     var isSingleRide = true
@@ -20,8 +20,8 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     
     var destination: MKMapItem!
     
-     var datePickerHidden = false
-
+    var datePickerHidden = false
+    
     
     //MARK: - IBOutlets
     
@@ -30,7 +30,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     @IBOutlet weak var seatCountLabel: UILabel!
     
     @IBOutlet weak var seatSteper: UIStepper!
-
+    
     @IBOutlet weak var rideTitle: UITextField!
     
     @IBOutlet weak var rideDescription: UITextField!
@@ -38,7 +38,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     @IBOutlet weak var rideDestination: UITextField!
     
     @IBOutlet weak var dateLabel: UILabel!
-   
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     //MARK: - IBActions
     
@@ -47,7 +47,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     }
     
     @IBAction func seatStepper(sender: UIStepper) {
-         seatCountLabel.text = Int(sender.value).description
+        seatCountLabel.text = Int(sender.value).description
     }
     
     @IBAction func savePressed(sender: UIBarButtonItem) {
@@ -58,7 +58,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         
         if isSingleRide{
             
-                      
+            
             
             var PFRide = PFObject(className:"Ride")
             PFRide["title"] = ride.getTitle()
@@ -112,12 +112,12 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
                 if success {
                     NSLog("Object created with id: \(PFRide.objectId)")
                     ride.setParseID(PFRide["objectId"] as String)
-
+                    
                 } else {
                     NSLog("%@", error)
                 }
             })
-
+            
             ridesVC.scheduledRides.append(ride)
         }
         
@@ -125,15 +125,15 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         
     }
     
-
-
+    
+    
     @IBAction func rideTypeToggle(sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex
         {
         case 0:
             isSingleRide = true
-                  case 1:
+        case 1:
             isSingleRide = false
         default:
             break;
@@ -144,25 +144,25 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     @IBAction func didChangeDate(sender: UIDatePicker) {
         
         dateLabel.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: .ShortStyle, timeStyle: .ShortStyle)
-
+        
     }
- 
-
+    
+    
     //MARK: - Segue Preperation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
+        
         if segue.identifier == "showDestination"{
             let destinationVC: DestinationSearchViewController = segue.destinationViewController as DestinationSearchViewController
             destinationVC.addRideVC = self
- 
+            
         }
         
-    
-    
+        
+        
     }
     
-     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (2, 0):
             toggleDatePicker()
@@ -171,7 +171,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         }
     }
     
-     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if datePickerHidden && indexPath.section == 2 && indexPath.row == 1 {
             return 0.0
         } else {
@@ -192,7 +192,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         super.viewDidLoad()
         didChangeDate(self.datePicker)
         toggleDatePicker()
-      
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -206,5 +206,5 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
         self.view.endEditing(true)
     }
     
-   
+    
 }

@@ -10,13 +10,13 @@ import Foundation
 
 
 class FriendRequestViewController: UITableViewController,UITableViewDelegate, UITableViewDataSource{
-
+    
     var settingsVC: SettingsViewController!
     
     internal var friendRequests:[Request] = []
     
     @IBOutlet var requestTable: UITableView!
-
+    
     func Query() {
         //query database for friend request to current user
         var loadRequests:[Request] = []
@@ -32,7 +32,7 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
                     for object in objects {
                         //get userId of sender
                         var userID = object.objectForKey("user1") as String
-
+                        
                         //query the user table for the name matching that userId
                         var findUser:PFQuery = PFUser.query();
                         findUser.whereKey("objectId",  equalTo: userID)
@@ -41,7 +41,7 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
                             (user, error2: NSError!) -> Void in
                             if (error2 == nil) {
                                 var username = user.objectForKey("username") as String
-        
+                                
                                 //SWIFT PLS STAHP Q.Q
                                 println(username)
                                 //usernmae is retrieved succesfully, but the new request is not being appended to array
@@ -59,7 +59,7 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
                         }
                     }
                 }
-        
+                
             }
             else {
                 println("Error getting requests")
@@ -96,7 +96,7 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
         var thisRequest:Request! = friendRequests[indexPath.row]
         
         var cell: requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell") as requestCell
-            cell.requestSender.text = thisRequest.getSender()
+        cell.requestSender.text = thisRequest.getSender()
         return cell
     }
     

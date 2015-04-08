@@ -11,8 +11,8 @@ import MapKit
 
 class Ride{
     
-//Variables - Driver (Person), list of participants(Person), list of person needed to be picked up, list of persons currently picked up, dates and times, locations(driver current, destinations - passenger current for pickup or static destination for dropoff)
-
+    //Variables - Driver (Person), list of participants(Person), list of person needed to be picked up, list of persons currently picked up, dates and times, locations(driver current, destinations - passenger current for pickup or static destination for dropoff)
+    
     init(title: String,description: String ,destination: String ,seatsAvailable: Int,driver: Person){
         self.title = title
         self.description = description
@@ -70,7 +70,7 @@ class Ride{
         self.driver = newDriver
     }
     
-
+    
     func setOwner(){
         isOwner = true
     }
@@ -147,19 +147,19 @@ class Ride{
         if (currentlyPresent){
             
             for (var i = 0; i < self.passengers.count; i++) {
-            
+                
                 if self.passengers[i] == toRemove{
-                
+                    
                     var removed = passengers.removeAtIndex(i)
-                
+                    
                     return true
-                
+                    
                 }
-            
+                
             }
             
         }
-
+        
         return false
         
     }
@@ -193,30 +193,30 @@ class Ride{
         return false
         
     }
-
-
+    
+    
     func removeToPickUp(removePerson: Person) -> Bool{
-            
+        
         var currentlyPresent = verifyIsPassenger(removePerson, passengerArray: self.toPickUp)
         
         if (currentlyPresent){
             
             for (var i = 0; i < self.toPickUp.count; i++) {
-                    
+                
                 if self.toPickUp[i] == removePerson{
-                        
+                    
                     var removed = toPickUp.removeAtIndex(i)
-                        
+                    
                     return true
                 }
-
+                
             }
-    
+            
         }
         
         return false
     }
-        
+    
     func getPickedUpArray() -> [Person]{
         return self.pickedUp
     }
@@ -253,22 +253,22 @@ class Ride{
     ////UNCOMMENT WHEN ZACH DOES THE GPS SWAG
     
     
-//    func getStartLocation() ->Double{
-//        return self.startLocation
-//    }
-//    
-//    func getDestinationGPS() -> Double{
-//        return self.destinationGPS
-//    }
-//    
+    //    func getStartLocation() ->Double{
+    //        return self.startLocation
+    //    }
+    //
+    //    func getDestinationGPS() -> Double{
+    //        return self.destinationGPS
+    //    }
+    //
     func getDestinationName() ->String{
         return self.destinationName
     }
-//    func getWaypoints() ->[Double]{
-//        return self.waypoints
-//    }
+    //    func getWaypoints() ->[Double]{
+    //        return self.waypoints
+    //    }
     
     
-
+    
 }
 
