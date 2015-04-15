@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 
 class FriendRequestViewController: UITableViewController,UITableViewDelegate, UITableViewDataSource{
@@ -21,26 +22,29 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
         //query database for friend request to current user
         var loadRequests:[Request] = []
         var friendshipQuery = PFQuery(className: "Friends")
-        friendshipQuery.whereKey("user2", equalTo: PFUser.currentUser().objectId)
+        friendshipQuery.whereKey("user2", equalTo: PFUser.currentUser()!.objectId!)
+        
+       
+        
+        
         friendshipQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
+            (objects: [AnyObject]?, error: NSError?) -> Void in
             //because we dont like errors
             if (error == nil) {
-                println("retrieved \(objects.count) requests")
+                println("retrieved \(objects!.count) requests")
                 
                 if let objects = objects as? [PFObject] {
                     for object in objects {
                         //get userId of sender
-                        var userID = object.objectForKey("user1") as String
+                        var userID = object.objectForKey("user1") as! String
                         
                         //query the user table for the name matching that userId
-                        var findUser:PFQuery = PFUser.query();
+                        var findUser:PFQuery = PFUser.query()!;
                         findUser.whereKey("objectId",  equalTo: userID)
                         //QUERYSEPTION
-                        findUser.getFirstObjectInBackgroundWithBlock {
-                            (user, error2: NSError!) -> Void in
+                        findUser.getFirstObjectInBackgroundWithBlock {(user, error2: NSError?) -> Void in
                             if (error2 == nil) {
-                                var username = user.objectForKey("username") as String
+                                var username = user!.objectForKey("username") as! String
                                 
                                 //SWIFT PLS STAHP Q.Q
                                 println(username)
@@ -95,7 +99,7 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var thisRequest:Request! = friendRequests[indexPath.row]
         
-        var cell: requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell") as requestCell
+        var cell: requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell") as! requestCell
         cell.requestSender.text = thisRequest.getSender()
         return cell
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Parse
 
 class DestinationSearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating,MKMapViewDelegate {
     
@@ -73,7 +74,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         
         if segue.identifier == "viewDestination"{
             // var indexPath = self.tableView.indexPathForSelectedRow()
-            let destinationViewVC: DestinationPreviewViewController = segue.destinationViewController as DestinationPreviewViewController
+            let destinationViewVC: DestinationPreviewViewController = segue.destinationViewController as! DestinationPreviewViewController
             destinationViewVC.location = destinationToPreview
             
             
@@ -95,7 +96,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as UITableViewCell
+        let cell  = tableView.dequeueReusableCellWithIdentifier("destinationCell") as! UITableViewCell
         
         var resultPlace: MKMapItem = self.searchResults[indexPath.row]
         var resultAddress: String = generateAddress(resultPlace)
@@ -141,6 +142,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
         self.searchResults.removeAll()
         //self.searchResultAddresses.removeAll()
         
+        
         let request = MKLocalSearchRequest()
         
         
@@ -172,7 +174,7 @@ class DestinationSearchViewController: UIViewController, UITableViewDelegate, UI
             } else if response.mapItems.count == 0 {
                 println("No matches found")
             } else {
-                for item in response.mapItems as [MKMapItem] {
+                for item in response.mapItems as! [MKMapItem] {
                     if self.canAppend(self.searchResults, newDestination: item){
                         self.searchResults.append(item)
                     }

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Foundation
+import Parse
 
 
 
@@ -44,7 +45,7 @@ class MapsViewController: UIViewController, MKMapViewDelegate  {
         if currentUser != nil {
             
             
-            var me = Person(firstName: "first",lastName: "last",userName: currentUser)
+            var me = Person(firstName: "first",lastName: "last",userName: currentUser!)
             if (CLLocationManager.locationServicesEnabled()){
                 
                 me.updateLocation()

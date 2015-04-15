@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import Parse
 
 class AddRideViewController: UITableViewController ,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate {
     
@@ -52,7 +53,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     
     @IBAction func savePressed(sender: UIBarButtonItem) {
         
-        var personObj:Person = Person(firstName: "John", lastName: "Behnke", userName: PFUser.currentUser())
+        var personObj:Person = Person(firstName: "John", lastName: "Behnke", userName: PFUser.currentUser()!)
         
         var ride:Ride = Ride(title: rideTitle.text, description: self.rideDescription.text, destination: self.destination.name, seatsAvailable: Int(self.seatSteper.value), driver: personObj)
         
@@ -67,20 +68,19 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
             PFRide["user"]  = PFUser.currentUser()
             PFRide["isSingleTime"] = true
             
-            PFRide.pinInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+            PFRide.pinInBackgroundWithBlock{ (success: Bool, error: NSError?) -> Void in
                 if success {
                     NSLog("Object created with id: \(PFRide.objectId)")
                 } else {
-                    NSLog("%@", error)
+                    NSLog("%@", error!)
                 }
-            })
-            PFRide.saveEventually {
-                (success: Bool, error: NSError!) -> Void in
+            }
+            PFRide.saveEventually {(success: Bool, error: NSError?) -> Void in
                 if success {
                     NSLog("Object created with id: \(PFRide.objectId)")
-                    ride.setParseID(PFRide.objectId)
+                    ride.setParseID(PFRide.objectId!)
                 } else {
-                    NSLog("%@", error)
+                    NSLog("%@", error!)
                 }
             }
             //println(PFRide["objectId"] as String)
@@ -98,25 +98,32 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
             PFRide["user"]  = PFUser.currentUser()
             PFRide["isSingleTime"] = false
             
-            
-            
-            PFRide.pinInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+            PFRide.pinInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                 if success {
                     NSLog("Object created with id: \(PFRide.objectId)")
-                    ride.setParseID(PFRide.objectId)
+                    ride.setParseID(PFRide.objectId!)
                 } else {
-                    NSLog("%@", error)
+                    NSLog("%@", error!)
                 }
             })
-            PFRide.saveEventually({ (success: Bool, error: NSError!) -> Void in
+            
+//            PFRide.pinInBackgroundWithBlock{ (success: Bool, error: NSError!) -> Void in
+//                if success {
+//                    NSLog("Object created with id: \(PFRide.objectId)")
+//                    ride.setParseID(PFRide.objectId)
+//                } else {
+//                    NSLog("%@", error)
+//                }
+//            }
+            PFRide.saveEventually{ (success: Bool, error: NSError?) -> Void in
                 if success {
                     NSLog("Object created with id: \(PFRide.objectId)")
-                    ride.setParseID(PFRide["objectId"] as String)
+                    ride.setParseID(PFRide["objectId"] as! String)
                     
                 } else {
-                    NSLog("%@", error)
+                    NSLog("%@", error!)
                 }
-            })
+            }
             
             ridesVC.scheduledRides.append(ride)
         }
@@ -153,7 +160,7 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "showDestination"{
-            let destinationVC: DestinationSearchViewController = segue.destinationViewController as DestinationSearchViewController
+            let destinationVC: DestinationSearchViewController = segue.destinationViewController as! DestinationSearchViewController
             destinationVC.addRideVC = self
             
         }
@@ -201,10 +208,10 @@ class AddRideViewController: UITableViewController ,UITableViewDelegate, UITable
     }
     
     //MARK: - Touch Controls
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
-        
-        self.view.endEditing(true)
-    }
+//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
+//        
+//        self.view.endEditing(true)
+//    }
     
     
 }
