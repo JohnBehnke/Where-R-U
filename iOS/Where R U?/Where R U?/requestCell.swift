@@ -13,12 +13,12 @@ class requestCell: UITableViewCell {
     
     
     
-    @IBAction func requestAccept(sender: AnyObject) {
-    }
-    
-    @IBAction func requestDeny(sender: AnyObject) {
-    }
-    
+//    @IBAction func requestAccept(sender: AnyObject) {
+//    }
+//    
+//    @IBAction func requestDeny(sender: AnyObject) {
+//    }
+//    
     @IBOutlet weak var requestSender: UILabel!
     
     

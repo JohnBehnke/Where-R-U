@@ -249,6 +249,8 @@ class MyRidesViewController: UITableViewController ,UITableViewDelegate, UITable
     //Actually populates the table view with resuable prototype cells
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
+        
+        println(":kjdfhdskjfhalsdkfhkhflk")
         var thisRide:Ride! //create a ride object
         
         if isSingleRide{
