@@ -75,14 +75,19 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        requestTable.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func loadView() {
+        super.loadView()
         //test that works
         //var test:Request = Request(name: "WTFSWIFT")
         //friendRequests.append(test)

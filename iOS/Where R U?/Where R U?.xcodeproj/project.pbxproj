@@ -11,7 +11,6 @@
 		5211C7681AD1EFD200B44711 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5211C7671AD1EFD200B44711 /* IJReachability.swift */; };
 		521C51D01ABE133D00545697 /* DestinationPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */; };
 		5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233C6431A22BD910091E54E /* RideDetailViewController.swift */; };
-		5237331F1AD06806004381EF /* appKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237331E1AD06806004381EF /* appKeys.swift */; };
 		524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E5B0B19D9DEA8008A0EE7 /* Person.swift */; };
 		526DD42719D9D05D00DA2447 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DD42619D9D05D00DA2447 /* Ride.swift */; };
 		52861DE51AA7A2B7006CA122 /* DestinationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */; };
@@ -45,6 +44,7 @@
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 		92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */; };
 		92C0C09F1ACB2F060039D14E /* requestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C09E1ACB2F060039D14E /* requestCell.swift */; };
+		92C6E0D51AD4713F000A2DAA /* appKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6E0D41AD4713F000A2DAA /* appKeys.swift */; };
 		92F077AF1ACEFE4500C24054 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F077AE1ACEFE4500C24054 /* Request.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +63,6 @@
 		5211C7671AD1EFD200B44711 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
 		521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationPreviewViewController.swift; sourceTree = "<group>"; };
 		5233C6431A22BD910091E54E /* RideDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideDetailViewController.swift; sourceTree = "<group>"; };
-		5237331E1AD06806004381EF /* appKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = appKeys.swift; path = ../../../../../../../Desktop/appKeys.swift; sourceTree = "<group>"; };
 		524E5B0B19D9DEA8008A0EE7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5268471219DFC74400C13769 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		526DD42619D9D05D00DA2447 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
@@ -82,7 +81,6 @@
 		52CE855C1AD0774A00B76977 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		52CE85631AD0775900B76977 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../../../Library/Developer/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
-		52DF4B701AB66EAD00C0984B /* appKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = appKeys.swift; path = ../../../../../../../Desktop/appKeys.swift; sourceTree = "<group>"; };
 		52F01CF619BE6EA90074884E /* Where R U?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where R U?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01CFA19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01CFB19BE6EA90074884E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +102,7 @@
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		92C0C09E1ACB2F060039D14E /* requestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestCell.swift; sourceTree = "<group>"; };
+		92C6E0D41AD4713F000A2DAA /* appKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = appKeys.swift; path = ../../../../../appKeys.swift; sourceTree = "<group>"; };
 		92F077AE1ACEFE4500C24054 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,9 +257,8 @@
 		52FCF84E1A816FCA00790276 /* Data Storage Types */ = {
 			isa = PBXGroup;
 			children = (
-				5237331E1AD06806004381EF /* appKeys.swift */,
+				92C6E0D41AD4713F000A2DAA /* appKeys.swift */,
 				92C0C09E1ACB2F060039D14E /* requestCell.swift */,
-				52DF4B701AB66EAD00C0984B /* appKeys.swift */,
 				52C7ED3D1A229B32004B1DA6 /* rideCell.swift */,
 				52CB02971AABE1990000F780 /* destinationCell.swift */,
 			);
@@ -381,11 +379,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				521C51D01ABE133D00545697 /* DestinationPreviewViewController.swift in Sources */,
+				92C6E0D51AD4713F000A2DAA /* appKeys.swift in Sources */,
 				524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */,
 				52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */,
 				52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */,
 				92F077AF1ACEFE4500C24054 /* Request.swift in Sources */,
-				5237331F1AD06806004381EF /* appKeys.swift in Sources */,
 				5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */,
 				52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */,
 				92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */,
@@ -506,6 +504,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/Zach/Documents/FacebookSDK,
 					/Library/Developer/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
@@ -529,6 +528,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/Zach/Documents/FacebookSDK,
 					/Library/Developer/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Where R U?/Info.plist";
