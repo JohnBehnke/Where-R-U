@@ -278,6 +278,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="userNameText" destination="oMU-V3-1cA" id="4aq-Zh-NTP"/>
+                        <segue destination="PUe-Nl-E9n" kind="show" id="cP1-Ra-XEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,8 +349,8 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="requestAccept" destination="GgK-ao-osv" id="xE0-1D-nqp"/>
-                                    <outlet property="requestDeny" destination="RqV-p2-KVj" id="PX6-ZL-hKp"/>
+                                    <outlet property="requestAccept" destination="GgK-ao-osv" id="AeH-6C-2em"/>
+                                    <outlet property="requestDeny" destination="RqV-p2-KVj" id="ZpX-Tx-hWh"/>
                                     <outlet property="requestSender" destination="cHf-pR-EbZ" id="Qie-VF-fG7"/>
                                 </connections>
                             </tableViewCell>
@@ -1091,5 +1092,8 @@
         <image name="myRidesIcon" width="27" height="27"/>
         <image name="settingsIconSelected" width="27" height="27"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="cP1-Ra-XEO"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
 </document>

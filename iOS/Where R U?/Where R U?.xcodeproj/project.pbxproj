@@ -28,6 +28,7 @@
 		52CE85621AD0774A00B76977 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE855C1AD0774A00B76977 /* ParseUI.framework */; };
 		52CE85641AD0775900B76977 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CE85631AD0775900B76977 /* FacebookSDK.framework */; };
 		52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */; };
+		52DDE45F1AE6E81700EBA82D /* appKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DDE45E1AE6E81700EBA82D /* appKeys.swift */; };
 		52F01CFC19BE6EA90074884E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFB19BE6EA90074884E /* AppDelegate.swift */; };
 		52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F01CFF19BE6EA90074884E /* MapsViewController.swift */; };
 		52F01D0519BE6EA90074884E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F01D0419BE6EA90074884E /* Images.xcassets */; };
@@ -44,7 +45,6 @@
 		92B084E519E482860078757C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B084E419E482860078757C /* Social.framework */; };
 		92B255E11A9D297600B10D27 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */; };
 		92C0C09F1ACB2F060039D14E /* requestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C0C09E1ACB2F060039D14E /* requestCell.swift */; };
-		92C6E0D51AD4713F000A2DAA /* appKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C6E0D41AD4713F000A2DAA /* appKeys.swift */; };
 		92F077AF1ACEFE4500C24054 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F077AE1ACEFE4500C24054 /* Request.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +81,7 @@
 		52CE855C1AD0774A00B76977 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		52CE85631AD0775900B76977 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../../../Library/Developer/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		52D4F7171A22D4D5000912C9 /* MyRidesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRidesViewController.swift; sourceTree = "<group>"; };
+		52DDE45E1AE6E81700EBA82D /* appKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = appKeys.swift; path = ../../../../../../../Desktop/appKeys.swift; sourceTree = "<group>"; };
 		52F01CF619BE6EA90074884E /* Where R U?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Where R U?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F01CFA19BE6EA90074884E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F01CFB19BE6EA90074884E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +103,6 @@
 		92B084E419E482860078757C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		92C0C09E1ACB2F060039D14E /* requestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = requestCell.swift; sourceTree = "<group>"; };
-		92C6E0D41AD4713F000A2DAA /* appKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = appKeys.swift; path = ../../../../../appKeys.swift; sourceTree = "<group>"; };
 		92F077AE1ACEFE4500C24054 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,7 +257,7 @@
 		52FCF84E1A816FCA00790276 /* Data Storage Types */ = {
 			isa = PBXGroup;
 			children = (
-				92C6E0D41AD4713F000A2DAA /* appKeys.swift */,
+				52DDE45E1AE6E81700EBA82D /* appKeys.swift */,
 				92C0C09E1ACB2F060039D14E /* requestCell.swift */,
 				52C7ED3D1A229B32004B1DA6 /* rideCell.swift */,
 				52CB02971AABE1990000F780 /* destinationCell.swift */,
@@ -379,7 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				521C51D01ABE133D00545697 /* DestinationPreviewViewController.swift in Sources */,
-				92C6E0D51AD4713F000A2DAA /* appKeys.swift in Sources */,
+				52DDE45F1AE6E81700EBA82D /* appKeys.swift in Sources */,
 				524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */,
 				52F01D0019BE6EA90074884E /* MapsViewController.swift in Sources */,
 				52D4F7181A22D4D5000912C9 /* MyRidesViewController.swift in Sources */,

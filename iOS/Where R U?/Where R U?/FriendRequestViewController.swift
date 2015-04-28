@@ -26,51 +26,39 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
         friendshipQuery.whereKey("user2", equalTo: PFUser.currentUser()!.objectId!)
         
        
+        var objects:[AnyObject]?
         
+        objects = friendshipQuery.findObjects()
         
-        friendshipQuery.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]?, error: NSError?) -> Void in
-            //because we dont like errors
-            if (error == nil) {
-                println("retrieved \(objects!.count) requests")
+        println("retrieved \(objects!.count) requests")
                 
-                if let objects = objects as? [PFObject] {
-                    for object in objects {
-                        //get userId of sender
-                        var userID = object.objectForKey("user1") as! String
-                        
-                        //query the user table for the name matching that userId
-                        var findUser:PFQuery = PFUser.query()!;
-                        findUser.whereKey("objectId",  equalTo: userID)
-                        //QUERYSEPTION
-                        findUser.getFirstObjectInBackgroundWithBlock {(user, error2: NSError?) -> Void in
-                            if (error2 == nil) {
-                                var username = user!.objectForKey("username") as! String
-                                
-                                //SWIFT PLS STAHP Q.Q
-                                println(username)
-                                //usernmae is retrieved succesfully, but the new request is not being appended to array
-                                //Create a new request with the received name
-                                var newRequest:Request = Request(name: username)
-                                
-                                self.friendRequests.append(newRequest)
-                                println(self.friendRequests.count)
-                               
-                                //End Madness
-                                
-                            }
-                            else {
-                                println("Error getting name")
-                                
-                            }
-                        }
-                    }
-                }
+        if let objects = objects as? [PFObject] {
+            for object in objects {
+                //get userId of sender
+                var userID = object.objectForKey("user1") as! String
                 
+                //query the user table for the name matching that userId
+                var findUser:PFQuery = PFUser.query()!;
+                findUser.whereKey("objectId",  equalTo: userID)
+                //QUERYSEPTION
+                var user:PFObject?
+                user = findUser.getFirstObject()
+                println(user)
+                var username = user!.objectForKey("username") as! String
+                
+                //SWIFT PLS STAHP Q.Q
+                println(username)
+                //usernmae is retrieved succesfully, but the new request is not being appended to array
+                //Create a new request with the received name
+                var newRequest:Request = Request(name: username)
+                
+                self.friendRequests.append(newRequest)
+                println(self.friendRequests.count)
+               
+                //End Madness
+
             }
-            else {
-                println("Error getting requests")
-            }
+    
         }
         self.requestTable.reloadData()
 
@@ -81,9 +69,8 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
         
         super.viewDidLoad()
         Query()
-        requestTable.reloadData()
-        println(self.friendRequests.count)
-        println("dfhdslkajfhasdfhsd")
+        //requestTable.reloadData()
+        
 
     }
     
@@ -117,10 +104,10 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
         
         println("jkldsfj;dlsf")
         var thisRequest: Request!
-        thisRequest = friendRequests[indexPath.row]
+        thisRequest = self.friendRequests[indexPath.row]
         
         var cell: requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell") as! requestCell
-        cell.requestSender.text = "HL"
+        cell.requestSender.text = thisRequest.getSender()
         
 
         return cell
