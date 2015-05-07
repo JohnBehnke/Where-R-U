@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="5865" y="220.5"/>
         </scene>
-        <!--My Profile-->
+        <!--My Profile View Controller-->
         <scene sceneID="cRa-54-DYG">
             <objects>
-                <viewController id="S0v-Es-3bB" sceneMemberID="viewController">
+                <viewController id="S0v-Es-3bB" customClass="MyProfileViewController" customModule="Where_R_U_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8pj-Mb-Geg"/>
                         <viewControllerLayoutGuide type="bottom" id="Kiz-uW-SzR"/>
@@ -154,13 +154,69 @@
                     <view key="view" contentMode="scaleToFill" id="Vjq-II-iv0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtz-HN-wna">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Add friend">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="164" y="338" width="72" height="30"/>
+                                </variation>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-9Z-PHe">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="140" y="290" width="244" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend's Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziL-d2-mHh">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="296" width="117" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKs-L7-ftb">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="View Friend requests">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="128" y="165" width="144" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="PUe-Nl-E9n" kind="show" identifier="showFriendRequests" id="vtv-Xu-sXf"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="jtz-HN-wna"/>
+                                <exclude reference="M6K-9Z-PHe"/>
+                                <exclude reference="ziL-d2-mHh"/>
+                                <exclude reference="eKs-L7-ftb"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="jtz-HN-wna"/>
+                                <include reference="M6K-9Z-PHe"/>
+                                <include reference="ziL-d2-mHh"/>
+                                <include reference="eKs-L7-ftb"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Profile" image="myProfileIcon" id="yYd-E7-iXz"/>
+                    <navigationItem key="navigationItem" id="aUo-aB-n4c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHU-Ap-myV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4938" y="1722.75"/>
+            <point key="canvasLocation" x="5907" y="1722.75"/>
         </scene>
         <!--My Rides-->
         <scene sceneID="4zX-Za-kbA">
@@ -209,47 +265,6 @@
                                     <action selector="logoutRequest:" destination="crT-uE-Ga3" eventType="touchUpInside" id="pU9-XI-5ot"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SF2-r7-xB4">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Add friend">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="164" y="518" width="72" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="zachCantPArselolo:" destination="crT-uE-Ga3" eventType="touchUpInside" id="zbE-3e-hdZ"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oMU-V3-1cA">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="140" y="470" width="244" height="30"/>
-                                </variation>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend's Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaC-Vv-rAT">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="476" width="117" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9M3-LO-DdD">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="View Friend requests">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="140" y="416" width="144" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="PUe-Nl-E9n" kind="show" identifier="showFriendRequests" id="7dl-YI-XTk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -257,33 +272,14 @@
                             <constraint firstAttribute="centerX" secondItem="HJJ-Dd-sNc" secondAttribute="centerX" id="LSy-cC-exN"/>
                             <constraint firstAttribute="centerY" secondItem="HJJ-Dd-sNc" secondAttribute="centerY" id="t43-85-XxL"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="SF2-r7-xB4"/>
-                                <exclude reference="oMU-V3-1cA"/>
-                                <exclude reference="OaC-Vv-rAT"/>
-                                <exclude reference="9M3-LO-DdD"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="SF2-r7-xB4"/>
-                                <include reference="oMU-V3-1cA"/>
-                                <include reference="OaC-Vv-rAT"/>
-                                <include reference="9M3-LO-DdD"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIconSelected" id="Cg2-G6-lg0"/>
                     <navigationItem key="navigationItem" title="Settings" id="8Zx-oa-c4i"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="userNameText" destination="oMU-V3-1cA" id="4aq-Zh-NTP"/>
-                        <segue destination="PUe-Nl-E9n" kind="show" id="cP1-Ra-XEO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7g-my-8SV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5085" y="2385"/>
+            <point key="canvasLocation" x="4263" y="2218.5"/>
         </scene>
         <!--Friend Request-->
         <scene sceneID="ce1-lT-SWa">
@@ -360,18 +356,14 @@
                             <outlet property="delegate" destination="PUe-Nl-E9n" id="eJP-pD-0AF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Friend Requests" id="cA2-Ar-1PO">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="mab-zE-sPl">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Friend Requests" id="cA2-Ar-1PO"/>
                     <connections>
                         <outlet property="requestTable" destination="Iee-94-14Y" id="7jc-gL-1pS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYD-0U-Oeg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5961" y="2385"/>
+            <point key="canvasLocation" x="6741" y="1722.75"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
@@ -411,8 +403,8 @@
                     <connections>
                         <segue destination="klB-kz-SfK" kind="relationship" relationship="viewControllers" id="c0p-c6-S5E"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="S0v-Es-3bB" kind="relationship" relationship="viewControllers" id="Qit-Hr-6dT"/>
-                        <segue destination="Lvh-R4-xnW" kind="relationship" relationship="viewControllers" id="bZP-tM-HGA"/>
+                        <segue destination="JzE-SE-Rnm" kind="relationship" relationship="viewControllers" id="Qit-Hr-6dT"/>
+                        <segue destination="crT-uE-Ga3" kind="relationship" relationship="viewControllers" id="LaW-zN-CS1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1060,30 +1052,29 @@
             </objects>
             <point key="canvasLocation" x="8188.5" y="220.5"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="O55-1f-oqs">
+        <!--My Profile-->
+        <scene sceneID="ls5-nW-y2F">
             <objects>
-                <navigationController title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="Lvh-R4-xnW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIconSelected" id="11u-7B-SNh"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JzE-SE-Rnm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Profile" image="myProfileIcon" id="yYd-E7-iXz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BNd-I2-2Rh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="14J-t2-rRM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="crT-uE-Ga3" kind="relationship" relationship="rootViewController" id="JHp-vN-A74"/>
+                        <segue destination="S0v-Es-3bB" kind="relationship" relationship="rootViewController" id="kZo-eG-9Qk"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ahS-lD-hId" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="efv-y5-ksF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4287" y="2376"/>
+            <point key="canvasLocation" x="4989" y="1722.75"/>
         </scene>
     </scenes>
     <resources>
@@ -1092,8 +1083,5 @@
         <image name="myRidesIcon" width="27" height="27"/>
         <image name="settingsIconSelected" width="27" height="27"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="cP1-Ra-XEO"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
 </document>

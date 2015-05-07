@@ -13,6 +13,7 @@
 		5233C6441A22BD920091E54E /* RideDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5233C6431A22BD910091E54E /* RideDetailViewController.swift */; };
 		524E5B0C19D9DEA8008A0EE7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524E5B0B19D9DEA8008A0EE7 /* Person.swift */; };
 		526DD42719D9D05D00DA2447 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526DD42619D9D05D00DA2447 /* Ride.swift */; };
+		527A0B931AFAFBF000000991 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527A0B921AFAFBF000000991 /* MyProfileViewController.swift */; };
 		52861DE51AA7A2B7006CA122 /* DestinationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */; };
 		52861DE71AA7C47D006CA122 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52861DE61AA7C47D006CA122 /* Launch Screen.xib */; };
 		52A604461A914396004A0552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A604451A914396004A0552 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		524E5B0B19D9DEA8008A0EE7 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		5268471219DFC74400C13769 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		526DD42619D9D05D00DA2447 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		527A0B921AFAFBF000000991 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationSearchViewController.swift; sourceTree = "<group>"; };
 		52861DE61AA7C47D006CA122 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
 		52A604451A914396004A0552 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				5233C6431A22BD910091E54E /* RideDetailViewController.swift */,
 				52B40D1119C36303001A411D /* SettingsViewController.swift */,
 				92B255E01A9D297600B10D27 /* FriendRequestViewController.swift */,
+				527A0B921AFAFBF000000991 /* MyProfileViewController.swift */,
 				52861DE41AA7A2B7006CA122 /* DestinationSearchViewController.swift */,
 				521C51CF1ABE133D00545697 /* DestinationPreviewViewController.swift */,
 				5211C7671AD1EFD200B44711 /* IJReachability.swift */,
@@ -390,6 +393,7 @@
 				5211C7681AD1EFD200B44711 /* IJReachability.swift in Sources */,
 				52B40D1219C36303001A411D /* SettingsViewController.swift in Sources */,
 				52CB02981AABE1990000F780 /* destinationCell.swift in Sources */,
+				527A0B931AFAFBF000000991 /* MyProfileViewController.swift in Sources */,
 				52C7ED3E1A229B32004B1DA6 /* rideCell.swift in Sources */,
 				52A604481A914D12004A0552 /* AddRideViewController.swift in Sources */,
 				526DD42719D9D05D00DA2447 /* Ride.swift in Sources */,

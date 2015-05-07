@@ -13,7 +13,7 @@ import Parse
 
 class FriendRequestViewController: UITableViewController,UITableViewDelegate, UITableViewDataSource{
     
-    var settingsVC: SettingsViewController!
+    var profileVC: MyProfileViewController!
     
      var friendRequests:[Request] = []
     
@@ -102,8 +102,7 @@ class FriendRequestViewController: UITableViewController,UITableViewDelegate, UI
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        println("jkldsfj;dlsf")
-        var thisRequest: Request!
+               var thisRequest: Request!
         thisRequest = self.friendRequests[indexPath.row]
         
         var cell: requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell") as! requestCell
